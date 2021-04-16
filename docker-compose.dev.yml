@@ -1,0 +1,55 @@
+version: "3.8"
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - type: bind
+        source: ./client
+        target: /app
+      - type: volume
+        target: /app/node_modules
+    ports:
+      - 3000:3000
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    volumes:
+      - type: bind
+        source: ./api
+        target: /app
+      - type: volume
+        target: /app/node_modules
+    ports:
+      - 3001:8000
+  db:
+    image: postgres
+    volumes:
+      - db_data:/var/lib/postgresql
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: nskill
+    ports:
+      - 5432:5432
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  reverse-proxy:
+    build:
+      context: ./reverse-proxy
+      dockerfile: Dockerfile.dev
+    ports:
+      - 80:80
+    depends_on:
+      - client
+      - api
+      - db
+
+volumes:
+  db_data:
