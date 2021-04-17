@@ -1,11 +1,13 @@
 import "./App.css";
+import Header from '../Header'
+import Nav from "../Nav";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <p>test</p> 
-    </div>
+      <Header />
+      <Nav />
+      </div>
   ); 
 }
-
 export default App;
