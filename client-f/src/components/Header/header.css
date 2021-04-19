@@ -36,11 +36,3 @@
   border: none;
   width: 14vw;
 }
-
-.header__welcome {
-  position: absolute;
-  left: 5%;
-  top: 45%;
-  width: 25%;
-  color: #b5b5b5;
-}

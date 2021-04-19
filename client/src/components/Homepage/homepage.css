@@ -1,0 +1,53 @@
+.homepage {
+  margin: 40px;
+  position: relative;
+  display: flex;
+}
+
+.homepage__left {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.homepage__title {
+  font-size: 2.3rem;
+  font-weight: 400;
+}
+
+.homepage__description {
+  margin-top: 10px;
+  height: 30%;
+  color: #b5b5b5;
+}
+
+.homepage__content {
+  margin-top: 80px;
+  height: 30%;
+  display: flex;
+}
+.homepage__subcontent {
+  padding: 20px;
+}
+
+.homepage__subtitle {
+  font-size: 2rem;
+}
+
+.homepage__content p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  padding: 0 15px;
+}
+
+@media screen and (max-width: 1000px) {
+  .homepage {
+    display: block;
+    margin: 20px;
+  }
+  .homepage__left {
+    width: 100%;
+  }
+  .homepage__subcontent {
+    padding: 0;
+  }
+}

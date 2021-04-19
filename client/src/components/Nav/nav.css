@@ -1,21 +1,64 @@
 .nav {
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
+  z-index: 6;
+  height: 10%;
+  background-color: white;
+}
+
+.nav a {
+  color: black;
+  text-decoration: none;
+}
+.nav a:hover {
+  color: red;
+}
+
+.active {
+  color: red !important;
 }
 
 .nav__lists {
   display: flex;
   width: 100%;
   justify-content: center;
-  margin: 40px 0;
-  padding: 0;
+  margin: 40px 10px 0 10px;
 }
 
-.nav__lists > li {
+.nav__lists ul {
+  display: flex;
+}
+
+.nav__lists li {
   margin-right: 15px;
   list-style-type: none;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+.nav__lists__logo {
+  position: absolute;
+  left: 10px;
+}
+.nav__lists__login {
+  position: absolute;
+  right: 10px;
+}
+
+.nav__lists__language {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.nav__lists__language li {
+  font-size: 0.8rem;
+}
+
+.nav__lists__login li:nth-child(1),
+.nav__lists__language li:nth-child(1) {
+  padding-right: 10px;
+  border-right: 1px solid;
 }

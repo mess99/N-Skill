@@ -1,0 +1,30 @@
+.news {
+  position: sticky;
+  right: 10px;
+  height: 200px;
+  width: 100%;
+}
+
+.news__title {
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.relative-sticky {
+  width: 30%;
+}
+
+.relative-sticky-holder {
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+}
+
+@media screen and (max-width: 1000px) {
+  .relative-sticky {
+    width: 100%;
+    margin: 30px 0;
+  }
+}

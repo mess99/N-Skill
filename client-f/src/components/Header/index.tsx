@@ -6,9 +6,9 @@ import './header.css'
 const Header = () => {
     return (
         <header className="header">
-            <img className="banniere-phone" src={banniere} alt="" />
-            <img className="banniere-desktop" src={banniereDesktop} alt="" />
-            <button className="header__login">SIGN UP</button>
+            <img className="banniere-phone" src={banniere} alt="banniere" />
+            <img className="banniere-desktop" src={banniereDesktop} alt="banniere" />
+            <button className="header__login">LOG IN</button>
         </header>
     );
 };
