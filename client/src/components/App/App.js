@@ -4,11 +4,13 @@ import Header from "../Header";
 import Nav from "../Nav";
 import Homepage from "../Homepage";
 import Footer from "../Footer";
+import Burger from "../Nav/Burger";
 
 const App = () => {
   return (
     <div className="App">
       <Nav />
+      <Burger />
       <Switch>
         <Route exact path="/">
           <Header />

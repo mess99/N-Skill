@@ -1,0 +1,109 @@
+.burger__toggle {
+  height: 30px;
+  width: 20px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  z-index: 991;
+}
+
+.burger__toggle span {
+  height: 1px;
+  background-color: #fc2801;
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+
+.burger__toggle span::before {
+  content: "";
+  height: 1px;
+  background-color: #fc2801;
+  width: 100%;
+  position: absolute;
+  top: -6px;
+  left: 0;
+}
+
+.burger__toggle span::after {
+  content: "";
+  height: 1px;
+  background-color: #fc2801;
+  width: 100%;
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.menu__nav-hide {
+  height: 90vh;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  position: fixed;
+  margin-top: -100vh;
+  transition-duration: 1s;
+  z-index: 5;
+}
+
+.openNav {
+  margin-top: 10vh;
+  z-index: 88;
+  transition-duration: 1s;
+}
+
+.active {
+  background: linear-gradient(#fc2801, #de027d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.menu__lien {
+  height: 33%;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 130%;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.menu__lien a {
+  color: black;
+  text-decoration: none;
+}
+
+.burger__nav {
+  z-index: 100;
+  color: black;
+  height: 10vh;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger__nav h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.toggle {
+  display: flex;
+}
+
+@media only screen and (min-width: 800px) {
+  .toggle {
+    display: none;
+  }
+}

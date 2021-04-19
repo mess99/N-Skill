@@ -17,15 +17,18 @@ const Nav = () => {
             </NavLink>
           </li>
           <li>
-            {" "}
             <NavLink to="/lessons">{t("Lessons")}</NavLink>
           </li>
-          <li>Exercices</li>
+          <li>
+            <NavLink to="/exerices">Exercices</NavLink>
+          </li>
 
           <li>
-            <NavLink to="/radio">Stories</NavLink>
+            <NavLink to="/stories">{t("Stories")}</NavLink>
           </li>
-          <li>{t("Tips")}</li>
+          <li>
+            <NavLink to="/tips">{t("Tips")}</NavLink>
+          </li>
           <li>
             <NavLink to="/forum">Forum</NavLink>
           </li>
