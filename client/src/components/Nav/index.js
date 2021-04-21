@@ -20,7 +20,7 @@ const Nav = () => {
             <NavLink to="/lessons">{t("Lessons")}</NavLink>
           </li>
           <li>
-            <NavLink to="/exerices">Exercices</NavLink>
+            <NavLink to="/exercices">Exercices</NavLink>
           </li>
 
           <li>

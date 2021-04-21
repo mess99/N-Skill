@@ -64,6 +64,7 @@
   }
   .homepage__subcontent {
     padding: 0;
+    padding-left: 10px;
   }
   .homepage__title {
     font-size: 2.1rem;

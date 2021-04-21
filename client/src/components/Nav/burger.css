@@ -6,6 +6,7 @@
   top: 20px;
   cursor: pointer;
   z-index: 991;
+  transition: 1s;
 }
 
 .burger__toggle span {
@@ -15,6 +16,7 @@
   position: absolute;
   top: 20px;
   left: 0;
+  transition: 0.8s;
 }
 
 .burger__toggle span::before {
@@ -25,6 +27,7 @@
   position: absolute;
   top: -6px;
   left: 0;
+  transition: 0.8s;
 }
 
 .burger__toggle span::after {
@@ -66,12 +69,15 @@
 
 .menu__lien {
   height: 33%;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   display: flex;
   flex-direction: column;
   line-height: 130%;
   justify-content: space-around;
   margin: 20px;
+  border-bottom: 1px solid;
+  width: 50%;
+  padding-bottom: 10px;
 }
 
 .menu__lien a {
@@ -106,4 +112,51 @@
   .toggle {
     display: none;
   }
+}
+
+.burger__language {
+  position: absolute;
+  display: flex;
+  bottom: 10px;
+  left: 10px;
+}
+
+.burger__language li:nth-child(1) {
+  border-right: 1px solid;
+  padding-right: 6px;
+}
+.burger__language li:nth-child(2) {
+  padding-left: 6px;
+}
+
+/* transition span burger */
+
+.burger__toggle__open {
+  height: 30px;
+  width: 20px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  z-index: 991;
+  transition: 0.5s;
+}
+
+.burger__toggle__open span {
+  height: 1px;
+  background-color: #fc2801;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: rotateZ(45deg);
+  transition: 0.5s;
+}
+.burger__toggle__open span::before {
+  content: "";
+  height: 1px;
+  background-color: #fc2801;
+  width: 100%;
+  position: absolute;
+  transform: rotateZ(90deg);
+  transition: 0.5s;
 }

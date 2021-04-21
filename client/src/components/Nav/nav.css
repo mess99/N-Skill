@@ -52,6 +52,7 @@
   position: absolute;
   right: 10px;
   top: 10px;
+  padding: 2px;
 }
 .nav__lists__language li {
   font-size: 0.8rem;
@@ -67,4 +68,12 @@
   .nav__lists li {
     font-size: 1rem;
   }
+  .nav__lists__language li {
+    font-size: 0.8rem;
+  }
+}
+
+.selected__language {
+  border: 1px solid #dcdbdb;
+  background: #f1eded;
 }
