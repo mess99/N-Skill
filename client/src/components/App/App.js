@@ -8,7 +8,7 @@ import Burger from "../Nav/Burger";
 import Lessons from "../Lessons";
 import Exercices from "../../containers/Exercices";
 import Stories from "../Stories";
-import Forum from "../Forum";
+import Forum from "../../containers/Forum";
 import Modalquiz from "../../containers/Exercices/ModalQuiz/ModalQuiz";
 
 const App = () => {

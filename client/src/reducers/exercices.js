@@ -1,12 +1,6 @@
 import { QUIZ_BY_LEVEL, SAVE_QUESTION, SAVE_RESPONSE } from "../actions/quiz";
 
 const initialState = {
-  // state: {
-  //   step: 0,
-  //   displayCorrection: false,
-  //   displayResult: false,
-  //   score: 0,
-  // },
   quiz: [],
   questions: [],
   propositions: [],
