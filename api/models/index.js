@@ -18,6 +18,9 @@ db.quiz = require("./quiz")(sequelize, Sequelize);
 db.question = require("./questions")(sequelize, Sequelize);
 db.response = require("./responses")(sequelize, Sequelize);
 
+db.post = require("./post")(sequelize, Sequelize);
+
+// associate
 db.quiz.hasMany(db.question);
 db.question.belongsTo(db.quiz);
 

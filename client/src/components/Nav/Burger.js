@@ -50,10 +50,6 @@ const Burger = () => {
             {t("Stories")}
           </NavLink>
 
-          <NavLink onClick={closeNav} to="/tips">
-            {t("Tips")}
-          </NavLink>
-
           <NavLink onClick={closeNav} to="/forum">
             Forum
           </NavLink>

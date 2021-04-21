@@ -26,9 +26,7 @@ const Nav = () => {
           <li>
             <NavLink to="/stories">{t("Stories")}</NavLink>
           </li>
-          <li>
-            <NavLink to="/tips">{t("Tips")}</NavLink>
-          </li>
+
           <li>
             <NavLink to="/forum">Forum</NavLink>
           </li>

@@ -34,10 +34,7 @@ const App = () => {
         <Route exact path="/stories">
           <Stories />
         </Route>
-        {/* FIXME: delete tips ? and add tips in lesson, exercice ... 💡 */}
-        <Route exact path="/tips">
-          <Stories />
-        </Route>
+        {/* TODO: delete tips ? and add tips in lesson, exercice ... 💡 */}
         <Route exact path="/forum">
           <Forum />
         </Route>

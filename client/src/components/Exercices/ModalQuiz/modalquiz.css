@@ -126,3 +126,36 @@
   font-size: 1.4rem;
   cursor: pointer;
 }
+
+@media screen and (max-width: 500px) {
+  .modalquiz__content {
+    height: 50%;
+    transform: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    height: 80%;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    flex-direction: column;
+    top: auto;
+  }
+  .close {
+    font-size: 2rem;
+  }
+  .question-section {
+    align-items: center;
+    margin-top: -20px;
+  }
+  .question-image {
+    width: 50%;
+    margin-top: 10px;
+  }
+  .Modalbutton {
+    margin-top: 10px;
+  }
+  .score-section {
+    justify-content: center;
+  }
+}
