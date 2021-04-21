@@ -15,6 +15,7 @@ function Modalquiz({
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const [correction, setCorrection] = useState(false);
 
   let wait = false;
   wait = getQuestion.length !== 0 ? true : false;
@@ -30,14 +31,23 @@ function Modalquiz({
     if (isCorrect) {
       setScore(score + 1);
     }
-    setTimeout(() => {
-      const nextQuestion = currentQuestion + 1;
-      if (nextQuestion < getQuestion.length) {
-        setCurrentQuestion(nextQuestion);
-      } else {
-        setShowScore(true);
-      }
-    }, 2000);
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < getQuestion.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setShowScore(true);
+    }
+  };
+  const showCorrection = () => {
+    setCurrentQuestion(0);
+    setCorrection(true);
+  };
+
+  const nextCOrrection = () => {
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < getQuestion.length) {
+      setCurrentQuestion(nextQuestion);
+    }
   };
 
   const closeModal = () => {
@@ -53,12 +63,14 @@ function Modalquiz({
         <span onClick={closeModal} className="close">
           x
         </span>
-        {showScore ? (
+        {showScore && !correction ? (
           <>
             <div className="score-section">
               You scored {score} out of {getQuestion.length}
             </div>
-            <p className="correction">Show answers</p>
+            <p onClick={showCorrection} className="correction">
+              Show answers
+            </p>
           </>
         ) : (
           <>
@@ -77,31 +89,41 @@ function Modalquiz({
                 />
               )}
             </div>
-            <div className="answer-section">
-              {getPropositions.map((answerOption) => (
+            {!correction ? (
+              <div className="answer-section">
+                {getPropositions.map((answerOption) => (
+                  <button
+                    key={answerOption.id}
+                    className="Modalbutton"
+                    onClick={() =>
+                      handleAnswerOptionClick(answerOption.is_true)
+                    }
+                  >
+                    {answerOption.content}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="answer-section">
+                {getPropositions.map((answerOption) => {
+                  const style =
+                    answerOption.is_true == true
+                      ? "Modalbutton correct"
+                      : "Modalbutton";
+                  return (
+                    <button disabled key={answerOption.id} className={style}>
+                      {answerOption.content}
+                    </button>
+                  );
+                })}
                 <button
-                  key={answerOption.id}
-                  className="Modalbutton"
-                  onClick={() => handleAnswerOptionClick(answerOption.is_true)}
-                >
-                  {answerOption.content}
-                </button>
-              ))}
-            </div>
-            {/* TODO: clique sur show correction on passe ici en true et au dessus en false */}
-            {/* <div className="answer-section">
-              {getPropositions.map((answerOption) => {
-                const style = answerOption.is_true == true ? "Modalbutton correct" : "Modalbutton"
-                return (
-                <button
-                  key={answerOption.id}
-                  className={style}
+                  className="Modalbutton next"
                   onClick={() => nextCOrrection()}
                 >
-                  {answerOption.content}
+                  Next
                 </button>
-              )})}
-            </div> */}
+              </div>
+            )}
           </>
         )}
       </div>

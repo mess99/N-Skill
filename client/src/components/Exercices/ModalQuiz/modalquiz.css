@@ -109,6 +109,13 @@
   position: absolute;
   right: 15px;
   bottom: 15px;
+  cursor: pointer;
+}
+.correction:hover {
+  color: green;
+}
+.next {
+  background-color: #717998;
 }
 
 .close {

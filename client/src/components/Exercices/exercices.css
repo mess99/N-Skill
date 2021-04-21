@@ -3,16 +3,29 @@
 }
 
 .exercices__title {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.exercices__subtitle {
+  margin-top: 10px;
+  color: grey;
 }
 
 .exercices__level {
   margin-top: 50px;
 }
 
+.exercices__level > h3 {
+  font-size: 2rem;
+  font-weight: 500;
+}
 .exercices__level__box {
   margin-top: 20px;
   width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 .exercices__level__lists {
   display: flex;
@@ -20,9 +33,23 @@
   height: 100%;
   width: 100%;
 }
+
+.lists__theme {
+  padding-left: 170px;
+}
+
+.exercices__level__box::-webkit-scrollbar {
+  display: none;
+}
+
 .exercices__level__list {
   margin: 0 20px;
   width: 26%;
+  flex: 0 0 auto;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
 }
 
 .exercices__level__image {

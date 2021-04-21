@@ -18,12 +18,12 @@ const Exercices = ({ loadAllQuiz, getQuiz }) => {
     <div className="exercices">
       <h2 className="exercices__title">Exercices</h2>
       <p className="exercices__subtitle">
-        Tu trouvera plein d'exercices classé par niveaux, theme...
+        Tu trouveras plein d'exercices classé par niveaux, thème...
       </p>
       <div className="exercices__level">
         <h3>Niveau</h3>
         <div className="exercices__level__box">
-          <ul className="exercices__level__lists">
+          <ul className="exercices__level__lists ">
             {LevelQuiz.map((quiz) => (
               <li key={quiz.id} className="exercices__level__list">
                 <Link
@@ -53,7 +53,7 @@ const Exercices = ({ loadAllQuiz, getQuiz }) => {
       <div className="exercices__level">
         <h3>Theme</h3>
         <div className="exercices__level__box">
-          <ul className="exercices__level__lists">
+          <ul className="exercices__level__lists lists__theme">
             {ThemeQuiz.map((quiz) => (
               <Theme key={quiz.id} {...quiz} />
             ))}
