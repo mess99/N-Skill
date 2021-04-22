@@ -12,11 +12,11 @@
   text-decoration: none;
 }
 .nav a:hover {
-  color: red;
+  color: #f50157;
 }
 
 .active {
-  color: red !important;
+  color: #f50157 !important;
 }
 
 .nav__lists {

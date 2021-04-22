@@ -6,10 +6,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(50),
         allowNull: false,
       },
-      // is_selected: {
-      //     type: DataTypes.BOOLEAN,
-      //     allowNull: false
-      // },
       is_true: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

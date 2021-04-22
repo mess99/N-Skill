@@ -1,7 +1,7 @@
 const db = require("../models");
 const postModel = db.post;
 const { getPagination, getPaginationData } = require("../utils");
-
+// TODO: add od. pour filtrer od.LIKE ???
 exports.addPost = (req, res) => {
   const { title, description, image } = req.body;
 

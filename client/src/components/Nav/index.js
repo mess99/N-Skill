@@ -1,7 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./nav.css";
 import { useTranslation } from "react-i18next";
+import Register from "../Register";
 
 const Nav = () => {
   const { t, i18n } = useTranslation();
@@ -32,8 +33,13 @@ const Nav = () => {
           </li>
         </ul>
         <ul className="nav__lists__login">
-          <li>{t("Login")} </li>
-          <li>{t("Register")}</li>
+          <li>
+            {/* TODO: */}
+            <Link to="/register">{t("Login")}</Link>
+          </li>
+          <li>
+            <Register register={t("Register")} />
+          </li>
         </ul>
         <ul className="nav__lists__language">
           <li onClick={() => i18n.changeLanguage("en")}>Eng</li>

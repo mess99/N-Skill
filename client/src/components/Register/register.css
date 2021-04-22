@@ -1,0 +1,89 @@
+.register {
+}
+
+.register__open {
+  background-color: unset;
+  border: none;
+  font-weight: 500;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.register__open:hover {
+  color: #f50157;
+}
+.register__header {
+  text-align: center;
+}
+
+.register__content {
+  margin-top: 30px;
+}
+
+.register__content form {
+  position: relative;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.form__div {
+  position: relative;
+  cursor: text;
+  display: flex;
+  height: 56px;
+  width: 100%;
+  margin: 0px;
+  border: none;
+  color: rgb(34, 34, 34);
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: rgb(176 176 176) 0px 0px 0px 1px inset;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.header__email {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0px;
+  margin: 26px 12px 10px;
+  min-height: 1px;
+  color: inherit;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  appearance: none;
+}
+.header__email-label {
+  position: relative;
+  flex: 1 1 0%;
+  padding: 0px;
+}
+.header__label-name {
+  position: absolute;
+  top: 18px;
+  left: 12px;
+  right: 12px;
+  color: rgb(113, 113, 113);
+  transform-origin: 0% 0%;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  transition: 0.3s;
+}
+.label-hide {
+  display: flex;
+  opacity: 0;
+}
+@media only screen and (max-width: 990px) {
+  .register__open {
+    font-size: 1rem;
+  }
+}

@@ -10,10 +10,14 @@ import Exercices from "../../containers/Exercices";
 import Stories from "../Stories";
 import Forum from "../../containers/Forum";
 import Modalquiz from "../../containers/Exercices/ModalQuiz/ModalQuiz";
+import ScrollToTop from "../../ScrollToTop";
+import ForumQuestion from "../ForumQuestion";
+import Register from "../Register";
 
 const App = () => {
   return (
     <div className="App">
+      <ScrollToTop />
       <Nav />
       <Burger />
       <Switch>
@@ -38,6 +42,12 @@ const App = () => {
         <Route exact path="/forum">
           <Forum />
         </Route>
+        <Route exact path="/forum/:slug">
+          <ForumQuestion />
+        </Route>
+        {/* <Route exact path="/register">
+          <Register />
+        </Route> */}
       </Switch>
       <Footer />
     </div>

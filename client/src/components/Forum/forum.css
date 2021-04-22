@@ -1,10 +1,16 @@
 .forum {
-  margin: 10%;
+  min-height: 100vh;
+  /* margin: 13vh; */
+  padding: 10%;
+  padding-bottom: 0;
+  /* height: 100vh; */
+  box-sizing: border-box;
 }
 
 .forum__header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .forum__header p {
   text-transform: uppercase;
@@ -15,6 +21,7 @@
 }
 .forum__settings p {
   padding: 10px;
+  margin-right: 60px;
 }
 .forum__settings button {
   padding: 10px;
@@ -23,8 +30,9 @@
   border: none;
   border-radius: 15px;
 }
-.forum__settings p {
-  margin-right: 60px;
+
+.forum__settings button::before {
+  content: "Ask Question";
 }
 
 .forum__questions {
@@ -36,6 +44,9 @@
 
 .forum__questions h2 {
   font-size: 1.6rem;
+  width: 100%;
+  overflow: hidden;
+  margin-right: 20px;
 }
 
 .forum__vote,
@@ -69,4 +80,43 @@
 }
 .forum__plus {
   display: flex;
+}
+
+.forum__questions a {
+  color: #5082b7;
+  text-decoration: none;
+}
+
+.forum__questions a:hover {
+  color: #d8655e;
+}
+
+@media screen and (max-width: 800px) {
+  .forum {
+    margin-top: 50px;
+  }
+  .forum__settings button {
+    width: 70px;
+  }
+  .forum__settings button::before {
+    content: "Ask";
+  }
+  .forum__settings p {
+    margin-right: 0;
+  }
+  .forum__plus {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .forum__questions h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .forum__questions h2 {
+    font-size: 1.1rem;
+  }
 }

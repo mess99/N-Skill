@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+require("dotenv").config({ path: "./config/.env" });
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.json());
 const db = require("./models");

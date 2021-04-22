@@ -18,10 +18,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: 0,
       },
-      //   userId: {
-      //     type: DataTypes.INTEGER,
-      //     foreignKey: true,
-      //   },
+      userId: {
+        type: DataTypes.INTEGER,
+        foreignKey: true,
+      },
     },
     {
       timestamps: true,
