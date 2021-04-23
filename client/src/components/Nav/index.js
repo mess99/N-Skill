@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./nav.css";
 import { useTranslation } from "react-i18next";
-import Register from "../Register";
+import Register from "../../containers/Register";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
-const Nav = () => {
+const Nav = ({ user, handleLogout }) => {
+  const [settings, setSettings] = useState(false);
   const { t, i18n } = useTranslation();
-
   return (
     <div className="nav">
       <div className="nav__lists">
@@ -32,15 +33,36 @@ const Nav = () => {
             <NavLink to="/forum">Forum</NavLink>
           </li>
         </ul>
-        <ul className="nav__lists__login">
-          <li>
-            {/* TODO: */}
-            <Link to="/register">{t("Login")}</Link>
-          </li>
-          <li>
-            <Register register={t("Register")} />
-          </li>
-        </ul>
+        {!user?.isLogged && (
+          <ul className="nav__lists__login">
+            <li>
+              {/* TODO: */}
+              <Link to="/register">{t("Login")}</Link>
+            </li>
+            <li>
+              <Register register={t("Register")} />
+            </li>
+          </ul>
+        )}
+        {user?.isLogged && (
+          <ul className="nav__lists__logged">
+            <li>
+              <AccountCircleIcon
+                onClick={() => setSettings(!settings)}
+                className="user-settings"
+                fontSize="large"
+              />
+            </li>
+            {settings && (
+              <ul className="nav__lists__user">
+                <li>profil</li>
+                <li>{t("Account")}</li>
+                <li onClick={handleLogout}>{t("Log out")}</li>
+              </ul>
+            )}
+          </ul>
+        )}
+
         <ul className="nav__lists__language">
           <li onClick={() => i18n.changeLanguage("en")}>Eng</li>
           <li onClick={() => i18n.changeLanguage("fr")}>Fr</li>

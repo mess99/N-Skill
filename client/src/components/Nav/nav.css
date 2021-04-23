@@ -64,16 +64,53 @@
   border-right: 1px solid;
 }
 
-@media only screen and (max-width: 990px) {
-  .nav__lists li {
-    font-size: 1rem;
-  }
-  .nav__lists__language li {
-    font-size: 0.8rem;
-  }
+.nav__lists__logged {
+  position: absolute;
+  right: 10px;
+}
+
+.user-settings {
+  margin-top: -6px;
 }
 
 .selected__language {
   border: 1px solid #dcdbdb;
   background: #f1eded;
+}
+.nav__lists__user {
+  line-height: 1.43;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
+  margin-top: 25px;
+  padding: 8px 0px;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  max-height: calc(100vh - 100px);
+  z-index: 2;
+  min-width: 240px;
+  display: block !important;
+}
+
+.nav__lists__user li {
+  font-size: 0.8rem;
+  padding: 8px 10px;
+}
+
+.nav__lists__user li:hover {
+  background-color: #f7f7f7;
+}
+
+@media only screen and (max-width: 990px) {
+  .nav__lists li {
+    font-size: 1rem;
+  }
+  .nav__lists__user li {
+    font-size: 0.8rem;
+  }
+  .nav__lists__language li {
+    font-size: 0.8rem;
+  }
 }

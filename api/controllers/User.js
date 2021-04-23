@@ -9,7 +9,6 @@ exports.register = async (req, res) => {
   const hashPassword = await bcrypt.hash(password, 10);
 
   const user = {
-    username,
     email,
     password: hashPassword,
   };
@@ -17,7 +16,7 @@ exports.register = async (req, res) => {
   userModel
     .create(user)
     .then((user) => {
-      res.status(201).json({ user: user.username });
+      res.status(201).json({ email });
     })
     .catch((error) => {
       if (error.fields.email) {
@@ -30,7 +29,7 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   await userModel
-    .findOne({ where: { username: req.body.username } })
+    .findOne({ where: { email: req.body.email } })
 
     .then((user) => {
       if (!user) {
@@ -56,9 +55,29 @@ exports.login = async (req, res) => {
           );
           res.cookie("jwt", token, { httpOnly: true, maxAge });
 
-          res.status(200).json({ user });
+          res.status(200).json(user);
         })
         .catch((error) => res.status(500).json("error"));
     })
     .catch((error) => res.status(500).json(error));
+};
+
+exports.findUserById = (req, res) => {
+  const id = req.params.id;
+  userModel
+    .scope("withoutPassword")
+    .findByPk(id)
+    .then((user) => {
+      if (!user) {
+        return res.status(401).json({ error: "no user with this id" });
+      }
+      res.status(201).json({ user });
+    })
+    .catch((error) => res.status(500).json({ error }));
+};
+
+exports.logout = (req, res) => {
+  res.clearCookie("jwt");
+  // OU res.cookie('jwt', '', { expiresIn: 1 })
+  res.send("Logout");
 };

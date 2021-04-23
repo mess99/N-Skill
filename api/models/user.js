@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       username: {
         type: DataTypes.STRING(50),
-        allowNull: false,
         unique: true,
       },
       email: {
@@ -19,6 +18,13 @@ module.exports = (sequelize, DataTypes) => {
       firstConnection: {
         type: DataTypes.INTEGER,
         defaultValue: 0,
+      },
+    },
+    {
+      scopes: {
+        withoutPassword: {
+          attributes: { exclude: ["password"] },
+        },
       },
     },
     {

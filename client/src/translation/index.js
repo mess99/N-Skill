@@ -19,6 +19,8 @@ const resources = {
         "N'skills is a website that will help you learn English in fun way.",
       "Includes lessons, quizzes..":
         "Includes lessons, quizzes, grammar, and discussion forums for students.",
+      Account: "Account",
+      "Log out": "Log out",
     },
   },
   fr: {
@@ -38,6 +40,8 @@ const resources = {
         "N'skills est un site Web qui vous aidera à apprendre l'anglais de manière ludique.",
       "Includes lessons, quizzes..":
         "Comprend des leçons, des quiz, de la grammaire et des forums de discussion pour les étudiants.",
+      Account: "Compte",
+      "Log out": "Déconnexion",
     },
   },
 };

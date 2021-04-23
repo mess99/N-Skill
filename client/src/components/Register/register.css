@@ -15,73 +15,60 @@
 }
 .register__header {
   text-align: center;
+  font-weight: 600;
 }
 
 .register__content {
   margin-top: 30px;
 }
 
-.register__content form {
-  position: relative;
-  height: 40px;
-  margin-top: 20px;
+.register__content h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
-.form__div {
-  position: relative;
-  cursor: text;
-  display: flex;
-  height: 56px;
+.form__button {
+  margin: 20px 0 25px 0;
+  height: 50px;
   width: 100%;
-  margin: 0px;
   border: none;
-  color: rgb(34, 34, 34);
+  color: white;
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
   box-shadow: rgb(176 176 176) 0px 0px 0px 1px inset;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    "Helvetica Neue", sans-serif;
   font-size: 16px;
   line-height: 20px;
-  font-weight: 400;
+  background-image: radial-gradient(
+    circle at left center,
+    rgb(247, 77, 108) 0%,
+    rgb(235, 52, 95) 27.5%,
+    rgba(241, 21, 94, 0.918) 40%,
+    rgb(230, 16, 115) 57.5%,
+    rgb(204, 29, 93) 75%,
+    rgb(184, 26, 84) 100%
+  );
 }
 
-.header__email {
-  width: 100%;
-  border: none;
-  outline: none;
-  padding: 0px;
-  margin: 26px 12px 10px;
-  min-height: 1px;
-  color: inherit;
-  background-color: transparent;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  appearance: none;
+.or {
+  text-align: center;
+  font-size: 0.8rem;
 }
-.header__email-label {
-  position: relative;
-  flex: 1 1 0%;
-  padding: 0px;
+.form__google {
+  cursor: pointer;
+  text-align: center;
+  line-height: 24px;
+  padding: 10px 12px;
+  font-weight: 800;
+  border-radius: 8px;
+  border: 2px solid rgb(176, 176, 176);
+  background: transparent;
+  margin-top: 10px;
 }
-.header__label-name {
-  position: absolute;
-  top: 18px;
-  left: 12px;
-  right: 12px;
-  color: rgb(113, 113, 113);
-  transform-origin: 0% 0%;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 400;
-  transition: 0.3s;
+
+.form__google:hover {
+  border-color: rgb(48, 45, 45);
 }
-.label-hide {
-  display: flex;
-  opacity: 0;
-}
+
 @media only screen and (max-width: 990px) {
   .register__open {
     font-size: 1rem;

@@ -11,6 +11,8 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "formik": "^2.2.6",
     "i18next": "^20.2.1",
     "js-utl": "^4.43.0",
     "moment": "^2.29.1",
@@ -24,7 +26,8 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",
     "semantic-ui-react": "^2.0.3",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",

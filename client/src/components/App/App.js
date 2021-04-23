@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Header from "../Header";
-import Nav from "../Nav";
+import Nav from "../../containers/Nav";
 import Homepage from "../Homepage";
 import Footer from "../Footer";
 import Burger from "../Nav/Burger";
@@ -10,11 +10,12 @@ import Exercices from "../../containers/Exercices";
 import Stories from "../Stories";
 import Forum from "../../containers/Forum";
 import Modalquiz from "../../containers/Exercices/ModalQuiz/ModalQuiz";
-import ScrollToTop from "../../ScrollToTop";
+import ScrollToTop from "../ScrollToTop";
 import ForumQuestion from "../ForumQuestion";
-import Register from "../Register";
+import { useEffect } from "react";
 
-const App = () => {
+const App = ({ userId, keepLogin }) => {
+  useEffect(keepLogin, []);
   return (
     <div className="App">
       <ScrollToTop />
@@ -45,9 +46,6 @@ const App = () => {
         <Route exact path="/forum/:slug">
           <ForumQuestion />
         </Route>
-        {/* <Route exact path="/register">
-          <Register />
-        </Route> */}
       </Switch>
       <Footer />
     </div>
