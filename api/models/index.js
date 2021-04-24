@@ -19,6 +19,7 @@ db.question = require("./questions")(sequelize, Sequelize);
 db.response = require("./responses")(sequelize, Sequelize);
 db.user = require("./user")(sequelize, Sequelize);
 db.post = require("./post")(sequelize, Sequelize);
+db.postResponse = require("./postResponse")(sequelize, Sequelize);
 
 // associate
 db.quiz.hasMany(db.question);
@@ -29,5 +30,11 @@ db.response.belongsTo(db.question);
 
 db.user.hasMany(db.post);
 db.post.belongsTo(db.user);
+
+db.post.hasMany(db.postResponse);
+db.postResponse.belongsTo(db.post);
+
+db.user.hasMany(db.postResponse);
+db.postResponse.belongsTo(db.user);
 
 module.exports = db;

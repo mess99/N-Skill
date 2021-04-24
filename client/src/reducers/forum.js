@@ -1,4 +1,5 @@
-import { SAVE_DATA_FORUM } from "../actions/forum";
+import { ANSWERS_SENT, SAVE_ANSWERS, SAVE_DATA_FORUM } from "../actions/forum";
+import { QUESTION_AUTHOR } from "../actions/user";
 
 const initialState = {};
 
@@ -8,6 +9,31 @@ const forum = (state = initialState, action = {}) => {
       return {
         ...state,
         ...action.payload,
+      };
+    case QUESTION_AUTHOR:
+      return {
+        ...state,
+        authorPost: action.data,
+      };
+    case SAVE_ANSWERS:
+      return {
+        ...state,
+        answers: action.data,
+      };
+    case "ANSWERING":
+      return {
+        ...state,
+        answering: action.value,
+      };
+    case ANSWERS_SENT:
+      return {
+        ...state,
+        answers: [...state.answers, action.data],
+      };
+    case "EMPTY_ANSWERING":
+      return {
+        ...state,
+        answering: "",
       };
 
     default:

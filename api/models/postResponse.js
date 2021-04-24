@@ -1,21 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
-  const post = sequelize.define(
-    "Post",
+  const postResponse = sequelize.define(
+    "Postresponse",
     {
-      title: {
+      content: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      description: {
-        type: DataTypes.STRING,
-      },
-      image: {
-        type: DataTypes.STRING,
-      },
+
       vote: {
         type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 0,
+      },
+      PostId: {
+        type: DataTypes.INTEGER,
+        foreignKey: true,
       },
       UserId: {
         type: DataTypes.INTEGER,
@@ -26,5 +25,5 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: true,
     }
   );
-  return post;
+  return postResponse;
 };

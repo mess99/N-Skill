@@ -86,6 +86,9 @@
   color: #5082b7;
   text-decoration: none;
 }
+.forum__questions a::first-letter {
+  text-transform: uppercase;
+}
 
 .forum__questions a:hover {
   color: #d8655e;

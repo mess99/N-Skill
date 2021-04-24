@@ -40,3 +40,15 @@ export const LOGOUT = "LOGOUT";
 export const logout = () => ({
   type: LOGOUT,
 });
+
+export const FETCH_USER = "FETCH_USER";
+export const fetchUser = (id) => ({
+  type: FETCH_USER,
+  id,
+});
+
+export const QUESTION_AUTHOR = "QUESTION_AUTHOR";
+export const questionAuthor = (data) => ({
+  type: QUESTION_AUTHOR,
+  data,
+});

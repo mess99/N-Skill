@@ -38,6 +38,7 @@
   box-shadow: rgb(176 176 176) 0px 0px 0px 1px inset;
   font-size: 16px;
   line-height: 20px;
+  cursor: pointer;
   background-image: radial-gradient(
     circle at left center,
     rgb(247, 77, 108) 0%,

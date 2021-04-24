@@ -2,15 +2,14 @@ import axios from "axios";
 import {
   tryToLogin,
   login,
-  fetchUser,
-  saveUser,
+  questionAuthor,
   REGISTER,
   TRY_TO_LOGIN,
   LOGIN_WITH_COOKIE,
-  FETCH_USER,
   saveLoginWithCookie,
   TRY_TO_LOGOUT,
   logout,
+  FETCH_USER,
 } from "../actions/user";
 
 const user = (store) => (next) => (action) => {
@@ -73,6 +72,20 @@ const user = (store) => (next) => (action) => {
         .then((res) => {
           console.log(res);
           store.dispatch(logout());
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+    case FETCH_USER: {
+      axios({
+        method: "get",
+        url: `/api/user/${action.id}`,
+      })
+        .then((res) => {
+          store.dispatch(questionAuthor(res.data.user));
         })
         .catch((error) => {
           console.log(error);

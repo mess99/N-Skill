@@ -97,6 +97,7 @@
 .nav__lists__user li {
   font-size: 0.8rem;
   padding: 8px 10px;
+  margin: 0;
 }
 
 .nav__lists__user li:hover {

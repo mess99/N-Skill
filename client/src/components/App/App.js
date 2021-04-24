@@ -11,7 +11,7 @@ import Stories from "../Stories";
 import Forum from "../../containers/Forum";
 import Modalquiz from "../../containers/Exercices/ModalQuiz/ModalQuiz";
 import ScrollToTop from "../ScrollToTop";
-import ForumQuestion from "../ForumQuestion";
+import ForumQuestion from "../../containers/ForumQuestion";
 import { useEffect } from "react";
 
 const App = ({ userId, keepLogin }) => {
