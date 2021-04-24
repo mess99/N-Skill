@@ -1,4 +1,9 @@
-import { ANSWERS_SENT, SAVE_ANSWERS, SAVE_DATA_FORUM } from "../actions/forum";
+import {
+  ANSWERS_SENT,
+  SAVE_ANSWERS,
+  SAVE_DATA_FORUM,
+  SAVE_QUESTION,
+} from "../actions/forum";
 import { QUESTION_AUTHOR } from "../actions/user";
 
 const initialState = {};
@@ -14,6 +19,11 @@ const forum = (state = initialState, action = {}) => {
       return {
         ...state,
         authorPost: action.data,
+      };
+    case SAVE_QUESTION:
+      return {
+        ...state,
+        posts: [...state.posts, action.data],
       };
     case SAVE_ANSWERS:
       return {

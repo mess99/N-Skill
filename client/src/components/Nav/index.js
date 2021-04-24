@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import "./nav.css";
 import { useTranslation } from "react-i18next";
 import Register from "../../containers/Register";
+import Login from "../../containers/Login";
+
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 const Nav = ({ user, handleLogout }) => {
@@ -36,8 +38,7 @@ const Nav = ({ user, handleLogout }) => {
         {!user?.isLogged && (
           <ul className="nav__lists__login">
             <li>
-              {/* TODO: */}
-              <Link to="/register">{t("Login")}</Link>
+              <Login login={t("Login")} />
             </li>
             <li>
               <Register register={t("Register")} />

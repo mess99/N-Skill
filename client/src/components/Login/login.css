@@ -1,7 +1,7 @@
-.register {
+.login {
 }
 
-.register__open {
+.login__open {
   background-color: unset;
   border: none;
   font-weight: 500;
@@ -10,19 +10,19 @@
   cursor: pointer;
 }
 
-.register__open:hover {
+.login__open:hover {
   color: #f50157;
 }
-.register__header {
+.login__header {
   text-align: center;
   font-weight: 600;
 }
 
-.register__content {
+.login__content {
   margin-top: 30px;
 }
 
-.register__content h3 {
+.login__content h3 {
   font-size: 1.3rem;
   font-weight: 700;
 }
@@ -70,7 +70,7 @@
 }
 
 @media only screen and (max-width: 990px) {
-  .register__open {
+  .login__open {
     font-size: 1rem;
   }
 }

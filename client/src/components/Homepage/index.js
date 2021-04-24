@@ -56,18 +56,6 @@ const Homepage = () => {
             </div>
           </div>
         </Link>
-        <Link to="/tips">
-          <div className="homepage__content">
-            <img src={tips} alt="tips" />
-            <div className="homepage__subcontent">
-              <h2 className="homepage__subtitle">{t("Tips")}</h2>
-              <p>
-                Includes lessons, quizzes, grammar explanations, and discussion
-                forums for students.
-              </p>
-            </div>
-          </div>
-        </Link>
 
         <Link to="/forum">
           <div className="homepage__content">

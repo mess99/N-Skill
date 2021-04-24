@@ -6,7 +6,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 
-import "./register.css";
+import "./login.css";
 import Label from "../Label";
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    // border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     width: "50%",
@@ -26,14 +25,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Register = (props) => {
+const Login = (props) => {
   const {
     handleSubmit,
     handleChange,
     values,
     errorStateEmail,
     errorStateUsername,
-    register,
+    login,
   } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -48,7 +47,6 @@ const Register = (props) => {
 
   const showPwd = (e) => {
     const hidePwd = document.querySelectorAll(".header__input")[1];
-    console.log(hidePwd);
     if (hidePwd.type === "password") {
       hidePwd.type = "text";
     } else {
@@ -60,9 +58,9 @@ const Register = (props) => {
   //   console.log("change");
   // };
   return (
-    <div className="register">
-      <button className="register__open" type="button" onClick={handleOpen}>
-        {register}
+    <div className="login">
+      <button className="login__open" type="button" onClick={handleOpen}>
+        {login}
       </button>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -78,8 +76,8 @@ const Register = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 className="register__header">Sign up</h2>
-            <div className="register__content">
+            <h2 className="login__header">Sign in</h2>
+            <div className="login__content">
               <h3>Welcome to N'skills</h3>
               <form onSubmit={handleSubmit}>
                 <Label
@@ -107,10 +105,10 @@ const Register = (props) => {
                   {(errMsg) => <span className="errorMessage">{errMsg}</span>}
                 </ErrorMessage>
                 <button type="submit" className="form__button">
-                  Sign up
+                  Sign in
                 </button>
                 <div className="or">Or</div>
-                <div className="form__google">S'inscrire avec google</div>
+                <div className="form__google">Continuer avec google</div>
               </form>
             </div>
           </div>
@@ -140,6 +138,6 @@ export default withFormik({
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
     setSubmitting(false);
-    props.handleRegister(values);
+    props.handleLogin(values.email, values.password);
   },
-})(Register);
+})(Login);

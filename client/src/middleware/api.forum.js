@@ -5,10 +5,32 @@ import {
   saveAnswers,
   saveDataforum,
   answerSent,
+  SEND_QUESTION,
+  saveQuestion,
 } from "../actions/forum";
 
 const forum = (store) => (next) => (action) => {
   switch (action.type) {
+    case SEND_QUESTION: {
+      axios({
+        method: "post",
+        url: `/api/forum`,
+        data: {
+          title: action.title,
+          description: action.description,
+          UserId: action.UserId,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          store.dispatch(saveQuestion(res.data.post));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
     case LOAD_QUESTION_FORUM: {
       const page = action.page - 1;
       axios({
@@ -26,7 +48,6 @@ const forum = (store) => (next) => (action) => {
     }
     case FETCH_ANSWERS: {
       const postId = action.id;
-      console.log(action);
       axios({
         method: "get",
         url: `/api/forum/${postId}/answers`,
@@ -41,7 +62,6 @@ const forum = (store) => (next) => (action) => {
       break;
     }
     case "SENDIND_ANSWER": {
-      console.log(action);
       axios({
         method: "post",
         url: `/api/forum/${action.post}/answer`,
@@ -51,7 +71,6 @@ const forum = (store) => (next) => (action) => {
         },
       })
         .then((res) => {
-          console.log(res);
           store.dispatch(answerSent(res.data.answer));
         })
         .catch((error) => {

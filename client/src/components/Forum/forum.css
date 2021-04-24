@@ -112,6 +112,39 @@
   }
 }
 
+.forum__add {
+  cursor: pointer;
+}
+.question__content {
+  margin-top: 20px;
+}
+.question__content input,
+.question__content textarea {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 6px;
+  padding: 0;
+}
+.question__content input {
+  height: 30px;
+  border: 1px solid;
+  padding: 0;
+}
+
+.question__header {
+  text-align: center;
+  font-weight: 600;
+}
+.question__button {
+  padding: 10px;
+  color: white;
+  background-color: #f50057;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  width: 100%;
+}
+
 @media screen and (max-width: 900px) {
   .forum__questions h2 {
     font-size: 1.4rem;

@@ -26,7 +26,7 @@ exports.showPosts = (req, res) => {
   const { limit, offset } = getPagination(page, size);
 
   postModel
-    .findAndCountAll({ limit, offset })
+    .findAndCountAll({ limit, offset, order: [["updatedAt", "DESC"]] })
     .then((data) => {
       const response = getPaginationData(data, page, limit);
       res.status(200).json(response);

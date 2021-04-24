@@ -27,6 +27,7 @@ const ForumQuestion = ({
     answerSending(getAuthor.id, question.id, getAnswering);
     emptyAnswering();
   };
+
   //TODO: changer le format de la date et le updated aussi
   //   const date = moment.unix(question.createdAt).format("Do MMMM YYYY, h:mma");
   return (
