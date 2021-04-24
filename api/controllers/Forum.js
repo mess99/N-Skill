@@ -44,6 +44,9 @@ exports.addAnswer = (req, res) => {
   postResponse
     .create(answer)
     .then((answer) => {
+      postModel.findOne({ where: { id: answer.PostId } }).then((post) => {
+        post.update({ answers: post.answers + 1 });
+      });
       res.status(201).json({ answer });
     })
     .catch((error) => res.status(500).json({ error }));

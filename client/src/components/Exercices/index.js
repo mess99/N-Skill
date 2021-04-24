@@ -22,7 +22,7 @@ const Exercices = ({ loadAllQuiz, getQuiz }) => {
       </p>
       <div className="exercices__level">
         <h3>Niveau</h3>
-        <div className="exercices__level__box">
+        <div className="exercices__level__box level-box">
           <ul className="exercices__level__lists ">
             {LevelQuiz.map((quiz) => (
               <li key={quiz.id} className="exercices__level__list">

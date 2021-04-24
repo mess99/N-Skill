@@ -5,3 +5,5 @@ export const filterQuizByLevel = (quizzes) => {
 export const filterQuizByTheme = (quizzes) => {
   return quizzes.filter((quiz) => quiz.theme !== "");
 };
+
+// FIXME: filtrerodredesc posts

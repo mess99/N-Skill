@@ -24,7 +24,7 @@ const ForumQuestion = ({
   }, []);
 
   const sendAnswer = () => {
-    answerSending(getAuthor.id, question.id, getAnswering);
+    answerSending(getAuthor?.id, question?.id, getAnswering);
     emptyAnswering();
   };
 

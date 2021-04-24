@@ -136,12 +136,14 @@ const Forum = ({
             </Link>
             <div className="forum__plus">
               <span className="forum__vote">
-                <small>{post.vote}</small>
-                <small>votes</small>
-              </span>
-              <span className="forum__answers">
-                <small>0</small>
-                <small>answers</small>
+                <small>{post.answers}</small>
+                {post.answers === 0 ? (
+                  <small>answer</small>
+                ) : post.answers === 1 ? (
+                  <small>answer</small>
+                ) : (
+                  <small>answers</small>
+                )}
               </span>
             </div>
           </div>

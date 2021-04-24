@@ -27,6 +27,10 @@
   flex-wrap: nowrap;
   overflow-x: auto;
 }
+.level-box {
+  overflow: initial;
+}
+
 .exercices__level__lists {
   display: flex;
   justify-content: space-around;
