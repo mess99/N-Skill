@@ -20,13 +20,15 @@ const Word = ({ word, phonetics, meanings }) => {
               {mean.definitions.map((def, index) => (
                 <div key={index}>
                   <p>{def.definition}</p>
-                  <p>example: {def.example}</p>
-                  <ul className="word__synonyms">
-                    <li>synonyms:</li>
-                    {def.synonyms?.map((syn, index) => (
-                      <li key={index}>{syn}, </li>
-                    ))}
-                  </ul>
+                  {def.example && <p>example: {def.example}</p>}
+                  {def.synonyms && (
+                    <ul className="word__synonyms">
+                      <li>synonyms:</li>
+                      {def.synonyms?.map((syn, index) => (
+                        <li key={index}>{syn}, </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               ))}
             </div>

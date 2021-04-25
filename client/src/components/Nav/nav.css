@@ -140,7 +140,7 @@
 .nav__word {
   width: 100%;
   position: absolute;
-  margin-top: 7%;
+  margin-top: 6%;
   background: white;
   width: 50%;
   border-radius: 12px;
@@ -149,7 +149,7 @@
   transform: translateX(-50%);
   border: 1px solid rgb(221, 221, 221);
   box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-  padding: 24px;
+  padding: 29px;
 }
 
 @media only screen and (max-width: 990px) {
