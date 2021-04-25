@@ -1,0 +1,39 @@
+.word__header {
+  display: flex;
+  align-items: center;
+}
+
+.word__header span {
+  font-size: 0.8rem;
+}
+
+.word__title {
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-right: 10px;
+}
+
+.word__sound {
+  flex: auto;
+  margin-left: 10px;
+  height: 30px;
+}
+.word__content div {
+  margin-top: 20px;
+}
+.word__content div:nth-child(2) {
+  /* margin-top: 30px; */
+}
+.word__content p {
+  margin-top: 10px;
+}
+
+.word__content small {
+  color: #7f7878;
+  margin-right: 5px;
+}
+
+.word__synonyms {
+  display: flex;
+  flex-wrap: wrap;
+}

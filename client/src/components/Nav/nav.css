@@ -104,6 +104,54 @@
   background-color: #f7f7f7;
 }
 
+.search__word {
+  display: flex;
+  position: relative;
+}
+
+.search__word form {
+  position: absolute;
+}
+.nav__search {
+  padding: 8px;
+  height: 4px;
+  opacity: 0;
+  border-radius: 15px;
+  border: 1px solid grey;
+  transition: 0.5s;
+  position: absolute;
+  width: 0%;
+  cursor: pointer;
+}
+
+.nav__search:focus {
+  height: 4px;
+  transition: 0.5s;
+  opacity: 1;
+  width: 100px;
+  cursor: text;
+}
+
+.nav__search__icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.nav__word {
+  width: 100%;
+  position: absolute;
+  margin-top: 7%;
+  background: white;
+  width: 50%;
+  border-radius: 12px;
+  box-sizing: border-box;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid rgb(221, 221, 221);
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+  padding: 24px;
+}
+
 @media only screen and (max-width: 990px) {
   .nav__lists li {
     font-size: 1rem;

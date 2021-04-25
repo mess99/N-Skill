@@ -14,40 +14,45 @@ import ScrollToTop from "../ScrollToTop";
 import ForumQuestion from "../../containers/ForumQuestion";
 import { useEffect } from "react";
 
-const App = ({ userId, keepLogin }) => {
+const App = ({ userId, keepLogin, isLoading }) => {
   useEffect(keepLogin, []);
   return (
     <div className="App">
-      <ScrollToTop />
-      <Nav />
-      <Burger />
-      <Switch>
-        <Route exact path="/">
-          <Header />
-          <Homepage />
-        </Route>
-        <Route exact path="/lessons">
-          <Lessons />
-        </Route>
-        <Route exact path="/exercices">
-          <Exercices />
-        </Route>
-        <Route exact path="/exercices/:slug">
-          <Exercices />
-          <Modalquiz />
-        </Route>
-        <Route exact path="/stories">
-          <Stories />
-        </Route>
-        {/* TODO: delete tips ? and add tips in lesson, exercice ... 💡 */}
-        <Route exact path="/forum">
-          <Forum />
-        </Route>
-        <Route exact path="/forum/:slug">
-          <ForumQuestion />
-        </Route>
-      </Switch>
-      <Footer />
+      {isLoading && <p>loading</p>}
+      {!isLoading && (
+        <>
+          <ScrollToTop />
+          <Nav />
+          <Burger />
+          <Switch>
+            <Route exact path="/">
+              <Header />
+              <Homepage />
+            </Route>
+            <Route exact path="/lessons">
+              <Lessons />
+            </Route>
+            <Route exact path="/exercices">
+              <Exercices />
+            </Route>
+            <Route exact path="/exercices/:slug">
+              <Exercices />
+              <Modalquiz />
+            </Route>
+            <Route exact path="/stories">
+              <Stories />
+            </Route>
+            {/* TODO: delete tips ? and add tips in lesson, exercice ... 💡 */}
+            <Route exact path="/forum">
+              <Forum />
+            </Route>
+            <Route exact path="/forum/:slug">
+              <ForumQuestion />
+            </Route>
+          </Switch>
+          <Footer />
+        </>
+      )}
     </div>
   );
 };

@@ -18,11 +18,9 @@
 }
 .forum__settings {
   display: flex;
+  align-items: center;
 }
-.forum__settings p {
-  padding: 10px;
-  margin-right: 60px;
-}
+
 .forum__settings button {
   padding: 10px;
   color: white;

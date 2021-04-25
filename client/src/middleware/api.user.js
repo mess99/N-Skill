@@ -60,7 +60,9 @@ const user = (store) => (next) => (action) => {
         .then((res) => {
           store.dispatch(saveLoginWithCookie(res.data));
         })
-        .catch((error) => {});
+        .catch((error) => {
+          store.dispatch({ type: "LOADING_FALSE_AT_INIT" });
+        });
       next(action);
       break;
     }

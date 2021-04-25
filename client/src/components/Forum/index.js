@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -64,7 +65,8 @@ const Forum = ({
       <div className="forum__header">
         <p>All Questions</p>
         <div className="forum__settings">
-          <p>filter</p>
+          {/* <SearchIcon className="search__post" />
+          <input className="forum__filter" type="text" /> */}
           {currentUser.isLogged && (
             <button
               className="forum__add"
@@ -121,12 +123,12 @@ const Forum = ({
       </div>
 
       {getPostsInfo.posts?.map((post) => {
-        const truncTitle = post.title.substr(0, 60) + "\u2026";
+        const truncTitle = post?.title.substr(0, 60) + "\u2026";
         return (
-          <div key={post.id} className="forum__questions">
+          <div key={post?.id} className="forum__questions">
             <Link
               to={{
-                pathname: "/forum/" + post.id,
+                pathname: "/forum/" + post?.id,
                 state: {
                   props: post,
                 },
@@ -136,10 +138,10 @@ const Forum = ({
             </Link>
             <div className="forum__plus">
               <span className="forum__vote">
-                <small>{post.answers}</small>
-                {post.answers === 0 ? (
+                <small>{post?.answers}</small>
+                {post?.answers === 0 ? (
                   <small>answer</small>
-                ) : post.answers === 1 ? (
+                ) : post?.answers === 1 ? (
                   <small>answer</small>
                 ) : (
                   <small>answers</small>
