@@ -78,6 +78,8 @@
 .answer__vote {
   margin-right: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 .answer__content {
   font-size: 0.9rem;

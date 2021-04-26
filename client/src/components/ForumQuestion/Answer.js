@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
-const Answer = ({ content, vote, UserId }) => {
+const Answer = ({
+  index,
+  id,
+  content,
+  vote,
+  UserId,
+  increasePost,
+  decreasePost,
+}) => {
+  const [clicked, setClicked] = useState(false);
+
+  const handleVotePlus = () => {
+    if (!clicked) {
+      setClicked(true);
+      increasePost(id, index);
+    }
+  };
+
+  const handleVoteMoins = () => {
+    if (!clicked) {
+      setClicked(true);
+      decreasePost(id, index);
+    }
+  };
   return (
     <div className="answer">
-      <div className="answer__vote">{vote} votes</div>
+      <div className="answer__vote">
+        <ArrowDropUpIcon onClick={handleVotePlus} />
+        <span>{vote}</span>
+        <ArrowDropDownIcon onClick={handleVoteMoins} />
+      </div>
       <div className="answer__content">
         <p>author {UserId} </p>
         <p>{content}</p>

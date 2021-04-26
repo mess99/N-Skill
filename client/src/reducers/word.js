@@ -6,6 +6,12 @@ const word = (state = initialState, action = {}) => {
       return {
         ...state,
         ...action.data,
+        error: "",
+      };
+    case "WORD_NOT_FOUND":
+      return {
+        ...state,
+        error: "Word not found",
       };
 
     default:

@@ -7,7 +7,8 @@ import Footer from "../Footer";
 import Burger from "../Nav/Burger";
 import Lessons from "../Lessons";
 import Exercices from "../../containers/Exercices";
-import Stories from "../Stories";
+import Stories from "../../containers/Stories";
+import Story from "../../containers/Stories/Story";
 import Forum from "../../containers/Forum";
 import Modalquiz from "../../containers/Exercices/ModalQuiz/ModalQuiz";
 import ScrollToTop from "../ScrollToTop";
@@ -29,6 +30,7 @@ const App = ({ userId, keepLogin, isLoading }) => {
               <Header />
               <Homepage />
             </Route>
+            {/* TODO: delete tips ? and add tips in lesson, exercice ... 💡 */}
             <Route exact path="/lessons">
               <Lessons />
             </Route>
@@ -42,7 +44,9 @@ const App = ({ userId, keepLogin, isLoading }) => {
             <Route exact path="/stories">
               <Stories />
             </Route>
-            {/* TODO: delete tips ? and add tips in lesson, exercice ... 💡 */}
+            <Route exact path="/stories/:slug">
+              <Story />
+            </Route>
             <Route exact path="/forum">
               <Forum />
             </Route>

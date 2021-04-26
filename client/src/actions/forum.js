@@ -4,7 +4,11 @@ export const FETCH_ANSWERS = "FETCH_ANSWERS";
 export const SAVE_ANSWERS = "SAVE_ANSWERS";
 export const ANSWERS_SENT = "ANSWERS_SENT";
 export const SEND_QUESTION = "SEND_QUESTION";
-export const SAVE_QUESTION = "SAVE_QUESTION";
+export const SAVE_QUESTION_POST = "SAVE_QUESTION_POST";
+export const INCREASE_POSTS = "INCREASE_POSTS";
+export const DECREASE_POSTS = "DECREASE_POSTS";
+export const SAVE_INCREASE = "SAVE_INCREASE";
+export const SAVE_DECREASE = "SAVE_DECREASE";
 
 export const sendQuestion = (title, description, UserId) => {
   return {
@@ -15,9 +19,9 @@ export const sendQuestion = (title, description, UserId) => {
   };
 };
 
-export const saveQuestion = (data) => {
+export const saveQuestionPost = (data) => {
   return {
-    type: SAVE_QUESTION,
+    type: SAVE_QUESTION_POST,
     data,
   };
 };
@@ -54,5 +58,37 @@ export const answerSent = (data) => {
   return {
     type: ANSWERS_SENT,
     data,
+  };
+};
+
+export const increasePosts = (id, index) => {
+  return {
+    type: INCREASE_POSTS,
+    id,
+    index,
+  };
+};
+
+export const decreasePosts = (id, index) => {
+  return {
+    type: DECREASE_POSTS,
+    id,
+    index,
+  };
+};
+
+export const saveIncrease = (data, index) => {
+  return {
+    type: SAVE_INCREASE,
+    data,
+    index,
+  };
+};
+
+export const saveDecrease = (data, index) => {
+  return {
+    type: SAVE_DECREASE,
+    data,
+    index,
   };
 };

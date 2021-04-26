@@ -15,7 +15,7 @@ const dico = (store) => (next) => (action) => {
           });
         })
         .catch((error) => {
-          console.log(error);
+          store.dispatch({ type: "WORD_NOT_FOUND" });
         });
       next(action);
       break;

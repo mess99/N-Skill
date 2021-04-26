@@ -54,9 +54,32 @@ exports.addAnswer = (req, res) => {
 
 exports.showAnswersByIdPost = (req, res) => {
   postResponse
-    .findAll({ where: { PostId: req.params.id } })
+    .findAll({
+      where: { PostId: req.params.id },
+      order: [["createdAt", "ASC"]],
+    })
     .then((answers) => {
       res.status(201).json({ answers });
+    })
+    .catch((error) => res.status(500).json({ error }));
+};
+
+exports.increaseAnswer = (req, res) => {
+  postResponse
+    .findOne({ where: { id: req.params.id } })
+    .then((answer) => {
+      answer.update({ vote: answer.vote + 1 });
+      res.status(201).json({ answer });
+    })
+    .catch((error) => res.status(500).json({ error }));
+};
+
+exports.decreaseAnswer = (req, res) => {
+  postResponse
+    .findOne({ where: { id: req.params.id } })
+    .then((answer) => {
+      answer.update({ vote: answer.vote - 1 });
+      res.status(201).json({ answer });
     })
     .catch((error) => res.status(500).json({ error }));
 };

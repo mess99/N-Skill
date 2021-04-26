@@ -2,7 +2,9 @@ import {
   ANSWERS_SENT,
   SAVE_ANSWERS,
   SAVE_DATA_FORUM,
-  SAVE_QUESTION,
+  SAVE_DECREASE,
+  SAVE_INCREASE,
+  SAVE_QUESTION_POST,
 } from "../actions/forum";
 import { QUESTION_AUTHOR } from "../actions/user";
 
@@ -20,7 +22,7 @@ const forum = (state = initialState, action = {}) => {
         ...state,
         authorPost: action.data,
       };
-    case SAVE_QUESTION:
+    case SAVE_QUESTION_POST:
       return {
         ...state,
         posts: [...state.posts, action.data],
@@ -44,6 +46,20 @@ const forum = (state = initialState, action = {}) => {
       return {
         ...state,
         answering: "",
+      };
+    case SAVE_INCREASE:
+      state.answers.splice(action.index, 1, action.data);
+
+      return {
+        ...state,
+        answers: [...state.answers],
+      };
+    case SAVE_DECREASE:
+      state.answers.splice(action.index, 1, action.data);
+
+      return {
+        ...state,
+        answers: [...state.answers],
       };
 
     default:

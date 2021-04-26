@@ -3,7 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import moment from "moment";
 
 import "./forumquestion.css";
-import Answer from "./Answer";
+import Answer from "../../containers/ForumQuestion/Answer";
 const ForumQuestion = ({
   fetchUserr,
   getAuthor,
@@ -44,8 +44,8 @@ const ForumQuestion = ({
       </div>
       {/* rajouter pagination pour les commentaires aussi .. */}
       <div className="answers">
-        {getAnswers?.map((answer) => (
-          <Answer key={answer.id} {...answer} />
+        {getAnswers?.map((answer, index) => (
+          <Answer key={answer.id} {...answer} index={index} />
         ))}
       </div>
 

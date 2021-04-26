@@ -6,7 +6,11 @@ import {
   saveDataforum,
   answerSent,
   SEND_QUESTION,
-  saveQuestion,
+  saveQuestionPost,
+  INCREASE_POSTS,
+  DECREASE_POSTS,
+  saveIncrease,
+  saveDecrease,
 } from "../actions/forum";
 
 const forum = (store) => (next) => (action) => {
@@ -23,7 +27,7 @@ const forum = (store) => (next) => (action) => {
       })
         .then((res) => {
           console.log(res);
-          store.dispatch(saveQuestion(res.data.post));
+          store.dispatch(saveQuestionPost(res.data.post));
         })
         .catch((error) => {
           console.log(error);
@@ -72,6 +76,35 @@ const forum = (store) => (next) => (action) => {
       })
         .then((res) => {
           store.dispatch(answerSent(res.data.answer));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+
+    case INCREASE_POSTS: {
+      axios({
+        method: "patch",
+        url: `/api/forum/answer/vote/${action.id}`,
+      })
+        .then((res) => {
+          store.dispatch(saveIncrease(res.data.answer, action.index));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+    case DECREASE_POSTS: {
+      axios({
+        method: "patch",
+        url: `/api/forum/answer/unvote/${action.id}`,
+      })
+        .then((res) => {
+          store.dispatch(saveDecrease(res.data.answer, action.index));
         })
         .catch((error) => {
           console.log(error);
