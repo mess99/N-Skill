@@ -4,12 +4,17 @@ import { tryToLogin } from "../../actions/user";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    // getPostsInfo: state.forum,
+    user: state.user,
   };
 };
 const mapDispatchToProps = (dispatch) => ({
   handleLogin: (email, password) => {
     dispatch(tryToLogin(email, password));
+  },
+  removeError: () => {
+    dispatch({
+      type: "EMPTY_ERROR",
+    });
   },
 });
 

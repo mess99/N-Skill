@@ -23,7 +23,6 @@
 }
 
 .story__question {
-  height: 20vh;
   background: #f7f7f7;
   padding: 50px;
   border-radius: 12px;
@@ -34,6 +33,9 @@
   margin-top: 30px;
 }
 
+.responses input {
+  margin-right: 5px;
+}
 .response {
   margin-top: 5px;
 }

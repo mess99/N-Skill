@@ -21,9 +21,9 @@ exports.register = async (req, res) => {
     })
     .catch((error) => {
       if (error.fields.email) {
-        res.status(400).json({ error: "Email déjà utilisé" });
+        res.status(200).json({ error: "Email déjà utilisé" });
       } else if (error.fields.username) {
-        res.status(400).json({ error: "Pseudo déjà utilisé" });
+        res.status(200).json({ error: "Pseudo déjà utilisé" });
       }
     });
 };
@@ -35,7 +35,7 @@ exports.login = async (req, res) => {
     .then((user) => {
       if (!user) {
         return res
-          .status(401)
+          .status(200)
           .json({ error: "Email ou mot de passe incorrect" });
       }
       bcrypt
@@ -43,7 +43,7 @@ exports.login = async (req, res) => {
         .then((valid) => {
           if (!valid) {
             return res
-              .status(401)
+              .status(200)
               .json({ error: "Email ou mot de passe incorrect" });
           }
 

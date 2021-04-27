@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import SearchIcon from "@material-ui/icons/Search";
 
 import "./burger.css";
-const Burger = () => {
+import Word from "./Word";
+const Burger = ({ searchWordApi, wordResult }) => {
   const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const [closeSearch, setCloseSearch] = useState(true);
+
   const { t, i18n } = useTranslation();
 
   const closeNav = () => {
@@ -12,6 +17,19 @@ const Burger = () => {
   };
   const toggleMenu = () => {
     setOpen(!open);
+  };
+
+  const searchWord = (e) => {
+    setSearch(e.target.value);
+    setCloseSearch(true);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    searchWordApi(search);
+  };
+  const handleWord = () => {
+    setSearch("");
+    setCloseSearch(false);
   };
 
   const burgerSpan = open ? "burger__toggle__open" : "burger__toggle";
@@ -22,8 +40,25 @@ const Burger = () => {
 
   return (
     <div className="toggle">
+      {closeSearch && Object.keys(wordResult).length > 0 ? (
+        <Word {...wordResult} handleWord={handleWord} />
+      ) : (
+        ""
+      )}
       <div className="burger__nav">
         <h2>N'skills</h2>
+        <div className="search__word">
+          <SearchIcon className="nav__search__icon" />
+          <form onSubmit={handleSubmit}>
+            <input
+              placeholder="Search a word..."
+              className="nav__search"
+              type="text"
+              value={search}
+              onChange={(e) => searchWord(e)}
+            />
+          </form>
+        </div>
         <div onClick={toggleMenu} className={burgerSpan}>
           <span></span>
         </div>

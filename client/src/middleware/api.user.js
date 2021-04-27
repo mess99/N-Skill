@@ -28,7 +28,14 @@ const user = (store) => (next) => (action) => {
         },
       })
         .then((res) => {
-          store.dispatch(tryToLogin(res.data.email, action.data.password));
+          if (res.data.error) {
+            store.dispatch({
+              type: "ERROR_EMAIL_PATCH",
+              error: res.data.error,
+            });
+          } else {
+            store.dispatch(tryToLogin(res.data.email, action.data.password));
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -47,7 +54,14 @@ const user = (store) => (next) => (action) => {
         },
       })
         .then((res) => {
-          store.dispatch(login(res.data));
+          if (res.data.error) {
+            store.dispatch({
+              type: "ERROR_EMAIL_PATCH",
+              error: res.data.error,
+            });
+          } else {
+            store.dispatch(login(res.data));
+          }
         })
         .catch((error) => {
           console.log(error);

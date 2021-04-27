@@ -56,7 +56,7 @@ const Account = ({ user, changeEmail, changeUsername }) => {
         </div>
         <div className="account__edit">
           <div className="account__content">
-            <h1 className="account__title">HELLO NAME</h1>
+            <h1 className="account__title">HELLO {username}</h1>
             <span className="account__date">Joined in {user.createdAt}</span>
             <div className="account__inputs">
               <div className="account__input">

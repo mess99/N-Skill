@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 
 import "./label.css";
-const Label = ({ name, type, onChange, value, displayPWD, showPwd }) => {
+const Label = ({
+  name,
+  type,
+  onChange,
+  keyDown,
+  value,
+  displayPWD,
+  showPwd,
+}) => {
   // style in state
   const [hideType, setHideType] = useState({
     display: "flex",
@@ -53,6 +61,7 @@ const Label = ({ name, type, onChange, value, displayPWD, showPwd }) => {
         <div style={labelName}>{name}</div>
         <div style={hideType}>
           <input
+            onKeyDown={keyDown}
             onChange={onChange}
             onFocus={handleFocus}
             onBlur={handleBlur}

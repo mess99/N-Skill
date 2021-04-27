@@ -20,12 +20,15 @@
   color: white;
   /* background-color: #e74540; */
   background-color: #f50157;
-
   font-weight: 800;
   border: none;
   width: 14vw;
   font-size: 2.5vw;
   font-size: 1.4em;
+}
+
+.header__login:hover {
+  background-color: white;
 }
 
 .header__welcome {

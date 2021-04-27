@@ -1,15 +1,17 @@
 import React from "react";
-
+import CancelIcon from "@material-ui/icons/Cancel";
 import "./word.css";
-const Word = ({ word, phonetics, meanings, error }) => {
-  // TODO: rajouter une croix pour quitter la recherche de mot
+const Word = ({ word, phonetics, meanings, error, handleWord }) => {
   return (
-    <div className="nav__word">
+    <div className="nav__word ">
       {error ? (
         <p>{error}</p>
       ) : (
         <>
           <div className="word__header">
+            <div className="word__close__div">
+              <CancelIcon onClick={handleWord} className="word__close" />
+            </div>
             <h1 className="word__title">{word}</h1>
             {/* <audio controls src={phonetics[1].audio} /> */}
             <span>{phonetics && phonetics[0]?.text} </span>

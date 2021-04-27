@@ -39,7 +39,7 @@
 }
 
 .lists__theme {
-  padding-left: 170px;
+  justify-content: flex-start;
 }
 
 .exercices__level__box::-webkit-scrollbar {
@@ -86,8 +86,22 @@
   margin-top: 50px;
 }
 
+@media only screen and (max-width: 600px) {
+  .exercices {
+    margin-top: 15%;
+  }
+}
 @media screen and (max-width: 500px) {
   .exercices {
     margin-top: 25%;
+  }
+  .exercices__level__lists {
+    flex-wrap: wrap;
+  }
+  .exercices__level__list {
+    width: 100%;
+  }
+  .lists__theme {
+    flex-wrap: nowrap;
   }
 }

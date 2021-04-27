@@ -28,6 +28,11 @@ const user = (state = initialState, action = {}) => {
         ...state,
         errors: action.error,
       };
+    case "EMPTY_ERROR":
+      return {
+        ...state,
+        errors: "",
+      };
 
     default:
       return { ...state };

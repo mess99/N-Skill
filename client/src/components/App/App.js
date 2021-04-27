@@ -1,10 +1,12 @@
 import { Switch, Route } from "react-router-dom";
+import "semantic-ui-css/semantic.min.css";
+
 import "./App.css";
 import Header from "../Header";
 import Nav from "../../containers/Nav";
 import Homepage from "../Homepage";
 import Footer from "../Footer";
-import Burger from "../Nav/Burger";
+import Burger from "../../containers/Nav/Burger";
 import Lessons from "../Lessons";
 import Exercices from "../../containers/Exercices";
 import Stories from "../../containers/Stories";
@@ -16,12 +18,14 @@ import Account from "../../containers/Account";
 
 import ForumQuestion from "../../containers/ForumQuestion";
 import { useEffect } from "react";
+import Loading from "../Loading";
 
 const App = ({ user, keepLogin, isLoading }) => {
   useEffect(keepLogin, [keepLogin]);
+
   return (
     <div className="App">
-      {isLoading && <p>loading</p>}
+      {isLoading && <Loading />}
       {!isLoading && (
         <>
           <ScrollToTop />
@@ -29,7 +33,7 @@ const App = ({ user, keepLogin, isLoading }) => {
           <Burger />
           <Switch>
             <Route exact path="/">
-              <Header />
+              <Header {...user} />
               <Homepage />
             </Route>
             {/* TODO: delete tips ? and add tips in lesson, exercice ... 💡 */}
@@ -39,6 +43,7 @@ const App = ({ user, keepLogin, isLoading }) => {
             <Route exact path="/exercices">
               <Exercices />
             </Route>
+
             <Route exact path="/exercices/:slug">
               <Exercices />
               <Modalquiz />

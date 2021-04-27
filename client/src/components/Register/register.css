@@ -69,6 +69,19 @@
   border-color: rgb(48, 45, 45);
 }
 
+.register__content__label {
+  position: relative;
+}
+.errorMessage {
+  /* position: absolute; */
+  /* top: 0; */
+  /* right: 50%;
+  top: 50%;
+  transform: translateY(-50%); */
+  color: red;
+  font-size: 0.9rem;
+}
+
 @media only screen and (max-width: 990px) {
   .register__open {
     font-size: 1rem;

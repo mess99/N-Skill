@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     width: "50%",
-    height: "50%",
+    // height: "50%",
     borderRadius: "10px",
     maxWidth: "400px",
   },
@@ -30,8 +30,10 @@ const Login = (props) => {
     handleSubmit,
     handleChange,
     values,
+    removeError,
     errorStateEmail,
     errorStateUsername,
+    user,
     login,
   } = props;
   const classes = useStyles();
@@ -52,6 +54,9 @@ const Login = (props) => {
     } else {
       hidePwd.type = "password";
     }
+  };
+  const emptyError = () => {
+    removeError();
   };
   // const handleSubmit = () => {};
   // const handleChange = () => {
@@ -81,6 +86,7 @@ const Login = (props) => {
               <h3>Welcome to N'skills</h3>
               <form onSubmit={handleSubmit}>
                 <Label
+                  keyDown={emptyError}
                   name="Email"
                   type="email"
                   id="email"
@@ -88,11 +94,12 @@ const Login = (props) => {
                   value={values.email}
                   displayPWD="none"
                 />
-                <ErrorMessage name="Email">
+                <ErrorMessage name="email">
                   {(errMsg) => <span className="errorMessage">{errMsg}</span>}
                 </ErrorMessage>
 
                 <Label
+                  keyDown={emptyError}
                   name="Password"
                   type="password"
                   id="password"
@@ -101,7 +108,9 @@ const Login = (props) => {
                   displayPWD="block"
                   showPwd={showPwd}
                 />
-                <ErrorMessage name="Password">
+                <p className="account__errors">{user.errors} </p>
+
+                <ErrorMessage name="password">
                   {(errMsg) => <span className="errorMessage">{errMsg}</span>}
                 </ErrorMessage>
                 <button type="submit" className="form__button">

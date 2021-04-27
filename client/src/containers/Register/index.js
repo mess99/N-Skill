@@ -4,12 +4,17 @@ import { register } from "../../actions/user";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    // getPostsInfo: state.forum,
+    user: state.user,
   };
 };
 const mapDispatchToProps = (dispatch) => ({
   handleRegister: (values) => {
     dispatch(register(values));
+  },
+  handleError: () => {
+    dispatch({
+      type: "EMPTY_ERROR",
+    });
   },
 });
 

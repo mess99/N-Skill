@@ -1,6 +1,37 @@
+.nav__word {
+  overflow: auto;
+  max-height: 80vh;
+}
+
+.nav__word::-webkit-scrollbar {
+  display: none;
+}
 .word__header {
   display: flex;
   align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.word__close__div {
+  position: absolute;
+  left: 0;
+  height: 23px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.word__close {
+  font-size: 1.4rem;
+  color: #b3b1b1;
+  cursor: pointer;
+}
+
+.word__close:hover {
+  color: grey;
 }
 
 .word__header span {
@@ -10,12 +41,11 @@
 .word__title {
   text-transform: uppercase;
   font-weight: 800;
-  margin-right: 10px;
+  margin: 0;
 }
 
 .word__sound {
   flex: auto;
-  margin-left: 10px;
   height: 30px;
 }
 .word__content div {
@@ -36,4 +66,23 @@
 .word__synonyms {
   display: flex;
   flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 800px) {
+  .nav__word {
+    width: 90%;
+    margin-top: 10%;
+    height: 90vh;
+    box-sizing: border-box;
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .nav__word {
+    margin-top: 15%;
+  }
+  .nav__word::-webkit-scrollbar {
+    display: none;
+  }
 }

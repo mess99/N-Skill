@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     width: "50%",
-    height: "50%",
+    // height: "50%",
     borderRadius: "10px",
     maxWidth: "400px",
   },
@@ -30,9 +30,9 @@ const Register = (props) => {
   const {
     handleSubmit,
     handleChange,
+    resetError,
     values,
-    errorStateEmail,
-    errorStateUsername,
+    user,
     register,
   } = props;
   const classes = useStyles();
@@ -47,8 +47,7 @@ const Register = (props) => {
   };
 
   const showPwd = (e) => {
-    const hidePwd = document.querySelectorAll(".header__input")[1];
-    console.log(hidePwd);
+    const hidePwd = document.querySelectorAll(".header__input")[2];
     if (hidePwd.type === "password") {
       hidePwd.type = "text";
     } else {
@@ -56,9 +55,9 @@ const Register = (props) => {
     }
   };
   // const handleSubmit = () => {};
-  // const handleChange = () => {
-  //   console.log("change");
-  // };
+  const handleChangeInput = () => {
+    resetError();
+  };
   return (
     <div className="register">
       <button className="register__open" type="button" onClick={handleOpen}>
@@ -82,26 +81,34 @@ const Register = (props) => {
             <div className="register__content">
               <h3>Welcome to N'skills</h3>
               <form onSubmit={handleSubmit}>
-                <Label
-                  name="Email"
-                  type="email"
-                  id="email"
-                  onChange={handleChange}
-                  value={values.email}
-                  displayPWD="none"
-                />
-                <ErrorMessage name="Email">
-                  {(errMsg) => <span className="errorMessage">{errMsg}</span>}
-                </ErrorMessage>
+                <div className="register__content__label">
+                  <Label
+                    name="Email"
+                    type="email"
+                    id="email"
+                    onChange={handleChange}
+                    value={values.email}
+                    displayPWD="none"
+                  />
+                  <p className="account__errors">{user.errors} </p>
+                  <ErrorMessage name="email">
+                    {(errMsg) => <span className="errorMessage">{errMsg}</span>}
+                  </ErrorMessage>
+                </div>
+                <div className="register__content__label">
+                  <Label
+                    name="Username"
+                    type="username"
+                    id="username"
+                    onChange={handleChange}
+                    value={values.username}
+                    displayPWD="none"
+                  />
 
-                <Label
-                  name="Username"
-                  type="username"
-                  id="username"
-                  onChange={handleChange}
-                  value={values.username}
-                  displayPWD="none"
-                />
+                  <ErrorMessage name="username">
+                    {(errMsg) => <span className="errorMessage">{errMsg}</span>}
+                  </ErrorMessage>
+                </div>
                 <Label
                   name="Password"
                   type="password"
@@ -111,9 +118,10 @@ const Register = (props) => {
                   displayPWD="block"
                   showPwd={showPwd}
                 />
-                <ErrorMessage name="Password">
+                <ErrorMessage name="password">
                   {(errMsg) => <span className="errorMessage">{errMsg}</span>}
                 </ErrorMessage>
+
                 <button type="submit" className="form__button">
                   Sign up
                 </button>
@@ -150,4 +158,7 @@ export default withFormik({
     setSubmitting(false);
     props.handleRegister(values);
   },
+  // resetError: (values, { props, setSubmitting }) => {
+  //   props.handleError();
+  // },
 })(Register);

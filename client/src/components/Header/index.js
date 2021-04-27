@@ -4,8 +4,9 @@ import banniere from "../../assets/images/phone.png";
 import "./header.css";
 
 import { useTranslation } from "react-i18next";
+import Login from "../../containers/Login";
 
-const Header = () => {
+const Header = ({ isLogged }) => {
   const { t, i18n } = useTranslation();
 
   const welcome = () => {
@@ -24,7 +25,13 @@ const Header = () => {
       <img className="banniere-phone" src={banniere} alt="banniere" />
       <img className="banniere-desktop" src={banniereDesktop} alt="banniere" />
       <p className="header__welcome">{welcome()} </p>
-      <button className="header__login">{t("Login")}</button>
+      {!isLogged && (
+        <div className="header__login">
+          <Login login={t("Login")} />
+        </div>
+      )}
+
+      {/* {isLogged && <button className="header__login">HI</button>} TODO: */}
     </header>
   );
 };

@@ -4,6 +4,7 @@ import "./nav.css";
 import { useTranslation } from "react-i18next";
 import Register from "../../containers/Register";
 import Login from "../../containers/Login";
+import { useHistory } from "react-router-dom";
 
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SearchIcon from "@material-ui/icons/Search";
@@ -13,6 +14,9 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
   const { t, i18n } = useTranslation();
   const [settings, setSettings] = useState(false);
   const [search, setSearch] = useState("");
+  const [closeSearch, setCloseSearch] = useState(true);
+
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,15 +26,29 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
   const handleLogoutb = () => {
     handleLogout();
     setSettings(false);
+    history.push("/");
   };
 
   const closeSettings = () => {
     setSettings(false);
   };
 
+  const searchWord = (e) => {
+    setSearch(e.target.value);
+    setCloseSearch(true);
+  };
+  const handleWord = () => {
+    setSearch("");
+    setCloseSearch(false);
+  };
+
   return (
     <div className="nav">
-      {Object.keys(wordResult).length > 0 ? <Word {...wordResult} /> : ""}
+      {closeSearch && Object.keys(wordResult).length > 0 ? (
+        <Word {...wordResult} handleWord={handleWord} />
+      ) : (
+        ""
+      )}
 
       <div className="nav__lists">
         <div className="nav__lists__logo">
@@ -65,7 +83,7 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
               className="nav__search"
               type="text"
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => searchWord(e)}
             />
           </form>
         </div>
