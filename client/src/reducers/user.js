@@ -23,6 +23,11 @@ const user = (state = initialState, action = {}) => {
         ...state,
         isLogged: false,
       };
+    case "ERROR_EMAIL_PATCH":
+      return {
+        ...state,
+        errors: action.error,
+      };
 
     default:
       return { ...state };

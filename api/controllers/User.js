@@ -10,6 +10,7 @@ exports.register = async (req, res) => {
 
   const user = {
     email,
+    username: username ? username : "Anonyme" + id,
     password: hashPassword,
   };
 
@@ -80,4 +81,46 @@ exports.logout = (req, res) => {
   res.clearCookie("jwt");
   // OU res.cookie('jwt', '', { expiresIn: 1 })
   res.send("Logout");
+};
+
+exports.changeEmail = (req, res) => {
+  userModel
+    .findOne({ where: { id: req.params.id } })
+    .then((user) => {
+      try {
+        user.update({ email: req.body.email });
+      } catch (error) {
+        if (error.fields.email) {
+          res.status(200).json({ error: "Email déjà utilisé" });
+        } else if (error.fields.username) {
+          res.status(200).json({ error: "Pseudo déjà utilisé" });
+        }
+      }
+      // res.status(201).json({ user });
+    })
+    // FIXME: pm2 pour restart le serveur quand il crash
+    .catch((error) => {
+      res.status(500).json(JSON.stringify(error));
+    });
+};
+
+exports.changeUsername = (req, res) => {
+  userModel
+    .findOne({ where: { id: req.params.id } })
+    .then((user) => {
+      try {
+        user.update({ username: req.body.username });
+      } catch (error) {
+        if (error.fields.email) {
+          res.status(200).json({ error: "Email déjà utilisé" });
+        } else if (error.fields.username) {
+          res.status(200).json({ error: "Pseudo déjà utilisé" });
+        }
+      }
+      // res.status(201).json({ user });
+    })
+    // FIXME: pm2 pour restart le serveur quand il crash
+    .catch((error) => {
+      res.status(500).json(JSON.stringify(error));
+    });
 };

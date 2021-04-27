@@ -10,6 +10,8 @@ import {
   TRY_TO_LOGOUT,
   logout,
   FETCH_USER,
+  CHANGE_UR_EMAIL,
+  CHANGE_UR_USERNAME,
 } from "../actions/user";
 
 const user = (store) => (next) => (action) => {
@@ -21,6 +23,7 @@ const user = (store) => (next) => (action) => {
         withCredentials: true,
         data: {
           email: action.data.email,
+          username: action.data.username,
           password: action.data.password,
         },
       })
@@ -90,6 +93,48 @@ const user = (store) => (next) => (action) => {
           store.dispatch(questionAuthor(res.data.user));
         })
         .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+    case CHANGE_UR_EMAIL: {
+      axios({
+        method: "patch",
+        url: `/api/user/${action.id}/email`,
+        data: {
+          email: action.email,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          store.dispatch({
+            type: "ERROR_EMAIL_PATCH",
+            error: "Email déjà utilisé",
+          });
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+    case CHANGE_UR_USERNAME: {
+      axios({
+        method: "patch",
+        url: `/api/user/${action.id}/username`,
+        data: {
+          username: action.username,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          store.dispatch({
+            type: "ERROR_EMAIL_PATCH",
+            error: "Username déjà utilisé",
+          });
           console.log(error);
         });
       next(action);

@@ -1,0 +1,104 @@
+.account {
+  display: flex;
+  padding: 8%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.account__contain {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.account__profil {
+  width: 40%;
+  padding: 40px 10px;
+  border-radius: 12px;
+  border: 1px solid #dddddd;
+}
+
+.account__edit {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.profil__content {
+  margin: auto;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.profil__content p {
+  margin: 10px;
+}
+
+.profil__image {
+  width: 128px;
+  margin: auto;
+}
+
+.profil__image__content {
+  height: 128px;
+  width: 128px;
+}
+
+.profil__image__content img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.account__content {
+  height: 100%;
+  margin: 0 40px;
+  box-sizing: border-box;
+}
+.account__title {
+  font-size: 1.6em;
+  font-weight: 700;
+  line-height: inherit;
+  margin-bottom: 5px;
+}
+
+.account__date {
+  color: grey;
+}
+
+.account__input {
+  margin-top: 40px;
+}
+
+.account__input__submit {
+  margin-top: 10px;
+  display: flex;
+}
+
+.account__input__submit input {
+  height: 10px;
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+.account__editMode {
+  margin-left: 1px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.account__validate {
+  background: unset;
+  border: 0;
+  color: green;
+  cursor: pointer;
+}
+
+.account__errors {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: red;
+}

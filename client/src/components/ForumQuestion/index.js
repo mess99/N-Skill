@@ -6,6 +6,7 @@ import "./forumquestion.css";
 import Answer from "../../containers/ForumQuestion/Answer";
 const ForumQuestion = ({
   fetchUserr,
+  getUser,
   getAuthor,
   fetchAnswer,
   getAnswers,
@@ -24,9 +25,11 @@ const ForumQuestion = ({
   }, []);
 
   const sendAnswer = () => {
-    answerSending(getAuthor?.id, question?.id, getAnswering);
+    answerSending(getUser?.id, question?.id, getAnswering);
     emptyAnswering();
   };
+
+  // FIXME: ligne 50 replace email by username
 
   //TODO: changer le format de la date et le updated aussi
   //   const date = moment.unix(question.createdAt).format("Do MMMM YYYY, h:mma");
@@ -39,7 +42,9 @@ const ForumQuestion = ({
       <div className="forumquestion__description">{question.description}</div>
       <div className="forumquestion__edit">
         <span>Edit</span>
-        <div className="forumquestion__author">Author: {getAuthor?.email}</div>
+        <div className="forumquestion__author">
+          Author: {getAuthor?.username}
+        </div>
         <span>Edited {question.updatedAt}</span>
       </div>
       {/* rajouter pagination pour les commentaires aussi .. */}
@@ -51,18 +56,24 @@ const ForumQuestion = ({
 
       <div className="answering">
         <p className="yourAnswer">Your Answer</p>
-        <textarea
-          className="answering__input"
-          id="answer"
-          name="answer"
-          rows="15"
-          value={getAnswering}
-          placeholder="It was a dark and stormy night..."
-          onChange={(e) => handleChange(e.target.value)}
-        ></textarea>
-        <button onClick={sendAnswer} className="yourAnswer__button">
-          Post your answer
-        </button>
+        {getUser.isLogged ? (
+          <>
+            <textarea
+              className="answering__input"
+              id="answer"
+              name="answer"
+              rows="15"
+              value={getAnswering}
+              placeholder="It was a dark and stormy night..."
+              onChange={(e) => handleChange(e.target.value)}
+            ></textarea>
+            <button onClick={sendAnswer} className="yourAnswer__button">
+              Post your answer
+            </button>
+          </>
+        ) : (
+          <p>Log in to answer</p>
+        )}
       </div>
     </div>
   );

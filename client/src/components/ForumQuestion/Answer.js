@@ -7,12 +7,13 @@ const Answer = ({
   id,
   content,
   vote,
-  UserId,
+  User,
   increasePost,
   decreasePost,
 }) => {
   const [clicked, setClicked] = useState(false);
 
+  // isloegged true for vite TODO:
   const handleVotePlus = () => {
     if (!clicked) {
       setClicked(true);
@@ -34,7 +35,7 @@ const Answer = ({
         <ArrowDropDownIcon onClick={handleVoteMoins} />
       </div>
       <div className="answer__content">
-        <p>author {UserId} </p>
+        <p>{User?.username} </p>
         <p>{content}</p>
       </div>
     </div>

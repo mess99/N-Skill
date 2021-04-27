@@ -19,6 +19,15 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
     searchWordApi(search);
   };
 
+  const handleLogoutb = () => {
+    handleLogout();
+    setSettings(false);
+  };
+
+  const closeSettings = () => {
+    setSettings(false);
+  };
+
   return (
     <div className="nav">
       {Object.keys(wordResult).length > 0 ? <Word {...wordResult} /> : ""}
@@ -81,9 +90,10 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
             </li>
             {settings && (
               <ul className="nav__lists__user">
-                <li>profil</li>
-                <li>{t("Account")}</li>
-                <li onClick={handleLogout}>{t("Log out")}</li>
+                <Link to="account">
+                  <li onClick={closeSettings}>{t("Account")}</li>
+                </Link>
+                <li onClick={handleLogoutb}>{t("Log out")}</li>
               </ul>
             )}
           </ul>

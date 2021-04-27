@@ -95,6 +95,14 @@ const Register = (props) => {
                 </ErrorMessage>
 
                 <Label
+                  name="Username"
+                  type="username"
+                  id="username"
+                  onChange={handleChange}
+                  value={values.username}
+                  displayPWD="none"
+                />
+                <Label
                   name="Password"
                   type="password"
                   id="password"
@@ -123,15 +131,15 @@ const Register = (props) => {
 export default withFormik({
   mapPropsToValues: () => ({
     email: "",
+    username: "",
     password: "",
     // passwordConfirm: '',
   }),
   validationSchema: Yup.object().shape({
-    // username: Yup.string()
-    //     .required('Required'),
     email: Yup.string()
       .email("Adresse mail non pas valide")
       .required("Required"),
+    username: Yup.string().required("Required"),
     password: Yup.string()
       .min(6, "Doit contenir au moins 6 charactères")
       .required("Required"),

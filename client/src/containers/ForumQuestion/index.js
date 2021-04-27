@@ -6,6 +6,7 @@ import { fetchAnswers } from "../../actions/forum";
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    getUser: state.user,
     getAuthor: state.forum.authorPost,
     getAnswers: state.forum.answers,
     getAnswering: state.forum.answering,

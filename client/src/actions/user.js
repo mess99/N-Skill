@@ -3,6 +3,7 @@ export const register = (values) => ({
   type: REGISTER,
   data: {
     email: values.email,
+    username: values.username,
     password: values.password,
   },
 });
@@ -51,4 +52,18 @@ export const QUESTION_AUTHOR = "QUESTION_AUTHOR";
 export const questionAuthor = (data) => ({
   type: QUESTION_AUTHOR,
   data,
+});
+
+export const CHANGE_UR_EMAIL = "CHANGE_UR_EMAIL";
+export const changeUrEmail = (id, email) => ({
+  type: CHANGE_UR_EMAIL,
+  id,
+  email,
+});
+
+export const CHANGE_UR_USERNAME = "CHANGE_UR_USERNAME";
+export const changeUrUsername = (id, username) => ({
+  type: CHANGE_UR_USERNAME,
+  id,
+  username,
 });

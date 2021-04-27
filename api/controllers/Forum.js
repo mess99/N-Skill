@@ -1,5 +1,7 @@
 const db = require("../models");
 const postModel = db.post;
+const userModel = db.user;
+
 const postResponse = db.postResponse;
 const { getPagination, getPaginationData } = require("../utils");
 // TODO: add od. pour filtrer od.LIKE ??? voir auth middleware petit ecplorateur
@@ -57,6 +59,12 @@ exports.showAnswersByIdPost = (req, res) => {
     .findAll({
       where: { PostId: req.params.id },
       order: [["createdAt", "ASC"]],
+      // juste le username FIXME:
+      include: [
+        {
+          model: userModel,
+        },
+      ],
     })
     .then((answers) => {
       res.status(201).json({ answers });

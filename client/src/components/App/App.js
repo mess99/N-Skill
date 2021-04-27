@@ -12,11 +12,13 @@ import Story from "../../containers/Stories/Story";
 import Forum from "../../containers/Forum";
 import Modalquiz from "../../containers/Exercices/ModalQuiz/ModalQuiz";
 import ScrollToTop from "../ScrollToTop";
+import Account from "../../containers/Account";
+
 import ForumQuestion from "../../containers/ForumQuestion";
 import { useEffect } from "react";
 
-const App = ({ userId, keepLogin, isLoading }) => {
-  useEffect(keepLogin, []);
+const App = ({ user, keepLogin, isLoading }) => {
+  useEffect(keepLogin, [keepLogin]);
   return (
     <div className="App">
       {isLoading && <p>loading</p>}
@@ -52,6 +54,20 @@ const App = ({ userId, keepLogin, isLoading }) => {
             </Route>
             <Route exact path="/forum/:slug">
               <ForumQuestion />
+            </Route>
+            {user.isLogged && (
+              <Route exact path="/account">
+                <Account />
+              </Route>
+            )}
+
+            <Route exact path="/*">
+              <p>
+                404 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Vero, neque veritatis numquam fugit magnam ea nisi esse
+                exercitationem! Quod perferendis aliquam incidunt atque ut
+                voluptatem nisi cupiditate officiis iure explicabo!
+              </p>
             </Route>
           </Switch>
           <Footer />

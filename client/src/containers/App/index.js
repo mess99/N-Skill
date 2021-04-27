@@ -6,7 +6,7 @@ import { loginWithCookie } from "../../actions/user";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    userId: state.user.id,
+    user: state.user,
     isLoading: state.loading.loading,
   };
 };
