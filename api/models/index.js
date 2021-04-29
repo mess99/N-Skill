@@ -24,6 +24,7 @@ db.postResponse = require("./postResponse")(sequelize, Sequelize);
 db.story = require("./story")(sequelize, Sequelize);
 db.storyQuestion = require("./storyQuestion")(sequelize, Sequelize);
 db.storyResponse = require("./storyResponse")(sequelize, Sequelize);
+db.news = require("./news")(sequelize, Sequelize);
 
 // associate
 

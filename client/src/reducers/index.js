@@ -7,6 +7,7 @@ import word from "./word";
 import story from "./story";
 import loading from "./loading";
 import avatars from "./avatars";
+import news from "./news";
 
 const combinedReducer = combineReducers({
   exercices,
@@ -16,6 +17,7 @@ const combinedReducer = combineReducers({
   story,
   loading,
   avatars,
+  news,
 });
 
 export default combinedReducer;

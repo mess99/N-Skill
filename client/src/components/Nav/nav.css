@@ -81,6 +81,7 @@
   height: 40px;
   width: 50px;
   cursor: pointer;
+  padding: 4px;
 }
 
 .nav__lists__logged img {
