@@ -1,5 +1,6 @@
 const db = require("../models");
 const userModel = db.user;
+const Avatar = db.avatars;
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -30,7 +31,14 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   await userModel
-    .findOne({ where: { email: req.body.email } })
+    .findOne({
+      where: { email: req.body.email },
+      include: [
+        {
+          model: Avatar,
+        },
+      ],
+    })
 
     .then((user) => {
       if (!user) {
@@ -123,4 +131,11 @@ exports.changeUsername = (req, res) => {
     .catch((error) => {
       res.status(500).json(JSON.stringify(error));
     });
+};
+
+exports.updateUserAvatar = (req, res) => {
+  userModel
+    .update({ AvatarId: req.body.avatarId }, { where: { id: req.params.id } })
+    .then(() => res.status(200).json({ message: "avatar updated !" }))
+    .catch((error) => res.status(400).json(`User not found: ${error}`));
 };

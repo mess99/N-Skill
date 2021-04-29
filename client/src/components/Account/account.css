@@ -31,10 +31,6 @@
   text-align: center;
 }
 
-.profil__content p {
-  margin: 10px;
-}
-
 .profil__image {
   width: 128px;
   margin: auto;
@@ -55,6 +51,10 @@
   height: 100%;
   margin: 0 40px;
   box-sizing: border-box;
+}
+
+.account__content__box {
+  height: 15%;
 }
 .account__title {
   font-size: 1.6em;
@@ -100,4 +100,46 @@
 .account__errors {
   font-size: 0.9rem;
   color: red;
+}
+
+.account__editbtn {
+  text-decoration: underline;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.account__edit__avatar {
+  cursor: pointer;
+  text-decoration: underline;
+  margin: 10px;
+}
+
+/* avatars box */
+
+.account__avatars {
+  width: 100%;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  height: 85%;
+  border-radius: 12px;
+  /* border: 1px solid #dddddd; */
+  padding: 20px;
+}
+
+.avatars__box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+
+.avatar {
+  width: 24%;
+  box-sizing: border-box;
+  height: 30%;
+  margin-top: 10px;
+  width: max-content;
+  cursor: pointer;
 }

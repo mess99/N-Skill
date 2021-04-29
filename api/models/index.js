@@ -18,6 +18,7 @@ db.quiz = require("./quiz")(sequelize, Sequelize);
 db.question = require("./questions")(sequelize, Sequelize);
 db.response = require("./responses")(sequelize, Sequelize);
 db.user = require("./user")(sequelize, Sequelize);
+db.avatars = require("./avatar")(sequelize, Sequelize);
 db.post = require("./post")(sequelize, Sequelize);
 db.postResponse = require("./postResponse")(sequelize, Sequelize);
 db.story = require("./story")(sequelize, Sequelize);
@@ -25,6 +26,10 @@ db.storyQuestion = require("./storyQuestion")(sequelize, Sequelize);
 db.storyResponse = require("./storyResponse")(sequelize, Sequelize);
 
 // associate
+
+db.avatars.hasMany(db.user, { as: "users" });
+db.user.belongsTo(db.avatars, { foreignKey: "AvatarId" });
+
 db.quiz.hasMany(db.question);
 db.question.belongsTo(db.quiz);
 

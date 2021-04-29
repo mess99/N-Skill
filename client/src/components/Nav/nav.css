@@ -8,6 +8,16 @@
   /* box-shadow: rgb(0 0 0 / 12%) 0px 6px 20px; */
 }
 
+.nav__logo {
+  position: absolute;
+  width: 60px;
+  top: -20px;
+}
+
+.nav__logo img {
+  width: 100%;
+}
+
 .nav a {
   color: black;
   text-decoration: none;
@@ -67,7 +77,14 @@
 
 .nav__lists__logged {
   position: absolute;
-  right: 10px;
+  right: 30px;
+  height: 40px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.nav__lists__logged img {
+  width: 100%;
 }
 
 .user-settings {

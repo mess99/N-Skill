@@ -33,6 +33,25 @@ const user = (state = initialState, action = {}) => {
         ...state,
         errors: "",
       };
+    case "UPDATE_AVATAR_IN_USER_STATE":
+      return {
+        ...state,
+
+        AvatarId: action.id,
+        Avatar: {
+          ...state.Avatar,
+          id: action.id,
+        },
+      };
+    case "SAVE_AVATAR_WITH_ID":
+      return {
+        ...state,
+
+        Avatar: {
+          ...state.Avatar,
+          image: action.image,
+        },
+      };
 
     default:
       return { ...state };

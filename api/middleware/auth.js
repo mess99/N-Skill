@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const db = require("../models");
 const userModel = db.user;
+const Avatar = db.avatars;
 
 module.exports.checkUser = (req, res, next) => {
   const token = req.cookies.jwt;
@@ -10,9 +11,14 @@ module.exports.checkUser = (req, res, next) => {
         res.locals.user = null;
         next();
       } else {
-        let user = await userModel
-          .scope("withoutPassword")
-          .findOne({ where: { id: decodedToken.userId } });
+        let user = await userModel.scope("withoutPassword").findOne({
+          where: { id: decodedToken.userId },
+          include: [
+            {
+              model: Avatar,
+            },
+          ],
+        });
         res.locals.user = user;
         next();
       }

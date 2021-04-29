@@ -11,3 +11,9 @@ export const filterStoryByTheme = (stories, theme) => {
 };
 
 // FIXME: filtrerodredesc posts
+
+// delete the first avatar
+
+export const avatarFilter = (avatars) => {
+  return avatars?.filter((avatar) => avatar.id != 1);
+};

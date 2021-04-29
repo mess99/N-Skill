@@ -154,6 +154,51 @@ const user = (store) => (next) => (action) => {
       next(action);
       break;
     }
+    case "LOAD_AVATAR": {
+      axios({
+        method: "get",
+        url: "/api/avatars",
+      })
+        .then((res) => {
+          store.dispatch({ type: "SAVE_AVATARS", data: res.data });
+        })
+        .catch((err) => console.log(err));
+      next(action);
+      break;
+    }
+    case "CHOOSE_AVATAR": {
+      axios({
+        method: "patch",
+        url: `/api/user/${action.id}/avatar`,
+        data: {
+          avatarId: action.avatarId,
+        },
+      })
+        .then((res) => {
+          store.dispatch({
+            type: "UPDATE_AVATAR_IN_USER_STATE",
+            id: action.avatarId,
+          });
+        })
+        .catch((err) => console.log(err));
+      next(action);
+      break;
+    }
+    case "LOAD_AVATAR_WITH_ID": {
+      axios({
+        method: "get",
+        url: `/api/avatars/${action.id}`,
+      })
+        .then((res) => {
+          store.dispatch({
+            type: "SAVE_AVATAR_WITH_ID",
+            image: res.data.image,
+          });
+        })
+        .catch((err) => console.log(err));
+      next(action);
+      break;
+    }
 
     default:
       next(action);

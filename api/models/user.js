@@ -19,6 +19,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         defaultValue: 0,
       },
+
+      AvatarId: {
+        type: DataTypes.INTEGER,
+        foreignKey: true,
+        defaultValue: 1,
+      },
     },
     {
       scopes: {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./nav.css";
+import logo from "../../assets/images/logo.png";
 import { useTranslation } from "react-i18next";
 import Register from "../../containers/Register";
 import Login from "../../containers/Login";
@@ -52,7 +53,9 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
 
       <div className="nav__lists">
         <div className="nav__lists__logo">
-          <span>logo</span>
+          <span className="nav__logo">
+            <img src={logo} alt="" />
+          </span>
         </div>
         <ul className="nav__lists__menu">
           <li>
@@ -98,14 +101,24 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
           </ul>
         )}
         {user?.isLogged && (
-          <ul className="nav__lists__logged">
-            <li>
-              <AccountCircleIcon
-                onClick={() => setSettings(!settings)}
-                className="user-settings"
-                fontSize="large"
-              />
-            </li>
+          <div className="nav__lists__logged">
+            <div>
+              {user.AvatarId === 1 ? (
+                <AccountCircleIcon
+                  onClick={() => setSettings(!settings)}
+                  className="user-settings"
+                  fontSize="large"
+                />
+              ) : (
+                <img
+                  onClick={() => setSettings(!settings)}
+                  className="user-settings"
+                  fontSize="large"
+                  src={user.Avatar.image}
+                  alt="avatar"
+                />
+              )}
+            </div>
             {settings && (
               <ul className="nav__lists__user">
                 <Link to="account">
@@ -114,7 +127,7 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
                 <li onClick={handleLogoutb}>{t("Log out")}</li>
               </ul>
             )}
-          </ul>
+          </div>
         )}
 
         <ul className="nav__lists__language">
