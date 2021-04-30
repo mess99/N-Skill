@@ -1,6 +1,7 @@
 .nav__word {
   overflow: auto;
   max-height: 80vh;
+  z-index: 4;
 }
 
 .nav__word::-webkit-scrollbar {

@@ -20,8 +20,10 @@ import ForumQuestion from "../../containers/ForumQuestion";
 import { useEffect } from "react";
 import Loading from "../Loading";
 
-const App = ({ user, keepLogin, isLoading }) => {
+const App = ({ user, keepLogin, isLoading, loadNew, news }) => {
   useEffect(keepLogin, [keepLogin]);
+
+  useEffect(loadNew, []);
 
   return (
     <div className="App">
@@ -34,7 +36,7 @@ const App = ({ user, keepLogin, isLoading }) => {
           <Switch>
             <Route exact path="/">
               <Header {...user} />
-              <Homepage />
+              <Homepage news={news} />
             </Route>
             {/* TODO: delete tips ? and add tips in lesson, exercice ... 💡 */}
             <Route exact path="/lessons">

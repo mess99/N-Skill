@@ -29,15 +29,23 @@ const ForumQuestion = ({
     emptyAnswering();
   };
 
-  // FIXME: ligne 50 replace email by username
+  // created at
+  const date = new Date(question.createdAt);
+  const month = date.toLocaleString("default", { month: "long" });
 
-  //TODO: changer le format de la date et le updated aussi
-  //   const date = moment.unix(question.createdAt).format("Do MMMM YYYY, h:mma");
+  // updated at
+  const dateeupdate = new Date(question.updatedAt);
+  const monthupdate = dateeupdate.toLocaleString("default", { month: "long" });
+
   return (
     <div className="forumquestion">
       <div>
         <h2 className="forumquestion__title">{question.title}</h2>
-        <time className="forumquestion__date">{question.createdAt}</time>
+        <time className="forumquestion__date">
+          <span>{date.getUTCDate()}</span>
+          <span>{month}</span>
+          <span>{date.getFullYear()}</span>
+        </time>
       </div>
       <div className="forumquestion__description">{question.description}</div>
       <div className="forumquestion__edit">
@@ -45,7 +53,12 @@ const ForumQuestion = ({
         <div className="forumquestion__author">
           Author: {getAuthor?.username}
         </div>
-        <span>Edited {question.updatedAt}</span>
+        <div className="time">
+          <span>Edited:</span>
+          <span>{dateeupdate.getUTCDate()}</span>
+          <span>{monthupdate}</span>
+          <span>{dateeupdate.getFullYear()}</span>
+        </div>
       </div>
       {/* rajouter pagination pour les commentaires aussi .. */}
       <div className="answers">

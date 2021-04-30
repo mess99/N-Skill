@@ -54,7 +54,9 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
       <div className="nav__lists">
         <div className="nav__lists__logo">
           <span className="nav__logo">
-            <img src={logo} alt="" />
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
           </span>
         </div>
         <ul className="nav__lists__menu">

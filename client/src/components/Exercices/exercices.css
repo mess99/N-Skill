@@ -46,6 +46,14 @@
   display: none;
 }
 
+.exercices__level__box__arrow {
+  position: absolute;
+  right: 5px;
+  font-size: 5rem !important;
+  opacity: 0.4;
+  margin-top: 50px;
+}
+
 .exercices__level__list {
   margin: 0 20px;
   width: 26%;

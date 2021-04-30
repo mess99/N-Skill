@@ -8,11 +8,11 @@ import tips from "../../assets/images/tips.png";
 import forum from "../../assets/images/forum.png";
 
 import { useTranslation } from "react-i18next";
-import News from "../../containers/Homepage/News";
+import News from "./News";
 import RelativeSticky from "./Sticky";
 import { Link } from "react-router-dom";
 
-const Homepage = () => {
+const Homepage = ({ news }) => {
   const { t } = useTranslation();
 
   return (
@@ -71,7 +71,7 @@ const Homepage = () => {
         </Link>
       </div>
       <RelativeSticky topThresold={150}>
-        <News />
+        <News news={news} />
       </RelativeSticky>
     </div>
   );

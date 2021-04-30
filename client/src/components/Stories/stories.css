@@ -43,3 +43,45 @@
 .container__contain::-webkit-scrollbar {
   display: none;
 }
+
+@media only screen and (max-width: 1000px) {
+  .container__lists a {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container__lists a {
+    width: 30%;
+  }
+  .stories {
+    margin-top: 15%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .container__lists a {
+    width: 35%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container__lists a {
+    width: 45%;
+  }
+  .stories {
+    margin-top: 20%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container__lists a {
+    width: 55%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .stories {
+    margin-top: 25%;
+  }
+}

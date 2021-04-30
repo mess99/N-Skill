@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./exercices.css";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 import { filterQuizByLevel, filterQuizByTheme } from "../../utils";
 
@@ -53,6 +54,8 @@ const Exercices = ({ loadAllQuiz, getQuiz }) => {
       <div className="exercices__level">
         <h3>Theme</h3>
         <div className="exercices__level__box">
+          {/* <NavigateNextIcon className="exercices__level__box__arrow" /> */}
+
           <ul className="exercices__level__lists lists__theme">
             {ThemeQuiz.map((quiz) => (
               <Theme key={quiz.id} {...quiz} />

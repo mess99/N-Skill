@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  position: relative;
 }
 .forumquestion__title {
   font-size: 2rem;
@@ -27,6 +28,11 @@
   min-width: 100px;
 }
 
+.forumquestion__date span {
+  margin-right: 4px;
+  color: grey;
+}
+
 .forumquestion__edit {
   display: flex;
   justify-content: space-between;
@@ -38,9 +44,6 @@
 }
 .answering__input {
   width: 100%;
-}
-
-.answering__input:focus {
 }
 
 .yourAnswer {
@@ -90,6 +93,9 @@
   margin-bottom: 10px;
 }
 
+.time span {
+  margin-right: 4px;
+}
 @media screen and (max-width: 700px) {
   .forumquestion {
     margin-top: 15%;
@@ -99,5 +105,10 @@
 @media screen and (max-width: 700px) {
   .forumquestion {
     margin-top: 20%;
+  }
+  .forumquestion__author {
+    position: absolute;
+    right: 10px;
+    top: 10px;
   }
 }

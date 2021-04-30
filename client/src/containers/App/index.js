@@ -8,11 +8,15 @@ const mapStateToProps = (state, ownProps) => {
   return {
     user: state.user,
     isLoading: state.loading.loading,
+    news: state.news.latestNews,
   };
 };
 const mapDispatchToProps = (dispatch) => ({
   keepLogin: () => {
     dispatch(loginWithCookie());
+  },
+  loadNew: () => {
+    dispatch({ type: "LOAD_NEWS" });
   },
 });
 

@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 const News = ({ loadNew, news }) => {
   const { t } = useTranslation();
-  useEffect(loadNew, []);
+  // useEffect(loadNew, []);
 
   return (
     <div className="news">
@@ -19,7 +19,7 @@ const News = ({ loadNew, news }) => {
 
           return (
             <p key={latestNew.id}>
-              {latestN.getDay()} {month}: {latestNew.content}
+              {latestN.getUTCDate()} {month}: {latestNew.content}
             </p>
           );
         })}
