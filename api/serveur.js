@@ -25,6 +25,10 @@ app.get("/api/jwtid", requireAuth, (req, res) => {
 const routes = require("./routes");
 app.use("/api", routes);
 
-app.listen(8000, () => {
+const serveur = app.listen(8000, () => {
   console.log("listening port 8000");
+});
+
+process.addListener("SIGINT", () => {
+  console.log("here");
 });
