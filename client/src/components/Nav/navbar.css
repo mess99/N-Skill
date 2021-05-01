@@ -6,7 +6,8 @@
   width: 100%;
   background-color: white;
   z-index: 77;
-  height: 7%;
+  height: 10%;
+  padding-bottom: 20px;
 }
 
 .navbar a {
