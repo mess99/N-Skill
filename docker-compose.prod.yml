@@ -20,6 +20,8 @@ services:
       - dialect=postgresql
       - TOKEN_SECRET=HJJKNFJNFKNFG?NGNKLNGNKGLJLNJKGHGJKHGKTUIYTUYFXDFSSEFRTFGHBN?KLOIKPTMLT?nJLHIGTIUHJFNF8796758677GHBJ
     restart: unless-stopped
+    ports:
+      - 3001:8000
     depends_on:
       - db
   adminer:
