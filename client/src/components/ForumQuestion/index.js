@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import moment from "moment";
+import { useLocation } from "react-router-dom";
 
 import "./forumquestion.css";
 import Answer from "../../containers/ForumQuestion/Answer";
@@ -15,7 +14,6 @@ const ForumQuestion = ({
   answerSending,
   emptyAnswering,
 }) => {
-  const history = useHistory();
   const location = useLocation();
   const question = location.state.props;
 

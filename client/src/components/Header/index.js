@@ -6,7 +6,7 @@ import "./header.css";
 import { useTranslation } from "react-i18next";
 import Login from "../../containers/Login";
 
-const Header = ({ isLogged }) => {
+const Header = ({ isLogged, username }) => {
   const { t, i18n } = useTranslation();
 
   const welcome = () => {
@@ -31,7 +31,7 @@ const Header = ({ isLogged }) => {
         </div>
       )}
 
-      {/* {isLogged && <button className="header__login">HI</button>} TODO: */}
+      {isLogged && <p className="header__logged">HI {username} </p>}
     </header>
   );
 };

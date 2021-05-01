@@ -11,6 +11,7 @@
   display: flex;
   box-sizing: border-box;
   padding: 30px;
+  position: relative;
 }
 
 .account__profil {
@@ -124,6 +125,11 @@
   border-radius: 12px;
   /* border: 1px solid #dddddd; */
   padding: 20px;
+  overflow: auto;
+}
+
+.account__avatars::-webkit-scrollbar {
+  display: none;
 }
 
 .avatars__box {
@@ -142,4 +148,27 @@
   margin-top: 10px;
   width: max-content;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .account__profil {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+    padding: 0;
+    width: auto;
+  }
+  .account__avatars {
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .account {
+    padding: 20% 0;
+  }
+  .account__content {
+    margin: 0;
+  }
 }

@@ -31,8 +31,6 @@ const Login = (props) => {
     handleChange,
     values,
     removeError,
-    errorStateEmail,
-    errorStateUsername,
     user,
     login,
   } = props;

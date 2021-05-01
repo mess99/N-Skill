@@ -30,7 +30,7 @@ const Register = (props) => {
   const {
     handleSubmit,
     handleChange,
-    resetError,
+    // resetError,
     values,
     user,
     register,
@@ -55,9 +55,9 @@ const Register = (props) => {
     }
   };
   // const handleSubmit = () => {};
-  const handleChangeInput = () => {
-    resetError();
-  };
+  // const handleChangeInput = () => {
+  //   resetError();
+  // };
   return (
     <div className="register">
       <button className="register__open" type="button" onClick={handleOpen}>

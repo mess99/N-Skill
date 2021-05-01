@@ -87,3 +87,15 @@
     font-size: 1rem;
   }
 }
+
+@media only screen and (max-width: 650px) {
+  .makeStyles-paper-4 {
+    width: 70% !important;
+  }
+}
+
+@media only screen and (max-width: 4700px) {
+  .makeStyles-paper-4 {
+    width: 90% !important;
+  }
+}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CheckIcon from "@material-ui/icons/Check";
 import EditIcon from "@material-ui/icons/Edit";
-import random from "../../assets/images/profile/random-user.png";
 import "./account.css";
 import { avatarFilter } from "../../utils";
 const Account = ({
@@ -77,6 +76,8 @@ const Account = ({
 
   const avatarFilted = avatarFilter(avatars);
 
+  const date = new Date(user.createdAt);
+
   return (
     <div className="account">
       <div className="account__contain">
@@ -96,7 +97,9 @@ const Account = ({
           <div className="account__content">
             <div className="account__content__box">
               <h1 className="account__title">HELLO {username}</h1>
-              <span className="account__date">Joined in {user.createdAt}</span>
+              <span className="account__date">
+                Joined in {date.getUTCFullYear()}
+              </span>
               <div className="account__editbtn" onClick={handleEdit}>
                 Edit profile
               </div>

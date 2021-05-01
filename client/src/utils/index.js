@@ -7,7 +7,7 @@ export const filterQuizByTheme = (quizzes) => {
 };
 
 export const filterStoryByTheme = (stories, theme) => {
-  return stories?.filter((storie) => storie.theme == theme);
+  return stories?.filter((storie) => storie.theme === theme);
 };
 
 // FIXME: filtrerodredesc posts
@@ -15,5 +15,5 @@ export const filterStoryByTheme = (stories, theme) => {
 // delete the first avatar
 
 export const avatarFilter = (avatars) => {
-  return avatars?.filter((avatar) => avatar.id != 1);
+  return avatars?.filter((avatar) => avatar.id !== 1);
 };

@@ -4,7 +4,6 @@ import books from "../../assets/images/books.png";
 import exercices from "../../assets/images/exercices.png";
 
 import stories from "../../assets/images/stories.png";
-import tips from "../../assets/images/tips.png";
 import forum from "../../assets/images/forum.png";
 
 import { useTranslation } from "react-i18next";

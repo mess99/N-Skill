@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./exercices.css";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+// import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
 import { filterQuizByLevel, filterQuizByTheme } from "../../utils";
 
@@ -10,7 +10,7 @@ import Theme from "./Theme";
 
 const Exercices = ({ loadAllQuiz, getQuiz }) => {
   useEffect(loadAllQuiz, []);
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
 
   const LevelQuiz = filterQuizByLevel(getQuiz);
   const ThemeQuiz = filterQuizByTheme(getQuiz);

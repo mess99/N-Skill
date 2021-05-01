@@ -1,5 +1,4 @@
 .login {
-  text-align: center;
 }
 
 .login__open {
@@ -73,5 +72,17 @@
 @media only screen and (max-width: 990px) {
   .login__open {
     font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .makeStyles-paper-2 {
+    width: 70% !important;
+  }
+}
+
+@media only screen and (max-width: 4700px) {
+  .makeStyles-paper-2 {
+    width: 90% !important;
   }
 }

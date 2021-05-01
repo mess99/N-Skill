@@ -23,8 +23,17 @@
   font-weight: 800;
   border: none;
   width: 14vw;
-  font-size: 2.5vw;
+  /* font-size: 2.5vw; */
   font-size: 1.4em;
+}
+
+.header__logged {
+  position: absolute;
+  left: 10%;
+  top: 65%;
+  font-weight: 800;
+  font-size: 1.4em;
+  color: #f50157;
 }
 
 .header__login:hover {
@@ -49,12 +58,14 @@
   .banniere-desktop {
     display: none;
   }
-  .header__login {
+  .header__login,
+  .header__logged {
     top: 87%;
     width: 140px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.4em;
+    text-align: center;
   }
 }
 

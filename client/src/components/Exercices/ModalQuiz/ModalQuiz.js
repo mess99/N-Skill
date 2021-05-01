@@ -107,7 +107,7 @@ function Modalquiz({
               <div className="answer-section">
                 {getPropositions.map((answerOption) => {
                   const style =
-                    answerOption.is_true == true
+                    answerOption.is_true === true
                       ? "Modalbutton correct"
                       : "Modalbutton";
                   return (

@@ -6,7 +6,9 @@ import Header from "../Header";
 import Nav from "../../containers/Nav";
 import Homepage from "../Homepage";
 import Footer from "../Footer";
-import Burger from "../../containers/Nav/Burger";
+// import Burger from "../../containers/Nav/Burger";
+import NavBar from "../../containers/Nav/NavBar";
+
 import Lessons from "../Lessons";
 import Exercices from "../../containers/Exercices";
 import Stories from "../../containers/Stories";
@@ -32,7 +34,8 @@ const App = ({ user, keepLogin, isLoading, loadNew, news }) => {
         <>
           <ScrollToTop />
           <Nav />
-          <Burger />
+          {/* <Burger /> */}
+          <NavBar />
           <Switch>
             <Route exact path="/">
               <Header {...user} />
