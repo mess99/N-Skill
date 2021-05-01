@@ -10,8 +10,15 @@ services:
     build:
       context: ./api
       dockerfile: Dockerfile.prod
-    env_file:
-      - ./api/config/.env
+    # env_file:
+    #   - ./api/config/.env
+    environment:
+      - USER=root
+      - PASSWORD=root
+      - DB=nskill
+      - HOST=db
+      - dialect=postgresql
+      - TOKEN_SECRET=HJJKNFJNFKNFG?NGNKLNGNKGLJLNJKGHGJKHGKTUIYTUYFXDFSSEFRTFGHBN?KLOIKPTMLT?nJLHIGTIUHJFNF8796758677GHBJ
     restart: unless-stopped
     depends_on:
       - db

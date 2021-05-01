@@ -52,6 +52,5 @@ services:
       - client
       - api
       - db
-
 volumes:
   db_data:
