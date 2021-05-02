@@ -96,19 +96,27 @@
 .time span {
   margin-right: 4px;
 }
-@media screen and (max-width: 700px) {
-  .forumquestion {
-    margin-top: 15%;
-  }
-}
 
 @media screen and (max-width: 700px) {
   .forumquestion {
     margin-top: 20%;
   }
+  .answer {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .forumquestion {
+    margin: 20% 5%;
+  }
+  .answer {
+    width: auto;
+  }
   .forumquestion__author {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 12%;
   }
 }

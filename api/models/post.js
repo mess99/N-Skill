@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     "Post",
     {
       title: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1200),
         allowNull: false,
       },
       description: {
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       answers: {
-        type: DataTypes.TEXT,
+        type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 0,
       },

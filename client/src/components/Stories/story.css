@@ -53,4 +53,19 @@
 
 .story__image {
   margin-bottom: 30px;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .story {
+    margin-top: 20%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .story {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }

@@ -17,6 +17,10 @@ const Story = ({ loadTheStory, getTheStory }) => {
     setCorrection(true);
     window.scroll(0, 0);
   };
+
+  // console.log(getTheStory?.content.split("  "));
+  const truncStory = getTheStory?.content.split("  ");
+
   return (
     <div className="story">
       <h1 className="story__title">{getTheStory?.title} </h1>
@@ -25,13 +29,20 @@ const Story = ({ loadTheStory, getTheStory }) => {
         src={getTheStory?.image}
         alt={getTheStory?.title}
       />
-      <p className="story__content">{getTheStory?.content}</p>
+      {truncStory?.map((story, index) => {
+        return (
+          <p key={index} className="story__content">
+            {story}
+          </p>
+        );
+      })}
+      {/* <p className="story__content">{getTheStory?.content}</p> */}
       <div className="story__questions">
         <form onSubmit={handleSubmit}>
           {getTheStory?.Storyquestions.map((question) => (
             <div key={question.id} className="story__question">
               <p>{question.contentQuestion}</p>
-              {question.StoryResponses.map((responses) => {
+              {question.StoryResponses.map((responses, index) => {
                 if (correction) {
                   const styleTrue = responses.is_true
                     ? { color: "green" }
@@ -57,6 +68,7 @@ const Story = ({ loadTheStory, getTheStory }) => {
                         value={responses.content}
                         type="radio"
                         id={responses.id}
+                        // checked={isChecked} FIXME: uncheck input
                       />
                       <label htmlFor={responses.id} className="response">
                         {responses.content}

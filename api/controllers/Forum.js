@@ -11,7 +11,7 @@ exports.addPost = (req, res) => {
   const post = {
     title,
     description,
-    image,
+    // image,
     UserId,
   };
 

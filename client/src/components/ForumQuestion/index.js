@@ -75,7 +75,7 @@ const ForumQuestion = ({
               name="answer"
               rows="15"
               value={getAnswering}
-              placeholder="It was a dark and stormy night..."
+              placeholder="Answer..."
               onChange={(e) => handleChange(e.target.value)}
             ></textarea>
             <button onClick={sendAnswer} className="yourAnswer__button">

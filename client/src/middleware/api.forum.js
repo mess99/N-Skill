@@ -26,7 +26,6 @@ const forum = (store) => (next) => (action) => {
         },
       })
         .then((res) => {
-          console.log(res);
           store.dispatch(saveQuestionPost(res.data.post));
         })
         .catch((error) => {

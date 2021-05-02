@@ -123,7 +123,7 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
             </div>
             {settings && (
               <ul className="nav__lists__user">
-                <Link to="account">
+                <Link to="/account">
                   <li onClick={closeSettings}>{t("Account")}</li>
                 </Link>
                 <li onClick={handleLogoutb}>{t("Log out")}</li>
