@@ -9,7 +9,7 @@ app.use(cookieParser());
 const db = require("./models");
 db.sequelize
   .sync({
-    // force: true,
+    force: true,
   })
   .then(() => {
     console.log("Synchro db ok");
