@@ -129,17 +129,17 @@
 
 @media screen and (max-width: 500px) {
   .modalquiz__content {
-    height: 50%;
     transform: none;
     bottom: 0;
     left: 0;
     width: 100%;
     box-sizing: border-box;
-    height: 80%;
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
     flex-direction: column;
     top: auto;
+    z-index: 999;
+    height: 70%;
   }
   .close {
     font-size: 2rem;
