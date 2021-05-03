@@ -11,6 +11,11 @@ import News from "./News";
 import RelativeSticky from "./Sticky";
 import { Link } from "react-router-dom";
 
+import svgBooks from "../../assets/images/svg/books.svg";
+import svgLesson from "../../assets/images/svg/lesson.svg";
+import svgHomework from "../../assets/images/svg/homework.svg";
+import svgForum from "../../assets/images/svg/forum.svg";
+
 const Homepage = ({ news }) => {
   const { t } = useTranslation();
 
@@ -24,7 +29,7 @@ const Homepage = ({ news }) => {
         </div>
         <Link to="/lessons">
           <div className="homepage__content">
-            <img src={books} alt="books" />
+            <img src={svgLesson} alt="books" />
             <div className="homepage__subcontent">
               <h2 className="homepage__subtitle">{t("Lessons")}</h2>
               <p>
@@ -36,7 +41,7 @@ const Homepage = ({ news }) => {
         </Link>
         <Link to="/exercices">
           <div className="homepage__content">
-            <img src={exercices} alt="exercices" />
+            <img src={svgHomework} alt="exercices" />
             <div className="homepage__subcontent">
               <h2 className="homepage__subtitle">Exercices</h2>
               <p>
@@ -48,7 +53,7 @@ const Homepage = ({ news }) => {
         </Link>
         <Link to="/stories">
           <div className="homepage__content">
-            <img src={stories} alt="stories" />
+            <img src={svgBooks} alt="stories" />
             <div className="homepage__subcontent">
               <h2 className="homepage__subtitle">{t("Stories")}</h2>
               <p>{t("menuStory")}</p>
@@ -58,7 +63,7 @@ const Homepage = ({ news }) => {
 
         <Link to="/forum">
           <div className="homepage__content">
-            <img src={forum} alt="forum" />
+            <img src={svgForum} alt="forum" />
             <div className="homepage__subcontent">
               <h2 className="homepage__subtitle">Forum</h2>
               <p>

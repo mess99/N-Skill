@@ -23,11 +23,17 @@
   text-align: center;
   font-size: 1.2rem;
   margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .news__latest {
   width: 100%;
 }
+
+.news__latest p {
+  margin-bottom: 10px;
+}
+
 .news__latest p::first-letter {
   text-transform: uppercase;
 }

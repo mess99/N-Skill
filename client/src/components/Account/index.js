@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import CheckIcon from "@material-ui/icons/Check";
 import EditIcon from "@material-ui/icons/Edit";
 import "./account.css";
+import svgProfile from "../../assets/images/svg/profile.svg";
+
 import { avatarFilter } from "../../utils";
+
 const Account = ({
   user,
   changeEmail,
@@ -14,6 +17,7 @@ const Account = ({
 }) => {
   const [disable, setDisable] = useState({ email: true, username: true });
   const [validate, setValidate] = useState({ email: false, username: false });
+  const [profile, setProfile] = useState(true);
   const [edit, setEdit] = useState(false);
   const [editAvatars, setEditAvatars] = useState(false);
 
@@ -67,11 +71,13 @@ const Account = ({
   const handleEdit = () => {
     setEdit(!edit);
     setEditAvatars(false);
+    setProfile(!profile);
   };
 
   const editAvatar = () => {
     setEdit(false);
     setEditAvatars(!editAvatars);
+    setProfile(!profile);
   };
 
   const avatarFilted = avatarFilter(avatars);
@@ -104,7 +110,11 @@ const Account = ({
                 Edit profile
               </div>
             </div>
-
+            {/* {profile && (
+              <div className="account__avatars">
+                <img src={svgProfile} alt="" />{" "}
+              </div>
+            )} */}
             {editAvatars && (
               <div className="account__avatars">
                 <div className="avatars__box">
