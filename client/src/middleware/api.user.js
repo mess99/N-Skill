@@ -199,6 +199,21 @@ const user = (store) => (next) => (action) => {
       next(action);
       break;
     }
+    case "SEND_MAIL": {
+      axios({
+        method: "post",
+        url: `/api/send-email`,
+        data: {
+          email: action.email,
+          subject: action.subject,
+          contain: action.contain,
+        },
+      })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+      next(action);
+      break;
+    }
 
     default:
       next(action);

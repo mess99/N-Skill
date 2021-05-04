@@ -5,7 +5,7 @@ import exercices from "../../assets/images/exercices.png";
 
 import stories from "../../assets/images/stories.png";
 import forum from "../../assets/images/forum.png";
-
+// TODO: enelver
 import { useTranslation } from "react-i18next";
 import News from "./News";
 import RelativeSticky from "./Sticky";

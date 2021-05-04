@@ -26,7 +26,6 @@
 .footer__rigth {
   height: 100%;
   width: 50%;
-  position: relative;
 }
 
 .footer__rigth img {
@@ -57,8 +56,59 @@
   margin-right: 10px;
 }
 
+/* SVG */
+.svg {
+  position: absolute;
+  width: 50%;
+  right: 0;
+  bottom: 0;
+}
+
+#mail {
+  cursor: pointer;
+}
+#contenu {
+  transition: 0.4s;
+}
+#contenu:hover {
+  transform: translateY(-100px);
+  transition: 0.4s;
+}
+
+/*  */
+
+.inputContact {
+  width: 100%;
+  margin: 0px;
+  border: none;
+  color: rgb(34, 34, 34);
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: rgb(176 176 176) 0px 0px 0px 1px inset;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.makeStyles-paper-6 {
+  max-width: 500px !important;
+}
 @media only screen and (max-width: 800px) {
   .footer {
     padding-bottom: 10%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .makeStyles-paper-6 {
+    width: 70% !important;
+  }
+}
+
+@media only screen and (max-width: 4700px) {
+  .makeStyles-paper-6 {
+    width: 90% !important;
   }
 }
