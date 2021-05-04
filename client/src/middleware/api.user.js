@@ -30,7 +30,7 @@ const user = (store) => (next) => (action) => {
         .then((res) => {
           if (res.data.error) {
             store.dispatch({
-              type: "ERROR_EMAIL_PATCH",
+              type: "ERROR_EMAIL_REGISTER",
               error: res.data.error,
             });
           } else {
@@ -56,7 +56,7 @@ const user = (store) => (next) => (action) => {
         .then((res) => {
           if (res.data.error) {
             store.dispatch({
-              type: "ERROR_EMAIL_PATCH",
+              type: "ERROR_EMAIL_LOGIN",
               error: res.data.error,
             });
           } else {

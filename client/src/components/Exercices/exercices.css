@@ -62,7 +62,7 @@
   border-radius: 12px;
   /* padding: 24px; */
   box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-  transition: 1s;
+  /* transition: 1s; */
   height: min-content;
 }
 
@@ -78,10 +78,9 @@
 }
 
 .exercices__level__list a p {
-  position: absolute;
-  bottom: AUTO;
   font-size: 2rem;
   font-weight: 700;
+  border-top: 1px solid grey;
 }
 
 .exercices__level__list:hover {
@@ -102,6 +101,18 @@
   margin-top: 50px;
 }
 
+@media only screen and (max-width: 900px) {
+  .exercices__level__list a p {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .exercices__level__list a p {
+    font-size: 1.2rem;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .exercices {
     margin-top: 15%;
@@ -116,6 +127,7 @@
   }
   .exercices__level__list {
     width: 100%;
+    margin-top: 20px;
   }
   .lists__theme {
     flex-wrap: nowrap;

@@ -23,10 +23,15 @@ const user = (state = initialState, action = {}) => {
         ...state,
         isLogged: false,
       };
-    case "ERROR_EMAIL_PATCH":
+    case "ERROR_EMAIL_REGISTER":
       return {
         ...state,
-        errors: action.error,
+        errorRegister: action.error,
+      };
+    case "ERROR_EMAIL_LOGIN":
+      return {
+        ...state,
+        errorLogin: action.error,
       };
     case "EMPTY_ERROR":
       return {

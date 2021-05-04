@@ -90,7 +90,6 @@ const Register = (props) => {
                     value={values.email}
                     displayPWD="none"
                   />
-                  <p className="account__errors">{user.errors} </p>
                   <ErrorMessage name="email">
                     {(errMsg) => <span className="errorMessage">{errMsg}</span>}
                   </ErrorMessage>
@@ -121,6 +120,9 @@ const Register = (props) => {
                 <ErrorMessage name="password">
                   {(errMsg) => <span className="errorMessage">{errMsg}</span>}
                 </ErrorMessage>
+
+                {/* TODO: vider les erreurs apres */}
+                <p className="account__errors">{user.errorRegister} </p>
 
                 <button type="submit" className="form__button">
                   Sign up

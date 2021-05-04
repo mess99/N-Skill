@@ -106,7 +106,7 @@ const Login = (props) => {
                   displayPWD="block"
                   showPwd={showPwd}
                 />
-                <p className="account__errors">{user.errors} </p>
+                <p className="account__errors">{user.errorLogin} </p>
 
                 <ErrorMessage name="password">
                   {(errMsg) => <span className="errorMessage">{errMsg}</span>}
