@@ -101,13 +101,27 @@
   }
 }
 
+@media only screen and (max-width: 700px) {
+  .svg {
+    width: 80%;
+    left: 0;
+    height: 300px;
+    top: 50px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .svg {
+    height: 200px;
+  }
+}
+
 @media only screen and (max-width: 650px) {
   .makeStyles-paper-6 {
     width: 70% !important;
   }
 }
 
-@media only screen and (max-width: 4700px) {
+@media only screen and (max-width: 470px) {
   .makeStyles-paper-6 {
     width: 90% !important;
   }
