@@ -158,7 +158,6 @@ const Account = ({
                 <div className="posts__box">
                   {myPosts?.map((post) => {
                     const truncTitle = post?.title.substr(0, 20) + "\u2026";
-                    console.log(post);
                     return (
                       <div
                         key={post?.id}

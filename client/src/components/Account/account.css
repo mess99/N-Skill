@@ -201,4 +201,10 @@
   .account__posts {
     width: 70%;
   }
+  .profil__content {
+    margin: 0;
+  }
+  .account__edit__avatar {
+    margin: 0;
+  }
 }
