@@ -52,7 +52,7 @@ const forum = (state = initialState, action = {}) => {
 
       return {
         ...state,
-        answers: [...state.answers],
+        ...state.answers,
       };
     case SAVE_DECREASE:
       state.answers.splice(action.index, 1, action.data);

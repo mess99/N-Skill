@@ -74,7 +74,14 @@ exports.showAnswersByIdPost = (req, res) => {
 
 exports.increaseAnswer = (req, res) => {
   postResponse
-    .findOne({ where: { id: req.params.id } })
+    .findOne({
+      where: { id: req.params.id },
+      include: [
+        {
+          model: userModel,
+        },
+      ],
+    })
     .then((answer) => {
       answer.update({ vote: answer.vote + 1 });
       res.status(201).json({ answer });
@@ -84,7 +91,14 @@ exports.increaseAnswer = (req, res) => {
 
 exports.decreaseAnswer = (req, res) => {
   postResponse
-    .findOne({ where: { id: req.params.id } })
+    .findOne({
+      where: { id: req.params.id },
+      include: [
+        {
+          model: userModel,
+        },
+      ],
+    })
     .then((answer) => {
       answer.update({ vote: answer.vote - 1 });
       res.status(201).json({ answer });

@@ -1,0 +1,9 @@
+.answer__vote__plus:active,
+.answer__vote__moins:active {
+  color: red;
+}
+
+.answer__vote__plus,
+.answer__vote__moins {
+  cursor: pointer;
+}

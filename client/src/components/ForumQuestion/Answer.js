@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
+import "./answer.css";
 const Answer = ({
   index,
   id,
@@ -27,12 +28,19 @@ const Answer = ({
       decreasePost(id, index);
     }
   };
+
   return (
     <div className="answer">
       <div className="answer__vote">
-        <ArrowDropUpIcon onClick={handleVotePlus} />
+        <ArrowDropUpIcon
+          className="answer__vote__plus"
+          onClick={handleVotePlus}
+        />
         <span>{vote}</span>
-        <ArrowDropDownIcon onClick={handleVoteMoins} />
+        <ArrowDropDownIcon
+          className="answer__vote__moins"
+          onClick={handleVoteMoins}
+        />
       </div>
       <div className="answer__content">
         <p>{User?.username} </p>
