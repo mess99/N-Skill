@@ -92,7 +92,8 @@
   padding: 10px;
 }
 
-.makeStyles-paper-6 {
+.makeStyles-paper-6,
+.jss2 {
   max-width: 500px !important;
 }
 @media only screen and (max-width: 800px) {
@@ -116,13 +117,15 @@
 }
 
 @media only screen and (max-width: 650px) {
-  .makeStyles-paper-6 {
+  .makeStyles-paper-6,
+  .jss2 {
     width: 70% !important;
   }
 }
 
 @media only screen and (max-width: 470px) {
-  .makeStyles-paper-6 {
+  .makeStyles-paper-6,
+  .jss2 {
     width: 90% !important;
   }
 }
