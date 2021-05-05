@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     user: state.user,
     avatars: state.avatars.avatars,
+    myPosts: state.forum.myPosts,
   };
 };
 const mapDispatchToProps = (dispatch) => ({
@@ -24,6 +25,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   loadAvatarWithId: (id) => {
     dispatch({ type: "LOAD_AVATAR_WITH_ID", id });
+  },
+  loadMyPosts: () => {
+    dispatch({ type: "LOAD_MY_POSTS" });
   },
 });
 

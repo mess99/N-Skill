@@ -214,6 +214,18 @@ const user = (store) => (next) => (action) => {
       next(action);
       break;
     }
+    case "LOAD_MY_POSTS": {
+      axios({
+        method: "get",
+        url: `/api/forum/myPosts/${store.getState().user.id}`,
+      })
+        .then((res) => {
+          store.dispatch({ type: "SHOW_MY_POSTS", data: res.data });
+        })
+        .catch((err) => console.log(err));
+      next(action);
+      break;
+    }
 
     default:
       next(action);

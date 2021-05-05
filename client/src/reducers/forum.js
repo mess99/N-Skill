@@ -68,6 +68,11 @@ const forum = (state = initialState, action = {}) => {
         ...state,
         ...state.posts,
       };
+    case "SHOW_MY_POSTS":
+      return {
+        ...state,
+        myPosts: action.data,
+      };
 
     default:
       return { ...state };

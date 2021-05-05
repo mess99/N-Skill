@@ -78,7 +78,6 @@
 }
 
 .account__input__submit input {
-  height: 10px;
   width: 80%;
   padding: 10px;
   border-radius: 5px;
@@ -109,12 +108,37 @@
   cursor: pointer;
 }
 
-.account__edit__avatar {
+.account__edit__avatar,
+.profil__info__posts {
   cursor: pointer;
   text-decoration: underline;
   margin: 10px;
 }
 
+.account__posts {
+  height: 85%;
+  overflow: auto;
+}
+
+.account__post {
+  margin: 10px;
+}
+
+.account__post__answer {
+  font-size: 1.2rem !important;
+}
+
+.account__post__answers {
+  font-size: 70% !important;
+}
+
+.account__post__title {
+  font-size: 1.2rem !important;
+}
+
+.account__posts::-webkit-scrollbar {
+  display: none;
+}
 /* avatars box */
 
 .account__avatars {
@@ -162,6 +186,9 @@
   .account__avatars {
     margin-top: 50px;
   }
+  .account__posts {
+    width: 80%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -170,5 +197,8 @@
   }
   .account__content {
     margin: 0;
+  }
+  .account__posts {
+    width: 70%;
   }
 }

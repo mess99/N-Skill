@@ -143,3 +143,16 @@ exports.updatePost = (req, res) => {
     })
     .catch((error) => res.status(500).json({ error }));
 };
+
+exports.loadPostsById = (req, res) => {
+  postModel
+    .findAll({
+      where: {
+        UserId: req.params.id,
+      },
+    })
+    .then((post) => {
+      res.status(200).json(post);
+    })
+    .catch((err) => res.status(200).json(err));
+};

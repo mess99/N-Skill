@@ -3,6 +3,7 @@ import CheckIcon from "@material-ui/icons/Check";
 import EditIcon from "@material-ui/icons/Edit";
 import "./account.css";
 import svgProfile from "../../assets/images/svg/profile.svg";
+import { Link } from "react-router-dom";
 
 import { avatarFilter } from "../../utils";
 
@@ -14,12 +15,19 @@ const Account = ({
   avatars,
   handleChoose,
   loadAvatarWithId,
+  loadMyPosts,
+  myPosts,
 }) => {
   const [disable, setDisable] = useState({ email: true, username: true });
   const [validate, setValidate] = useState({ email: false, username: false });
   const [profile, setProfile] = useState(true);
   const [edit, setEdit] = useState(false);
   const [editAvatars, setEditAvatars] = useState(false);
+  const [posts, setPosts] = useState(false);
+
+  useEffect(() => {
+    loadMyPosts();
+  }, [loadMyPosts]);
 
   useEffect(() => {
     if (editAvatars) {
@@ -32,7 +40,6 @@ const Account = ({
       loadAvatarWithId(user.Avatar.id);
     }
   }, [user.AvatarId]);
-  // const [error, setError] = useState(user.errors);
 
   const [email, setEmail] = useState(user.email);
   const [username, setUsername] = useState(user.username);
@@ -71,13 +78,21 @@ const Account = ({
   const handleEdit = () => {
     setEdit(!edit);
     setEditAvatars(false);
+    setPosts(false);
     setProfile(!profile);
   };
 
   const editAvatar = () => {
     setEdit(false);
+    setPosts(false);
     setEditAvatars(!editAvatars);
     setProfile(!profile);
+  };
+
+  const showMyPosts = () => {
+    setEdit(false);
+    setEditAvatars(false);
+    setPosts(!posts);
   };
 
   const avatarFilted = avatarFilter(avatars);
@@ -98,7 +113,12 @@ const Account = ({
               Update avatar
             </p>
           </div>
+          <div className="profil__info__posts" onClick={showMyPosts}>
+            {" "}
+            My posts
+          </div>
         </div>
+
         <div className="account__edit">
           <div className="account__content">
             <div className="account__content__box">
@@ -129,6 +149,56 @@ const Account = ({
                       />
                     </div>
                   ))}
+                </div>
+              </div>
+            )}
+            {posts && myPosts?.length == 0 && <p>No posts</p>}
+            {posts && (
+              <div className="account__posts">
+                <div className="posts__box">
+                  {myPosts?.map((post) => {
+                    const truncTitle = post?.title.substr(0, 20) + "\u2026";
+                    console.log(post);
+                    return (
+                      <div
+                        key={post?.id}
+                        className="forum__questions account__post"
+                      >
+                        <Link
+                          to={{
+                            pathname: "/forum/" + post?.id,
+                            state: {
+                              props: post,
+                            },
+                          }}
+                        >
+                          <h2 className="forum__questions__title account__post__title">
+                            {truncTitle}
+                          </h2>
+                        </Link>
+                        <div className="forum__plus">
+                          <span className="forum__vote">
+                            <small className="account__post__answer">
+                              {post?.answers}
+                            </small>
+                            {post?.answers === 0 ? (
+                              <small className="account__post__answers">
+                                answer
+                              </small>
+                            ) : post?.answers === 1 ? (
+                              <small className="account__post__answers">
+                                answer
+                              </small>
+                            ) : (
+                              <small className="account__post__answers">
+                                answers
+                              </small>
+                            )}
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}
