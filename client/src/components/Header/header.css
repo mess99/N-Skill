@@ -19,10 +19,10 @@
   padding: 13px 30px;
   color: white;
   /* background-color: #e74540; */
-  background-color: #f50157;
+  background-color: rgb(255, 99, 99);
   font-weight: 800;
   border: none;
-  width: 14vw;
+  width: auto;
   /* font-size: 2.5vw; */
   font-size: 1.4em;
 }
@@ -58,10 +58,27 @@
   .banniere-desktop {
     display: none;
   }
-  .header__login,
+  /* .header__login,
   .header__logged {
     top: 87%;
     width: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.4em;
+    text-align: center;
+  } */
+  .header__welcome {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .banniere-desktop {
+    margin-top: 20px;
+  }
+  .header__login,
+  .header__logged {
+    top: 87%;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.4em;
@@ -72,11 +89,5 @@
 @media screen and (max-width: 1200px) {
   .banniere-desktop {
     margin-top: 0;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .banniere-desktop {
-    margin-top: 20px;
   }
 }

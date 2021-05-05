@@ -24,25 +24,27 @@ const Word = ({ word, phonetics, meanings, error, handleWord }) => {
           </div>
           <div className="word__content">
             {meanings?.map((mean, index) => (
-              <div key={index}>
+              <div className="div__mean" key={index}>
                 <small>({mean.partOfSpeech})</small>
 
-                <div>
-                  {mean.definitions.map((def, index) => (
-                    <div key={index}>
-                      <p>{def.definition}</p>
-                      {def.example && <p>example: {def.example}</p>}
-                      {def.synonyms && (
-                        <ul className="word__synonyms">
-                          <li>synonyms:</li>
-                          {def.synonyms?.map((syn, index) => (
-                            <li key={index}>{syn}, </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                {mean.definitions.map((def, index) => (
+                  <div className="div__def" key={index}>
+                    <p className="definition">
+                      {index + 1}- {def.definition}
+                    </p>
+                    {def.example && (
+                      <p className="example">Example: {def.example}</p>
+                    )}
+                    {def.synonyms && (
+                      <ul className="word__synonyms">
+                        <li>Synonyms: </li>
+                        {def.synonyms?.map((syn, index) => (
+                          <li key={index}>{syn}, </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
               </div>
             ))}
           </div>

@@ -49,14 +49,21 @@
   flex: auto;
   height: 30px;
 }
-.word__content div {
+.div__mean {
   margin-top: 20px;
 }
-.word__content div:nth-child(2) {
-  /* margin-top: 30px; */
+
+.div__def {
+  margin-top: 6px;
 }
+
+.example {
+  color: green;
+  font-size: 0.9rem;
+}
+
 .word__content p {
-  margin-top: 10px;
+  margin-bottom: 4px;
 }
 
 .word__content small {

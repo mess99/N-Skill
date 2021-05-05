@@ -41,10 +41,10 @@
   cursor: pointer;
   background-image: radial-gradient(
     circle at left center,
-    rgb(247, 77, 108) 0%,
-    rgb(235, 52, 95) 27.5%,
-    rgba(241, 21, 94, 0.918) 40%,
-    rgb(230, 16, 115) 57.5%,
+    rgb(255, 99, 99) 0%,
+    rgb(247, 77, 108) 25%,
+    rgba#eb4849 40%,
+    rgb(230, 16, 115) 55%,
     rgb(214, 57, 115) 75%,
     rgb(197, 48, 102) 100%
   );
