@@ -11,6 +11,7 @@ const Answer = ({
   User,
   increasePost,
   decreasePost,
+  createdAt,
 }) => {
   const [clicked, setClicked] = useState(false);
 
@@ -29,6 +30,8 @@ const Answer = ({
     }
   };
 
+  const date = new Date(createdAt);
+
   return (
     <div className="answer">
       <div className="answer__vote">
@@ -43,7 +46,10 @@ const Answer = ({
         />
       </div>
       <div className="answer__content">
-        <p>{User?.username} </p>
+        <p>
+          {User?.username} {date.getUTCDate()}/{date.getMonth()} /
+          {date.getFullYear()}
+        </p>
         <p>{content}</p>
       </div>
     </div>

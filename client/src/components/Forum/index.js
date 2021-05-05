@@ -126,6 +126,7 @@ const Forum = ({
         const truncTitle = post?.title.substr(0, 60) + "\u2026";
         return (
           <div key={post?.id} className="forum__questions">
+            {/* FIXME: props nexiste pas si je tape dans l url .. forum/3 */}
             <Link
               to={{
                 pathname: "/forum/" + post?.id,
@@ -134,7 +135,8 @@ const Forum = ({
                 },
               }}
             >
-              <h2>{truncTitle}</h2>
+              <h2 className="forum__questions__title">{truncTitle}</h2>
+              <p className="postedBy">Posted by {post?.User?.username} </p>
             </Link>
             <div className="forum__plus">
               <span className="forum__vote">

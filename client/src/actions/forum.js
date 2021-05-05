@@ -92,3 +92,11 @@ export const saveDecrease = (data, index) => {
     index,
   };
 };
+
+export const savePost = (index, data) => {
+  return {
+    type: "SAVE_POST",
+    index,
+    data,
+  };
+};

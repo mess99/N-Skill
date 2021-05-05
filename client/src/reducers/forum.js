@@ -61,6 +61,13 @@ const forum = (state = initialState, action = {}) => {
         ...state,
         answers: [...state.answers],
       };
+    case "SAVE_POST":
+      state.forum.posts.splice(action.index + 1, 1, action.payload);
+
+      return {
+        ...state,
+        ...state.posts,
+      };
 
     default:
       return { ...state };

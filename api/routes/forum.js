@@ -5,6 +5,7 @@ const forumController = require("../controllers/Forum");
 router.post("/", forumController.addPost);
 
 router.get("/", forumController.showPosts);
+router.patch("/:id", forumController.updatePost);
 
 router.post("/:id/answer", forumController.addAnswer);
 router.get("/:id/answers", forumController.showAnswersByIdPost);

@@ -123,6 +123,11 @@
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .footer__about {
+    padding: 30px;
+  }
+}
 @media only screen and (max-width: 470px) {
   .makeStyles-paper-6,
   .jss2 {

@@ -38,6 +38,13 @@ const mapDispatchToProps = (dispatch) => ({
       type: "EMPTY_ANSWERING",
     });
   },
+  updateDescription: (index, description) => {
+    dispatch({
+      type: "UPDATE_DESCRIPTION",
+      index,
+      description,
+    });
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ForumQuestion);

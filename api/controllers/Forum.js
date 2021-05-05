@@ -16,7 +16,16 @@ exports.addPost = (req, res) => {
   };
 
   postModel
-    .create(post)
+    .create(post, {
+      include: [
+        // FIXME: include doesnt work
+        {
+          model: userModel,
+          attributes: ["username"],
+        },
+      ],
+      order: [["updatedAt", "DESC"]],
+    })
     .then((post) => {
       res.status(201).json({ post });
     })
@@ -28,7 +37,16 @@ exports.showPosts = (req, res) => {
   const { limit, offset } = getPagination(page, size);
 
   postModel
-    .findAndCountAll({ limit, offset, order: [["updatedAt", "DESC"]] })
+    .findAndCountAll({
+      limit,
+      offset,
+      order: [["updatedAt", "DESC"]],
+      include: [
+        {
+          model: userModel,
+        },
+      ],
+    })
     .then((data) => {
       const response = getPaginationData(data, page, limit);
       res.status(200).json(response);
@@ -59,10 +77,10 @@ exports.showAnswersByIdPost = (req, res) => {
     .findAll({
       where: { PostId: req.params.id },
       order: [["createdAt", "ASC"]],
-      // juste le username FIXME:
       include: [
         {
           model: userModel,
+          attributes: ["username"],
         },
       ],
     })
@@ -79,6 +97,7 @@ exports.increaseAnswer = (req, res) => {
       include: [
         {
           model: userModel,
+          attributes: ["username"],
         },
       ],
     })
@@ -96,12 +115,31 @@ exports.decreaseAnswer = (req, res) => {
       include: [
         {
           model: userModel,
+          attributes: ["username"],
         },
       ],
     })
     .then((answer) => {
       answer.update({ vote: answer.vote - 1 });
       res.status(201).json({ answer });
+    })
+    .catch((error) => res.status(500).json({ error }));
+};
+
+exports.updatePost = (req, res) => {
+  postModel
+    .findOne({
+      where: { id: req.params.id },
+      include: [
+        // FIXME: exclure password
+        {
+          model: userModel,
+        },
+      ],
+    })
+    .then((post) => {
+      post.update({ description: req.body.description });
+      res.status(201).json({ post });
     })
     .catch((error) => res.status(500).json({ error }));
 };

@@ -11,6 +11,7 @@ import {
   DECREASE_POSTS,
   saveIncrease,
   saveDecrease,
+  savePost,
 } from "../actions/forum";
 
 const forum = (store) => (next) => (action) => {
@@ -26,6 +27,7 @@ const forum = (store) => (next) => (action) => {
         },
       })
         .then((res) => {
+          console.log(res);
           store.dispatch(saveQuestionPost(res.data.post));
         })
         .catch((error) => {
@@ -111,7 +113,23 @@ const forum = (store) => (next) => (action) => {
       next(action);
       break;
     }
-
+    case "UPDATE_DESCRIPTION": {
+      axios({
+        method: "patch",
+        url: `/api/forum/${action.index}`,
+        data: {
+          description: action.description,
+        },
+      })
+        .then((res) => {
+          store.dispatch(savePost(action.index, res.data.post));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
     default:
       next(action);
   }

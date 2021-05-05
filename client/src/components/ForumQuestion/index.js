@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import "./forumquestion.css";
@@ -13,13 +13,16 @@ const ForumQuestion = ({
   getAnswering,
   answerSending,
   emptyAnswering,
+  updateDescription,
 }) => {
   const location = useLocation();
-  const question = location.state.props;
+  const question = location?.state?.props;
+  const [edit, setEdit] = useState(false);
+  const [editing, setEditing] = useState(question?.description);
 
   useEffect(() => {
-    fetchUserr(question.UserId);
-    fetchAnswer(question.id);
+    fetchUserr(question?.UserId);
+    fetchAnswer(question?.id);
   }, []);
 
   const sendAnswer = () => {
@@ -27,27 +30,67 @@ const ForumQuestion = ({
     emptyAnswering();
   };
 
+  const handleEdit = () => {
+    setEdit(!edit);
+  };
+
+  const saveEditing = () => {
+    updateDescription(question?.id, editing);
+    setEdit(false);
+  };
+
   // created at
-  const date = new Date(question.createdAt);
+  const date = new Date(question?.createdAt);
   const month = date.toLocaleString("default", { month: "long" });
 
   // updated at
-  const dateeupdate = new Date(question.updatedAt);
+  const dateeupdate = new Date(question?.updatedAt);
   const monthupdate = dateeupdate.toLocaleString("default", { month: "long" });
 
   return (
     <div className="forumquestion">
       <div>
-        <h2 className="forumquestion__title">{question.title}</h2>
+        <h2 className="forumquestion__title">{question?.title}</h2>
         <time className="forumquestion__date">
           <span>{date.getUTCDate()}</span>
           <span>{month}</span>
           <span>{date.getFullYear()}</span>
         </time>
       </div>
-      <div className="forumquestion__description">{question.description}</div>
+      {edit ? (
+        <input
+          autoFocus
+          className="forumquestion__description-input"
+          type="text"
+          onChange={(e) => setEditing(e.target.value)}
+          name="description"
+          id="description"
+          value={editing}
+        />
+      ) : (
+        <div className="forumquestion__description">{editing}</div>
+      )}
       <div className="forumquestion__edit">
-        <span>Edit</span>
+        {!edit && question?.UserId === getUser.id ? (
+          <span onClick={handleEdit} className="forumquestion__edit__edit">
+            Edit
+          </span>
+        ) : (
+          ""
+        )}
+
+        {edit ? (
+          <div>
+            <span onClick={handleEdit} className="forumquestion__edit__cancel">
+              Cancel
+            </span>
+            <span onClick={saveEditing} className="forumquestion__edit__save">
+              Save
+            </span>
+          </div>
+        ) : (
+          ""
+        )}
         <div className="forumquestion__author">
           Author: {getAuthor?.username}
         </div>
