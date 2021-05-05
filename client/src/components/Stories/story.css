@@ -26,6 +26,10 @@
   line-height: 150%;
 }
 
+.story__content p {
+  margin-top: 7px;
+}
+
 .story__questions {
   margin-top: 20%;
 }
@@ -67,7 +71,6 @@
 
 @media only screen and (max-width: 400px) {
   .story__image {
-    margin-top: 0;
     margin-bottom: 0;
     float: none;
   }
