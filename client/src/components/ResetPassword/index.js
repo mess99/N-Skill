@@ -7,9 +7,8 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 
-import "./login.css";
+import "./resetPassword.css";
 import Label from "../Label";
-import ResetPassword from "../../containers/ResetPassword";
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -20,21 +19,20 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    width: "90%",
+    // width: "90%",
     maxWidth: "400px",
     borderRadius: "10px",
     maxWidth: "400px",
   },
 }));
 
-const Login = (props) => {
+const ResetPassword = (props) => {
   const {
     handleSubmit,
     handleChange,
     values,
-    removeError,
-    user,
-    login,
+    isSubmitting,
+    resetPassword,
   } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -46,27 +44,11 @@ const Login = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
-
-  const showPwd = (e) => {
-    const hidePwd = document.querySelectorAll(".header__input")[1];
-    if (hidePwd.type === "password") {
-      hidePwd.type = "text";
-    } else {
-      hidePwd.type = "password";
-    }
-  };
-  const emptyError = () => {
-    removeError();
-  };
-  // const handleSubmit = () => {};
-  // const handleChange = () => {
-  //   console.log("change");
-  // };
   return (
-    <div className="login">
-      <button className="login__open" type="button" onClick={handleOpen}>
-        {login}
-      </button>
+    <div className="reset">
+      <p className="reset__password" onClick={handleOpen}>
+        {resetPassword}
+      </p>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -81,12 +63,11 @@ const Login = (props) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 className="login__header">Sign in</h2>
+            <h2 className="login__header">Reset your password</h2>
             <div className="login__content">
-              <h3>Welcome to N'skills</h3>
+              <h4>Enter your email</h4>
               <form onSubmit={handleSubmit}>
                 <Label
-                  keyDown={emptyError}
                   name="Email"
                   type="email"
                   id="email"
@@ -98,29 +79,19 @@ const Login = (props) => {
                   {(errMsg) => <span className="errorMessage">{errMsg}</span>}
                 </ErrorMessage>
 
-                <Label
-                  keyDown={emptyError}
-                  name="Password"
-                  type="password"
-                  id="password"
-                  onChange={handleChange}
-                  value={values.password}
-                  displayPWD="block"
-                  showPwd={showPwd}
-                />
-                <p className="account__errors">{user.errorLogin} </p>
-
-                <ErrorMessage name="password">
-                  {(errMsg) => <span className="errorMessage">{errMsg}</span>}
-                </ErrorMessage>
-
-                <ResetPassword resetPassword={"Forgot password ?"} />
-
-                <button type="submit" className="form__button">
-                  Sign in
+                <button
+                  disabled={isSubmitting}
+                  type="submit"
+                  className="form__button form__reset"
+                >
+                  Reset Password
                 </button>
-                <div className="or">Or</div>
-                <div className="form__google">Continuer avec google</div>
+                <div
+                  onClick={handleClose}
+                  className="form__google form__cancel"
+                >
+                  Cancel
+                </div>
               </form>
             </div>
           </div>
@@ -133,23 +104,14 @@ const Login = (props) => {
 export default withFormik({
   mapPropsToValues: () => ({
     email: "",
-    password: "",
-    // passwordConfirm: '',
   }),
   validationSchema: Yup.object().shape({
-    // username: Yup.string()
-    //     .required('Required'),
     email: Yup.string()
       .email("Adresse mail non pas valide")
       .required("Required"),
-    password: Yup.string()
-      .min(6, "Doit contenir au moins 6 charactères")
-      .required("Required"),
-    // passwordConfirm: Yup.string()
-    //     .oneOf([Yup.ref('password'), null], 'Le mot de passe n\'est pas le même'),
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
     setSubmitting(false);
-    props.handleLogin(values.email, values.password);
+    props.handleLogin(values);
   },
-})(Login);
+})(ResetPassword);

@@ -4,6 +4,10 @@ const Avatar = db.avatars;
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const crypto = require("crypto");
+const ResetToken = db.resetToken;
+const nodemailer = require("nodemailer");
+
 exports.register = async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -138,4 +142,105 @@ exports.updateUserAvatar = (req, res) => {
     .update({ AvatarId: req.body.avatarId }, { where: { id: req.params.id } })
     .then(() => res.status(200).json({ message: "avatar updated !" }))
     .catch((error) => res.status(400).json(`User not found: ${error}`));
+};
+
+exports.forgotPassword = (req, res) => {
+  userModel
+    .findOne({ where: { email: req.body.email } })
+    .then((user) => {
+      if (user === null) {
+        return res.status(200).json({ error: "Email not found" });
+      }
+
+      // ResetToken.findOne({ where: { email: user.email } }).then((reset) => {
+      //   if (reset !== null) {
+      //     return res.status(200).json({ error: "Mail already sent" });
+      //   }
+
+      ResetToken.update(
+        {
+          used: true,
+        },
+        {
+          where: {
+            email: req.body.email,
+          },
+        }
+      );
+
+      const fpSalt = crypto.randomBytes(64).toString("base64");
+
+      Date.prototype.addHours = function (h) {
+        this.setHours(this.getHours() + h);
+        return this;
+      };
+      const expireDate = new Date().addHours(1);
+
+      ResetToken.create({
+        email: req.body.email,
+        expiration: expireDate,
+        token: fpSalt,
+        used: 0,
+      });
+      const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        requireTLS: true,
+        auth: {
+          user: "nskills.contact@gmail.com",
+          pass: "swer59100",
+        },
+      });
+      const message = {
+        from: "noreply@nskills.ovh",
+        to: req.body.email,
+        subject: "Reset password - N'skills",
+        html: `<h2>Email to reset your password</h2>
+      <p>To reset your password, follow this link:</p>
+      <a href=http://localhost/newpassword?token=${fpSalt}&email=${req.body.email}> Click here</a>`,
+      };
+      // FIXME: changer le localhost par le serveur
+      transporter.sendMail(message, function (err, info) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(info);
+        }
+      });
+      return res.status(200).json({ status: "ok" });
+    })
+    // })
+    .catch((err) => console.log(err));
+};
+
+exports.newPassword = async (req, res) => {
+  const record = await ResetToken.findOne({
+    where: {
+      email: req.body.email,
+      token: req.body.token,
+      // used: 0
+    },
+  });
+
+  if (record === null) {
+    return res.json({
+      status: "error",
+      message: "Token not found. Try again.",
+    });
+  }
+
+  const newhashPassword = await bcrypt.hash(req.body.password, 10);
+
+  await userModel.update(
+    {
+      password: newhashPassword,
+    },
+    {
+      where: {
+        email: req.body.email,
+      },
+    }
+  );
+  return res.json({ status: "ok", message: "Password reset." });
 };

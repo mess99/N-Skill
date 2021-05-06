@@ -21,6 +21,7 @@ import Account from "../../containers/Account";
 import ForumQuestion from "../../containers/ForumQuestion";
 import { useEffect } from "react";
 import Loading from "../Loading";
+import NewPassword from "../../containers/ResetPassword/NewPassword";
 
 const App = ({ user, keepLogin, isLoading, loadNew, news }) => {
   useEffect(keepLogin, [keepLogin]);
@@ -64,6 +65,9 @@ const App = ({ user, keepLogin, isLoading, loadNew, news }) => {
             </Route>
             <Route exact path="/forum/:slug">
               <ForumQuestion />
+            </Route>
+            <Route exact path="/newpassword">
+              <NewPassword />
             </Route>
             {user.isLogged && (
               <Route exact path="/account">

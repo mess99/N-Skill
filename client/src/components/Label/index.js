@@ -31,6 +31,7 @@ const Label = ({
   const handleFocus = () => {
     setHideType({
       opacity: "1",
+      overflow: "hidden",
     });
 
     setLabelName({ ...labelName, transform: "translateY(-10px) scale(0.70)" });

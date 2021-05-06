@@ -1,4 +1,5 @@
 import axios from "axios";
+import swal from "sweetalert";
 import {
   tryToLogin,
   login,
@@ -89,7 +90,6 @@ const user = (store) => (next) => (action) => {
         url: "/api/user/logout",
       })
         .then((res) => {
-          console.log(res);
           store.dispatch(logout());
         })
         .catch((error) => {
@@ -223,6 +223,63 @@ const user = (store) => (next) => (action) => {
           store.dispatch({ type: "SHOW_MY_POSTS", data: res.data });
         })
         .catch((err) => console.log(err));
+      next(action);
+      break;
+    }
+    case "RESET_PASSWORD_CHECK_MAIL": {
+      axios({
+        method: "post",
+        url: `api/user/forgotpassword`,
+        withCredentials: true,
+        data: {
+          email: action.data,
+        },
+      })
+        .then((response) => {
+          if (!response.data.error) {
+            swal("Email sent", " ", "success").then(() => {
+              window.location = "/";
+            });
+          } else {
+            const errorOfRegister = response.data.error;
+            swal("Oups...", errorOfRegister, "error");
+          }
+        })
+        .catch((error) => {});
+      next(action);
+      break;
+    }
+
+    case "RESET_PASSWORD_SEND_NEW_ONE": {
+      console.log(action);
+      axios({
+        method: "post",
+
+        url: `api/user/newpassword`,
+        withCredentials: true,
+        data: {
+          password: action.data.password,
+          email: action.data.email,
+          token: action.data.token,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          if (response.data.status === "ok") {
+            swal(response.data.message, " ", "success").then(() => {
+              window.location = "/";
+            });
+          } else {
+            swal(
+              "Oops...",
+              "Something Went Wrong, Please Try Again Later",
+              "error"
+            ).then(() => {
+              window.location = "/";
+            });
+          }
+        })
+        .catch((error) => {});
       next(action);
       break;
     }
