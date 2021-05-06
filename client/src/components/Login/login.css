@@ -64,6 +64,7 @@
   border: 2px solid rgb(176, 176, 176);
   background: transparent;
   margin-top: 10px;
+  width: 100%;
 }
 
 .form__google:hover {

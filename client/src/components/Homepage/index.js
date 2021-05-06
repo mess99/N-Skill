@@ -33,8 +33,7 @@ const Homepage = ({ news }) => {
             <div className="homepage__subcontent">
               <h2 className="homepage__subtitle">{t("Lessons")}</h2>
               <p>
-                Includes lessons, quizzes, grammar explanations, and discussion
-                forums for students.
+                Includes lessons, grammar explanations, expressions, tips ...
               </p>
             </div>
           </div>
@@ -44,10 +43,7 @@ const Homepage = ({ news }) => {
             <img src={svgHomework} alt="exercices" />
             <div className="homepage__subcontent">
               <h2 className="homepage__subtitle">Exercices</h2>
-              <p>
-                Includes lessons, quizzes, grammar explanations, and discussion
-                forums for students.
-              </p>
+              <p>Test your English language skills with a quiz.</p>
             </div>
           </div>
         </Link>
@@ -66,10 +62,7 @@ const Homepage = ({ news }) => {
             <img src={svgForum} alt="forum" />
             <div className="homepage__subcontent">
               <h2 className="homepage__subtitle">Forum</h2>
-              <p>
-                Includes lessons, quizzes, grammar explanations, and discussion
-                forums for students.
-              </p>
+              <p>Discussion forums, ask for help</p>
             </div>
           </div>
         </Link>

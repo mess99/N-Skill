@@ -43,7 +43,7 @@ const NewPassword = (props) => {
   };
 
   const showPwd = (e) => {
-    const hidePwd = document.querySelectorAll(".header__input")[2];
+    const hidePwd = document.querySelector(".header__input");
     if (hidePwd.type === "password") {
       hidePwd.type = "text";
     } else {

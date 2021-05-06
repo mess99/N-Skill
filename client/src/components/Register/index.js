@@ -129,7 +129,9 @@ const Register = (props) => {
                   Sign up
                 </button>
                 <div className="or">Or</div>
-                <div className="form__google">S'inscrire avec google</div>
+                <button disabled className="form__google">
+                  S'inscrire avec google
+                </button>
               </form>
             </div>
           </div>

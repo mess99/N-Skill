@@ -120,7 +120,9 @@ const Login = (props) => {
                   Sign in
                 </button>
                 <div className="or">Or</div>
-                <div className="form__google">Continuer avec google</div>
+                <button disabled className="form__google">
+                  Continuer avec google
+                </button>
               </form>
             </div>
           </div>

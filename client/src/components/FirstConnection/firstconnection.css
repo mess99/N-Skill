@@ -1,0 +1,76 @@
+.firstconnection {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.firstconnection__content {
+  background-color: white;
+  width: 450px;
+  min-height: 200px;
+  height: min-content;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+  display: flex;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  color: black;
+  z-index: 999;
+}
+
+.first__btn {
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+}
+
+.first__next,
+.first__skip {
+  color: black;
+  border-radius: 15px;
+  padding: 5px;
+  border: 1px solid #234668;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.first__next:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 500px) {
+  .modalquiz__content {
+    transform: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    flex-direction: column;
+    top: auto;
+    z-index: 999;
+    height: 70%;
+  }
+  .close {
+    font-size: 2rem;
+  }
+  .question-section {
+    align-items: center;
+    margin-top: -20px;
+  }
+  .question-image {
+    width: 50%;
+    margin-top: 10px;
+  }
+  .Modalbutton {
+    margin-top: 10px;
+  }
+  .score-section {
+    justify-content: center;
+  }
+}

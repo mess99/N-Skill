@@ -200,7 +200,9 @@ exports.forgotPassword = (req, res) => {
       <p>To reset your password, follow this link:</p>
       <a href=http://localhost/newpassword?token=${fpSalt}&email=${req.body.email}> Click here</a>`,
       };
-      // FIXME: changer le localhost par le serveur
+      // FIXME: changer le localhost par le serveur, TODO: si node env === prod ..
+      //  <a href=http://nskills.ovh/newpassword?token=${fpSalt}&email=${req.body.email}> Click here</a>`,
+
       transporter.sendMail(message, function (err, info) {
         if (err) {
           console.log(err);

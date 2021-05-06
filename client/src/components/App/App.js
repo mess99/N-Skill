@@ -22,12 +22,14 @@ import ForumQuestion from "../../containers/ForumQuestion";
 import { useEffect } from "react";
 import Loading from "../Loading";
 import NewPassword from "../../containers/ResetPassword/NewPassword";
+import FirstConnection from "../FirstConnection";
 
 const App = ({ user, keepLogin, isLoading, loadNew, news }) => {
   useEffect(keepLogin, [keepLogin]);
 
   useEffect(loadNew, []);
 
+  console.log(user.firstConnection);
   return (
     <div className="App">
       {isLoading && <Loading />}
@@ -39,8 +41,18 @@ const App = ({ user, keepLogin, isLoading, loadNew, news }) => {
           <NavBar />
           <Switch>
             <Route exact path="/">
-              <Header {...user} />
-              <Homepage news={news} />
+              {user.isLogged && user.firstConnection === 0 ? (
+                <>
+                  {/* <FirstConnection /> */}
+                  <Header {...user} />
+                  <Homepage news={news} />
+                </>
+              ) : (
+                <>
+                  <Header {...user} />
+                  <Homepage news={news} />
+                </>
+              )}
             </Route>
             {/* TODO: delete tips ? and add tips in lesson, exercice ... 💡 */}
             <Route exact path="/lessons">
