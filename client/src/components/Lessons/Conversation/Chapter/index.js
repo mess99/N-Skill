@@ -8,11 +8,11 @@ const Chapter = ({ dialogues, isLoading }) => {
 
   // const dialogue = getConvBySlug(dialogues, slug);
 
-  const firstDialogue = dialogues?.firstdialogue.split("  ");
-  const secondDialogue = dialogues?.seconddialogue.split("  ");
+  const firstDialogue = dialogues?.firstdialogue?.split("  ");
+  const secondDialogue = dialogues?.seconddialogue?.split("  ");
 
-  const firstTips = dialogues?.firsttips.split("  ");
-  const secondTips = dialogues?.secondtips.split("  ");
+  const firstTips = dialogues?.firsttips?.split("  ");
+  const secondTips = dialogues?.secondtips?.split("  ");
 
   return (
     <div className="chapter">

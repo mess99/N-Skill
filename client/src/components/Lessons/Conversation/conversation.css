@@ -15,6 +15,10 @@
   z-index: 4;
 }
 
+.conv__left li {
+  margin-top: 10px;
+}
+
 .conv__left p {
   margin-bottom: 5px;
 }
