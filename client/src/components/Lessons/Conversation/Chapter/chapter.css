@@ -1,0 +1,76 @@
+.chapter {
+  margin: 15vh 5%;
+  width: 90%;
+}
+
+.chapter p {
+  margin: 3px 0;
+}
+
+.chapter__content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.chapter__content__content {
+  margin-bottom: 50px;
+}
+
+.chapter__first,
+.chapter__second {
+  margin-top: 50px;
+  padding: 50px;
+  position: relative;
+}
+
+.tips {
+  width: 40%;
+  padding: 10px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+  position: relative;
+  min-width: 300px;
+}
+
+.tips p:nth-of-type(1) {
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* SVG  */
+
+.ideaSvg {
+  width: 40px;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: -50px;
+}
+
+#lightIdea {
+  animation: light 1.5s 1s forwards;
+}
+
+@keyframes light {
+  100% {
+    fill: yellow;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .chapter__first,
+  .chapter__second {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .ideaSvg {
+    width: 30px;
+    top: -35px;
+  }
+}

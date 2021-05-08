@@ -23,13 +23,29 @@ import { useEffect } from "react";
 import Loading from "../Loading";
 import NewPassword from "../../containers/ResetPassword/NewPassword";
 import FirstConnection from "../FirstConnection";
+import Conversation from "../../containers/Lessons/Conversation";
+import Chapter from "../../containers/Lessons/Conversation/Chapter";
 
-const App = ({ user, keepLogin, isLoading, loadNew, news }) => {
+import Vocabulary from "../Lessons/Vocabulary";
+import Grammar from "../Lessons/Grammar";
+import Test from "../Lessons/Test";
+
+const App = ({
+  user,
+  keepLogin,
+  isLoading,
+  loadNew,
+  news,
+  loadConv,
+  dialogues,
+}) => {
   useEffect(keepLogin, [keepLogin]);
 
   useEffect(loadNew, []);
 
-  console.log(user.firstConnection);
+  // FIXME: faire la meme chose pour forum toutes les pages
+  useEffect(loadConv, []);
+
   return (
     <div className="App">
       {isLoading && <Loading />}
@@ -54,9 +70,23 @@ const App = ({ user, keepLogin, isLoading, loadNew, news }) => {
                 </>
               )}
             </Route>
-            {/* TODO: delete tips ? and add tips in lesson, exercice ... 💡 */}
             <Route exact path="/lessons">
               <Lessons />
+            </Route>
+            <Route exact path="/lessons/conversations">
+              <Conversation dialogues={dialogues} />
+            </Route>
+            <Route path="/conversations/:slug">
+              <Chapter />
+            </Route>
+            <Route exact path="/vocabulary">
+              <Vocabulary />
+            </Route>
+            <Route exact path="/grammar">
+              <Grammar />
+            </Route>
+            <Route exact path="/test">
+              <Test />
             </Route>
             <Route exact path="/exercices">
               <Exercices />

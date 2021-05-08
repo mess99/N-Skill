@@ -229,7 +229,7 @@ const user = (store) => (next) => (action) => {
     case "RESET_PASSWORD_CHECK_MAIL": {
       axios({
         method: "post",
-        url: `api/user/forgotpassword`,
+        url: `api/user/forgotpassword`, //FIXME:  rajouter / devant api et retester
         withCredentials: true,
         data: {
           email: action.data,
@@ -255,7 +255,7 @@ const user = (store) => (next) => (action) => {
       axios({
         method: "post",
 
-        url: `api/user/newpassword`,
+        url: `api/user/newpassword`, //FIXME:  rajouter / devant api et retester
         withCredentials: true,
         data: {
           password: action.data.password,

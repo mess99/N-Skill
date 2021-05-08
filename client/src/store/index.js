@@ -6,6 +6,7 @@ import apiUser from "../middleware/api.user";
 import apiStory from "../middleware/api.story";
 import apiExternDico from "../middleware/api.dico.externe";
 import apiNews from "../middleware/api.news";
+import apiLessons from "../middleware/api.lessons";
 
 import reducer from "../reducers";
 
@@ -18,7 +19,8 @@ const Store = createStore(
       apiUser,
       apiStory,
       apiExternDico,
-      apiNews
+      apiNews,
+      apiLessons
     )
   )
 );

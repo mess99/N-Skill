@@ -6,6 +6,7 @@ const forumRoute = require("./forum");
 const storyRoute = require("./story");
 const avatarRoute = require("./avatar");
 const newsRoute = require("./news");
+const conversationRoute = require("./conversation");
 
 router.use("/user", userRoute);
 router.use("/quiz", quizRoute);
@@ -14,6 +15,7 @@ router.use("/forum", forumRoute);
 router.use("/stories", storyRoute);
 router.use("/avatars", avatarRoute);
 router.use("/news", newsRoute);
+router.use("/conversation", conversationRoute);
 
 // contact us
 

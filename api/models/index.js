@@ -31,6 +31,7 @@ db.storyQuestion = require("./storyQuestion")(sequelize, Sequelize);
 db.storyResponse = require("./storyResponse")(sequelize, Sequelize);
 db.news = require("./news")(sequelize, Sequelize);
 db.resetToken = require("./resetToken")(sequelize, Sequelize);
+db.conversation = require("./conversation")(sequelize, Sequelize);
 
 // associate
 
