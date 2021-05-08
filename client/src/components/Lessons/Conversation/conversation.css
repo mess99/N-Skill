@@ -6,12 +6,21 @@
 
 .conversation h1 {
   font-size: 3rem;
+  margin-bottom: 10px;
 }
 
 .conv__left {
   width: 50%;
   padding: 0 30px;
   z-index: 4;
+}
+
+.conv__left p {
+  margin-bottom: 5px;
+}
+
+.conv__left ul {
+  margin-top: 50px;
 }
 
 .conv__rigth {
