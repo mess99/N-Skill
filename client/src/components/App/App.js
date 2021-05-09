@@ -29,6 +29,7 @@ import Chapter from "../../containers/Lessons/Conversation/Chapter";
 import Vocabulary from "../Lessons/Vocabulary";
 import Grammar from "../Lessons/Grammar";
 import Test from "../Lessons/Test";
+import Legacy from "../Footer/Legacy";
 
 const App = ({
   user,
@@ -110,6 +111,9 @@ const App = ({
             </Route>
             <Route exact path="/newpassword">
               <NewPassword />
+            </Route>
+            <Route path="/privacy">
+              <Legacy />
             </Route>
             {user.isLogged && (
               <Route exact path="/account">

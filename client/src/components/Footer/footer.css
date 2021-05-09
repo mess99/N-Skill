@@ -96,6 +96,13 @@
 .jss2 {
   max-width: 500px !important;
 }
+
+/* page privacy */
+
+.privacy {
+  margin: 15vh 5%;
+}
+
 @media only screen and (max-width: 800px) {
   .footer {
     padding-bottom: 20%;

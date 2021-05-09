@@ -13,16 +13,19 @@ const Conversation = ({ dialogues }) => {
   const [svg2, setSvg2] = useState(false);
   const [svg3, setSvg3] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      first();
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
-
   // useEffect(() => {
-  //   first();
+  //   let isSubscribed = true;
+  //   const timer = setTimeout(() => {
+  //     if (isSubscribed) {
+  //       first();
+  //     }
+  //   }, 500);
+  //   return () => (isSubscribed = false);
   // }, []);
+
+  useEffect(() => {
+    first();
+  }, []);
 
   const first = () => {
     setSvg(true);

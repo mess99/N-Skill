@@ -268,7 +268,9 @@ const Footer = ({ sendMail }) => {
       <div className="footer__about">
         <ul>
           <li>© 2021 N'skills</li>
-          <li>Privacy</li>
+          <Link to="/privacy">
+            <li>Privacy</li>
+          </Link>
           <li>About</li>
         </ul>
       </div>
