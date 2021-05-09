@@ -17,3 +17,7 @@ export const getConvBySlug = (state, slug) => {
     (dialogue) => slug === slugifyTitle(dialogue.title)
   );
 };
+
+export const getPostBySlug = (state, slug) => {
+  return state.forum?.postId?.find((post) => slug === post.id);
+};

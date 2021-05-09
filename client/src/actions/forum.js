@@ -9,6 +9,8 @@ export const INCREASE_POSTS = "INCREASE_POSTS";
 export const DECREASE_POSTS = "DECREASE_POSTS";
 export const SAVE_INCREASE = "SAVE_INCREASE";
 export const SAVE_DECREASE = "SAVE_DECREASE";
+export const LOAD_POST_BY_ID = "LOAD_POST_BY_ID";
+export const SAVE_POST_ID = "SAVE_POST_ID";
 
 export const sendQuestion = (title, description, UserId) => {
   return {
@@ -40,6 +42,19 @@ export const saveDataforum = (payload) => {
   };
 };
 
+export const loadPostById = (id) => {
+  return {
+    type: LOAD_POST_BY_ID,
+    id,
+  };
+};
+
+export const savePostId = (data) => {
+  return {
+    type: SAVE_POST_ID,
+    data,
+  };
+};
 export const fetchAnswers = (id) => {
   return {
     type: FETCH_ANSWERS,

@@ -27,13 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NewPassword = (props) => {
-  const {
-    handleSubmit,
-    handleChange,
-    values,
-    isSubmitting,
-    resetPassword,
-  } = props;
+  const { handleSubmit, handleChange, values, isSubmitting } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const history = useHistory();
@@ -143,7 +137,6 @@ export default withFormik({
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
     setSubmitting(false);
-    console.log(values);
     props.handleSendNewPW(values);
   },
 })(NewPassword);

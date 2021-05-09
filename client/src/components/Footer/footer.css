@@ -102,6 +102,21 @@
 .privacy {
   margin: 15vh 5%;
 }
+.privacy h2,
+.privacy h3 {
+  font-size: 1.7rem;
+  line-height: 1.28571429em;
+  margin: calc(2rem - 0.14285714em) 0 1rem;
+  font-weight: 700;
+}
+
+.privacy h3 {
+  font-size: 1.2rem;
+}
+
+.privacy p {
+  margin: 0 0 1em;
+}
 
 @media only screen and (max-width: 800px) {
   .footer {

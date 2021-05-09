@@ -8,7 +8,6 @@ const dico = (store) => (next) => (action) => {
         url: `https://api.dictionaryapi.dev/api/v2/entries/en_US/${action.word}`,
       })
         .then((res) => {
-          console.log(res);
           store.dispatch({
             type: "WORD_FOUND",
             data: res.data[0],

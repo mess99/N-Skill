@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./forum.css";
 import BasicPagination from "./Paginations";
 import { makeStyles } from "@material-ui/core/styles";
@@ -37,6 +37,8 @@ const Forum = ({
   const [titleState, setTitleState] = useState("");
   const [contentState, setContentState] = useState("");
 
+  let history = useHistory();
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -53,11 +55,12 @@ const Forum = ({
     window.scrollTo(0, 0);
   };
 
-  const handleClickAsk = () => {
+  const handleClickAsk = (e) => {
     askQuestion(titleState, contentState, currentUser.id);
     setTitleState("");
     setContentState("");
     setOpen(false);
+    history.push(`/forum/${getPostsInfo.totalItems + 1}`);
   };
 
   return (
@@ -113,7 +116,12 @@ const Forum = ({
                     rows="15"
                   />
                 </div>
-                <button onClick={handleClickAsk} className="question__button">
+                <button
+                  onClick={(e) => {
+                    handleClickAsk(e);
+                  }}
+                  className="question__button"
+                >
                   Send
                 </button>
               </div>

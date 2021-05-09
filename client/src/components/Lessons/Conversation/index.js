@@ -24,7 +24,11 @@ const Conversation = ({ dialogues }) => {
   // }, []);
 
   useEffect(() => {
-    first();
+    let isSubscribed = true;
+    if (isSubscribed) {
+      first();
+    }
+    return () => (isSubscribed = false);
   }, []);
 
   const first = () => {

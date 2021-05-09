@@ -32,6 +32,24 @@ exports.addPost = (req, res) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
+exports.showPostById = (req, res) => {
+  postModel
+    .findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [
+        {
+          model: userModel,
+        },
+      ],
+    })
+    .then((post) => {
+      res.status(200).json(post);
+    })
+    .catch((err) => res.status(200).json(err));
+};
+
 exports.showPosts = (req, res) => {
   const { page, size } = req.query;
   const { limit, offset } = getPagination(page, size);
@@ -64,9 +82,13 @@ exports.addAnswer = (req, res) => {
   postResponse
     .create(answer)
     .then((answer) => {
-      postModel.findOne({ where: { id: answer.PostId } }).then((post) => {
-        post.update({ answers: post.answers + 1 });
-      });
+      postModel
+        .findOne({
+          where: { id: answer.PostId },
+        })
+        .then((post) => {
+          post.update({ answers: post.answers + 1 });
+        });
       res.status(201).json({ answer });
     })
     .catch((error) => res.status(500).json({ error }));

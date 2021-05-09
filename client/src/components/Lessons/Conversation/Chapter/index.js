@@ -1,13 +1,7 @@
 import React from "react";
-import { useParams } from "react-router";
-import { getConvBySlug } from "../../../../utils/slugUrl";
 import IdeaSvg from "../Svg/ideaSvg";
 import "./chapter.css";
 const Chapter = ({ dialogues, isLoading }) => {
-  const { slug } = useParams();
-
-  // const dialogue = getConvBySlug(dialogues, slug);
-
   const firstDialogue = dialogues?.firstdialogue?.split("  ");
   const secondDialogue = dialogues?.seconddialogue?.split("  ");
 

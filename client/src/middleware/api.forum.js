@@ -12,6 +12,8 @@ import {
   saveIncrease,
   saveDecrease,
   savePost,
+  LOAD_POST_BY_ID,
+  savePostId,
 } from "../actions/forum";
 
 const forum = (store) => (next) => (action) => {
@@ -27,7 +29,6 @@ const forum = (store) => (next) => (action) => {
         },
       })
         .then((res) => {
-          console.log(res);
           store.dispatch(saveQuestionPost(res.data.post));
         })
         .catch((error) => {
@@ -44,6 +45,22 @@ const forum = (store) => (next) => (action) => {
       })
         .then((res) => {
           store.dispatch(saveDataforum(res.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+
+    case LOAD_POST_BY_ID: {
+      const postId = action.id;
+      axios({
+        method: "get",
+        url: `/api/forum/${postId}`,
+      })
+        .then((res) => {
+          store.dispatch(savePostId(res.data));
         })
         .catch((error) => {
           console.log(error);
@@ -122,6 +139,7 @@ const forum = (store) => (next) => (action) => {
         },
       })
         .then((res) => {
+          // console.log(res);
           store.dispatch(savePost(action.index, res.data.post));
         })
         .catch((error) => {

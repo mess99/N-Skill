@@ -4,9 +4,10 @@ import { useLocation } from "react-router-dom";
 import "./forumquestion.css";
 import Answer from "../../containers/ForumQuestion/Answer";
 const ForumQuestion = ({
+  loadThePost,
+  currentPost,
   fetchUserr,
   getUser,
-  getAuthor,
   fetchAnswer,
   getAnswers,
   handleChange,
@@ -18,15 +19,26 @@ const ForumQuestion = ({
   const location = useLocation();
   const question = location?.state?.props;
   const [edit, setEdit] = useState(false);
-  const [editing, setEditing] = useState(question?.description);
+  // FIXME: edit post a refaire
+  const [editing, setEditing] = useState(currentPost?.description);
 
   useEffect(() => {
-    fetchUserr(question?.UserId);
-    fetchAnswer(question?.id);
+    loadThePost();
   }, []);
 
+  useEffect(() => {
+    // fetchUserr(currentPost?.UserId);
+    if (typeof currentPost?.id !== "undefined") {
+      fetchAnswer(currentPost?.id);
+    }
+  }, [currentPost?.id]);
+
+  // if (typeof currentPost?.description !== "undefined") {
+  //   setEditing(question?.description);
+  // }
+
   const sendAnswer = () => {
-    answerSending(getUser?.id, question?.id, getAnswering);
+    answerSending(getUser?.id, currentPost?.id, getAnswering);
     emptyAnswering();
   };
 
@@ -35,22 +47,25 @@ const ForumQuestion = ({
   };
 
   const saveEditing = () => {
-    updateDescription(question?.id, editing);
+    updateDescription(currentPost?.id, editing);
     setEdit(false);
   };
 
   // created at
-  const date = new Date(question?.createdAt);
+  const date = new Date(currentPost?.createdAt);
   const month = date.toLocaleString("default", { month: "long" });
 
   // updated at
-  const dateeupdate = new Date(question?.updatedAt);
+  const dateeupdate = new Date(currentPost?.updatedAt);
   const monthupdate = dateeupdate.toLocaleString("default", { month: "long" });
 
+  if (typeof currentPost === "undefined") {
+    return <p>loading</p>;
+  }
   return (
     <div className="forumquestion">
       <div>
-        <h2 className="forumquestion__title">{question?.title}</h2>
+        <h2 className="forumquestion__title">{currentPost?.title}</h2>
         <time className="forumquestion__date">
           <span>{date.getUTCDate()}</span>
           <span>{month}</span>
@@ -68,10 +83,12 @@ const ForumQuestion = ({
           value={editing}
         />
       ) : (
-        <div className="forumquestion__description">{editing}</div>
+        <div className="forumquestion__description">
+          {currentPost?.description}
+        </div>
       )}
       <div className="forumquestion__edit">
-        {!edit && question?.UserId === getUser.id ? (
+        {!edit && currentPost?.UserId === getUser.id ? (
           <span onClick={handleEdit} className="forumquestion__edit__edit">
             Edit
           </span>
@@ -92,7 +109,7 @@ const ForumQuestion = ({
           ""
         )}
         <div className="forumquestion__author">
-          Author: {getAuthor?.username}
+          Author: {currentPost?.User.username}
         </div>
         <div className="time">
           <span>Edited:</span>

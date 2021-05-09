@@ -1,4 +1,4 @@
-import { LOAD_CONVERSATION, SAVE_CONVE } from "../actions/lessons";
+import { SAVE_CONVE } from "../actions/lessons";
 
 const initialState = {};
 

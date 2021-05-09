@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import CheckIcon from "@material-ui/icons/Check";
 import EditIcon from "@material-ui/icons/Edit";
 import "./account.css";
-import svgProfile from "../../assets/images/svg/profile.svg";
 import { Link } from "react-router-dom";
 
 import { avatarFilter } from "../../utils";

@@ -120,9 +120,7 @@ const user = (store) => (next) => (action) => {
           email: action.email,
         },
       })
-        .then((res) => {
-          console.log(res);
-        })
+        .then((res) => {})
         .catch((error) => {
           store.dispatch({
             type: "ERROR_EMAIL_PATCH",
@@ -141,9 +139,7 @@ const user = (store) => (next) => (action) => {
           username: action.username,
         },
       })
-        .then((res) => {
-          console.log(res);
-        })
+        .then((res) => {})
         .catch((error) => {
           store.dispatch({
             type: "ERROR_EMAIL_PATCH",
@@ -251,7 +247,6 @@ const user = (store) => (next) => (action) => {
     }
 
     case "RESET_PASSWORD_SEND_NEW_ONE": {
-      console.log(action);
       axios({
         method: "post",
 
@@ -264,7 +259,6 @@ const user = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
           if (response.data.status === "ok") {
             swal(response.data.message, " ", "success").then(() => {
               window.location = "/";

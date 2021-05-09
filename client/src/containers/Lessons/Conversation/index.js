@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import { loadConversation } from "../../../actions/lessons";
 
 import Conversation from "../../../components/Lessons/Conversation";
 

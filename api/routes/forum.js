@@ -3,6 +3,7 @@ const forumController = require("../controllers/Forum");
 
 // proteger cette route avec checkuser TODO:
 router.post("/", forumController.addPost);
+router.get("/:id", forumController.showPostById);
 router.get("/myPosts/:id", forumController.loadPostsById);
 
 router.get("/", forumController.showPosts);

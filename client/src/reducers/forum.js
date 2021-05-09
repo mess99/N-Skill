@@ -4,6 +4,7 @@ import {
   SAVE_DATA_FORUM,
   SAVE_DECREASE,
   SAVE_INCREASE,
+  SAVE_POST_ID,
   SAVE_QUESTION_POST,
 } from "../actions/forum";
 import { QUESTION_AUTHOR } from "../actions/user";
@@ -26,6 +27,12 @@ const forum = (state = initialState, action = {}) => {
       return {
         ...state,
         posts: [...state.posts, action.data],
+      };
+
+    case SAVE_POST_ID:
+      return {
+        ...state,
+        postId: action.data,
       };
     case SAVE_ANSWERS:
       return {
