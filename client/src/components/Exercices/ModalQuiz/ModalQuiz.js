@@ -17,15 +17,15 @@ function Modalquiz({
   const [score, setScore] = useState(0);
   const [correction, setCorrection] = useState(false);
 
+  useEffect(() => {
+    loadQuestions(quizId);
+  }, [quizId]);
+
   let wait = false;
   wait = getQuestion.length !== 0 ? true : false;
   useEffect(() => {
-    loadQuestions(quizId);
-  }, []);
-
-  useEffect(() => {
     loadResponses(getQuestion[currentQuestion]?.id);
-  }, [currentQuestion, wait]);
+  }, [currentQuestion, wait, getQuestion]);
 
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {

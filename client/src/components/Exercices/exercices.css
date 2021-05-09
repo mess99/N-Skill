@@ -78,8 +78,9 @@
 }
 
 .exercices__level__list a p {
-  font-size: 2rem;
-  font-weight: 700;
+  padding: 10px;
+  font-size: 1.7rem;
+  font-weight: 500;
   border-top: 1px solid grey;
 }
 

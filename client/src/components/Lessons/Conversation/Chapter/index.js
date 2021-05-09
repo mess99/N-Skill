@@ -22,14 +22,16 @@ const Chapter = ({ dialogues, isLoading }) => {
               return <p key={index}>{dialogue}</p>;
             })}
           </div>
-          <div className="tips tipsone">
-            <IdeaSvg />
-            {firstTips?.map((first, index) => (
-              <p key={index} className="tips__first">
-                {first}
-              </p>
-            ))}
-          </div>
+          {firstTips && (
+            <div className="tips tipsone">
+              <IdeaSvg />
+              {firstTips?.map((first, index) => (
+                <p key={index} className="tips__first">
+                  {first}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
@@ -42,14 +44,16 @@ const Chapter = ({ dialogues, isLoading }) => {
             })}
           </div>
 
-          <div className="tips tipstwo">
-            <IdeaSvg />
-            {secondTips?.map((second, index) => (
-              <p key={index} className="tips__second">
-                {second}
-              </p>
-            ))}
-          </div>
+          {secondTips && (
+            <div className="tips tipstwo">
+              <IdeaSvg />
+              {secondTips?.map((second, index) => (
+                <p key={index} className="tips__second">
+                  {second}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
