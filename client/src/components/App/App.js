@@ -25,12 +25,12 @@ import NewPassword from "../../containers/ResetPassword/NewPassword";
 import FirstConnection from "../FirstConnection";
 import Conversation from "../../containers/Lessons/Conversation";
 import Chapter from "../../containers/Lessons/Conversation/Chapter";
-
 import Vocabulary from "../Lessons/Vocabulary";
 import Grammar from "../Lessons/Grammar";
 import Test from "../Lessons/Test";
 import Legacy from "../Footer/Legacy";
 
+import NotFound from "../NotFound";
 // PAGE EXERCICES
 import banniereDark from "../../assets/images/exercices/exercice-banniere-full.jpg";
 import banniereLigth from "../../assets/images/exercices/exercice-banniere-full_ligth.jpg";
@@ -138,13 +138,8 @@ const App = ({
                 </Route>
               )}
 
-              <Route exact path="/*">
-                <p>
-                  404 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Vero, neque veritatis numquam fugit magnam ea nisi esse
-                  exercitationem! Quod perferendis aliquam incidunt atque ut
-                  voluptatem nisi cupiditate officiis iure explicabo!
-                </p>
+              <Route path="/*">
+                <NotFound />
               </Route>
             </Switch>
             <Footer />
