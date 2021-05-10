@@ -7,6 +7,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 // import SearchIcon from "@material-ui/icons/Search";
+import styled from "styled-components";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -15,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     width: "90%",
@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
 }));
+
+const Div = styled.div`
+  background: ${({ theme }) => theme.backgroundNav};
+  }`;
 const Forum = ({
   loadQuestionsForum,
   getPostsInfo,
@@ -91,7 +95,7 @@ const Forum = ({
             }}
           >
             <Fade in={open}>
-              <div className={classes.paper}>
+              <Div className={classes.paper}>
                 <h2 className="question__header">Your Question</h2>
                 <div className="question__content">
                   <h3>Title</h3>
@@ -124,7 +128,7 @@ const Forum = ({
                 >
                   Send
                 </button>
-              </div>
+              </Div>
             </Fade>
           </Modal>
         </div>

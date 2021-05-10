@@ -8,6 +8,9 @@ import Fade from "@material-ui/core/Fade";
 
 import "./resetPassword.css";
 import Label from "../Label";
+
+import styled from "styled-components";
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -15,15 +18,17 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    // width: "90%",
     maxWidth: "400px",
     borderRadius: "10px",
     maxWidth: "400px",
   },
 }));
+
+const Div = styled.div`
+  background: ${({ theme }) => theme.backgroundNav};
+  }`;
 
 const ResetPassword = (props) => {
   const {
@@ -61,7 +66,7 @@ const ResetPassword = (props) => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <Div className={classes.paper}>
             <h2 className="login__header">Reset your password</h2>
             <div className="login__content">
               <h4>Enter your email</h4>
@@ -93,7 +98,7 @@ const ResetPassword = (props) => {
                 </div>
               </form>
             </div>
-          </div>
+          </Div>
         </Fade>
       </Modal>
     </div>

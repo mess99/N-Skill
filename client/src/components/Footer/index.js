@@ -12,6 +12,22 @@ import Fade from "@material-ui/core/Fade";
 
 import Label from "../Label";
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
+
+const FooterStyle = styled.footer`
+background: ${({ theme }) => theme.backgroundNav};
+transition: all 0.50s linear;
+
+}`;
+
+const Div = styled.div`
+  background: ${({ theme }) => theme.modalBackground};
+  }`;
+
+const Textarea = styled.textarea`
+background: ${({ theme }) => theme.inputForm};
+}`;
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -19,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     width: "90%",
@@ -63,7 +78,7 @@ const Footer = ({ sendMail }) => {
   };
 
   return (
-    <div className="footer">
+    <FooterStyle className="footer">
       <button
         className="login__open"
         type="button"
@@ -82,7 +97,7 @@ const Footer = ({ sendMail }) => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <Div className={classes.paper}>
             <h2 className="login__header">Contact us</h2>
             <div className="login__content">
               <h3>Contact N'skills</h3>
@@ -104,7 +119,7 @@ const Footer = ({ sendMail }) => {
                   value={subject}
                   displayPWD="none"
                 />
-                <textarea
+                <Textarea
                   className="inputContact"
                   name="Contain"
                   id="contain"
@@ -112,14 +127,14 @@ const Footer = ({ sendMail }) => {
                   rows="10"
                   onChange={(e) => setContain(e.target.value)}
                   value={contain}
-                ></textarea>
+                ></Textarea>
 
                 <button type="submit" className="form__button">
                   Contact us
                 </button>
               </form>
             </div>
-          </div>
+          </Div>
         </Fade>
       </Modal>
       <div className="footer__links">
@@ -274,7 +289,7 @@ const Footer = ({ sendMail }) => {
           <li>About</li>
         </ul>
       </div>
-    </div>
+    </FooterStyle>
   );
 };
 

@@ -6,6 +6,12 @@ import { Link } from "react-router-dom";
 
 import { avatarFilter } from "../../utils";
 
+import styled from "styled-components";
+
+const Input = styled.input`
+  background: ${({ theme }) => theme.backgroundNav};
+  color: ${({ theme }) => theme.text};
+  }`;
 const Account = ({
   user,
   changeEmail,
@@ -205,7 +211,7 @@ const Account = ({
                 <div className="account__input">
                   <label htmlFor="email">Email</label>
                   <div className="account__input__submit">
-                    <input
+                    <Input
                       value={email}
                       onChange={(e) => {
                         setEmail(e.target.value);
@@ -242,7 +248,7 @@ const Account = ({
                 <div className="account__input">
                   <label htmlFor="username">Username</label>
                   <div className="account__input__submit">
-                    <input
+                    <Input
                       value={username}
                       onChange={(e) => {
                         setUsername(e.target.value);

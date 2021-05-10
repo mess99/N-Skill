@@ -7,7 +7,11 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 
 import "./register.css";
+
 import Label from "../Label";
+
+import styled from "styled-components";
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -15,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
     // border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
@@ -26,6 +29,14 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "400px",
   },
 }));
+
+const Div = styled.div`
+  background: ${({ theme }) => theme.backgroundNav};
+  }`;
+
+const Button = styled.button`
+color: ${({ theme }) => theme.text};
+}`;
 
 const Register = (props) => {
   const {
@@ -61,9 +72,9 @@ const Register = (props) => {
   // };
   return (
     <div className="register">
-      <button className="register__open" type="button" onClick={handleOpen}>
+      <Button className="register__open" type="button" onClick={handleOpen}>
         {register}
-      </button>
+      </Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -77,7 +88,7 @@ const Register = (props) => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <Div className={classes.paper}>
             <h2 className="register__header">Sign up</h2>
             <div className="register__content">
               <h3>Welcome to N'skills</h3>
@@ -134,7 +145,7 @@ const Register = (props) => {
                 </button>
               </form>
             </div>
-          </div>
+          </Div>
         </Fade>
       </Modal>
     </div>

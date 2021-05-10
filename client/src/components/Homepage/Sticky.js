@@ -2,7 +2,11 @@ import React, { useRef, useMemo, useLayoutEffect } from "react";
 import { compose } from "js-utl";
 import { classNames } from "react-js-utl/utils";
 import { useWindowRef } from "react-js-utl/hooks";
-// import "./relative-sticky.css";
+import styled from "styled-components";
+
+const Div = styled.div`
+box-shadow: ${({ theme }) => theme.stickyNews};
+}`;
 
 const getScrollY = (element) =>
   element === window ? element.scrollY : element.scrollTop;
@@ -45,9 +49,9 @@ const RelativeSticky = compose(React.memo)(function RelativeSticky({
 
   return (
     <div className={classNames("relative-sticky", className)} ref={ref}>
-      <div className="relative-sticky-holder" ref={holderRef}>
+      <Div className="relative-sticky-holder" ref={holderRef}>
         {children}
-      </div>
+      </Div>
     </div>
   );
 });

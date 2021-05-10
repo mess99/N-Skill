@@ -1,11 +1,5 @@
 import React from "react";
 import "./homepage.css";
-import books from "../../assets/images/books.png";
-import exercices from "../../assets/images/exercices.png";
-
-import stories from "../../assets/images/stories.png";
-import forum from "../../assets/images/forum.png";
-// TODO: enelver
 import { useTranslation } from "react-i18next";
 import News from "./News";
 import RelativeSticky from "./Sticky";
@@ -15,6 +9,12 @@ import svgBooks from "../../assets/images/svg/books.svg";
 import svgLesson from "../../assets/images/svg/lesson.svg";
 import svgHomework from "../../assets/images/svg/homework.svg";
 import svgForum from "../../assets/images/svg/forum.svg";
+
+import styled from "styled-components";
+
+const Div = styled.div`
+color: ${({ theme }) => theme.text};
+}`;
 
 const Homepage = ({ news }) => {
   const { t } = useTranslation();
@@ -28,7 +28,7 @@ const Homepage = ({ news }) => {
           <p>{t("Includes lessons, quizzes..")}</p>
         </div>
         <Link to="/lessons">
-          <div className="homepage__content">
+          <Div className="homepage__content">
             <img src={svgLesson} alt="books" />
             <div className="homepage__subcontent">
               <h2 className="homepage__subtitle">{t("Lessons")}</h2>
@@ -36,35 +36,35 @@ const Homepage = ({ news }) => {
                 Includes lessons, grammar explanations, expressions, tips ...
               </p>
             </div>
-          </div>
+          </Div>
         </Link>
         <Link to="/exercices">
-          <div className="homepage__content">
+          <Div className="homepage__content">
             <img src={svgHomework} alt="exercices" />
             <div className="homepage__subcontent">
               <h2 className="homepage__subtitle">Exercices</h2>
               <p>Test your English language skills with a quiz.</p>
             </div>
-          </div>
+          </Div>
         </Link>
         <Link to="/stories">
-          <div className="homepage__content">
+          <Div className="homepage__content">
             <img src={svgBooks} alt="stories" />
             <div className="homepage__subcontent">
               <h2 className="homepage__subtitle">{t("Stories")}</h2>
               <p>{t("menuStory")}</p>
             </div>
-          </div>
+          </Div>
         </Link>
 
         <Link to="/forum">
-          <div className="homepage__content">
+          <Div className="homepage__content">
             <img src={svgForum} alt="forum" />
             <div className="homepage__subcontent">
               <h2 className="homepage__subtitle">Forum</h2>
               <p>Discussion forums, ask for help</p>
             </div>
-          </div>
+          </Div>
         </Link>
       </div>
       <RelativeSticky topThresold={150}>

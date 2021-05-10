@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-
+import styled from "styled-components";
 import "./answer.css";
+
+const Div = styled.div`
+  background: ${({ theme }) => theme.backgroudAnswers};
+  }`;
+
+const DivAuthor = styled.div`
+background: ${({ theme }) => theme.backgroudAnswersAuthor};
+}`;
 const Answer = ({
   index,
   id,
@@ -33,7 +41,7 @@ const Answer = ({
   const date = new Date(createdAt);
 
   return (
-    <div className="answer">
+    <Div className="answer">
       <div className="answer__vote">
         <ArrowDropUpIcon
           className="answer__vote__plus"
@@ -52,7 +60,7 @@ const Answer = ({
         </p>
         <p>{content}</p>
       </div>
-    </div>
+    </Div>
   );
 };
 

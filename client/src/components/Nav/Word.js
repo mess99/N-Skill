@@ -1,19 +1,24 @@
 import React from "react";
 import CancelIcon from "@material-ui/icons/Cancel";
 import "./word.css";
+
+import styled from "styled-components";
+
+const Div = styled.div`
+background: ${({ theme }) => theme.backgroundNav};
+}`;
 const Word = ({ word, phonetics, meanings, error, handleWord }) => {
   return (
-    <div className="nav__word ">
+    <Div className="nav__word ">
+      <div className="word__close__div">
+        <CancelIcon onClick={handleWord} className="word__close" />
+      </div>
       {error ? (
-        <p>{error}</p>
+        <p className="word__error">{error}</p>
       ) : (
         <>
           <div className="word__header">
-            <div className="word__close__div">
-              <CancelIcon onClick={handleWord} className="word__close" />
-            </div>
             <h1 className="word__title">{word}</h1>
-            {/* <audio controls src={phonetics[1].audio} /> */}
             <span>{phonetics && phonetics[0]?.text} </span>
             {/* <span>{phonetics[1].text} </span> */}
             <audio
@@ -50,7 +55,7 @@ const Word = ({ word, phonetics, meanings, error, handleWord }) => {
           </div>
         </>
       )}
-    </div>
+    </Div>
   );
 };
 

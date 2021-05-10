@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import "./navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import home from "../../assets/images/homepage.png";
-import booksphone from "../../assets/images/booksphone.png";
-import exercices from "../../assets/images/exercices.png";
-import stories from "../../assets/images/stories.png";
-import forum from "../../assets/images/forum.png";
 import userIcon from "../../assets/images/user.png";
 import Word from "./Word";
 
@@ -14,6 +10,29 @@ import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Login from "../../containers/Login";
 import Register from "../../containers/Register";
+
+import styled from "styled-components";
+import Books from "./Icones/Books";
+import Exercices from "./Icones/Exercices";
+import Forum from "./Icones/Forum";
+import Story from "./Icones/Stories";
+
+const Input = styled.input`
+  background: ${({ theme }) => theme.backgroudAnswers};
+  color: ${({ theme }) => theme.text};
+  }`;
+
+const Nav = styled.nav`
+background: ${({ theme }) => theme.backgroundNav};
+}`;
+
+const Ul = styled.ul`
+background: ${({ theme }) => theme.backgroundNav};
+}`;
+
+const P = styled.p`
+color: ${({ theme }) => theme.text};
+}`;
 
 const NavBar = ({ searchWordApi, wordResult, user, handleLogout }) => {
   const { t, i18n } = useTranslation();
@@ -53,30 +72,30 @@ const NavBar = ({ searchWordApi, wordResult, user, handleLogout }) => {
 
   return (
     <>
-      <nav className="navbar">
+      <Nav className="navbar">
         <NavLink onClick={closeSettings} exact to="/">
           <img src={home} alt="home" />
-          <p>Home</p>
+          <P>Home</P>
         </NavLink>
         <NavLink onClick={closeSettings} exact to="/lessons">
-          <img src={booksphone} alt="books" />
-          <p>Lesson</p>
+          <Books />
+          <P>Lesson</P>
         </NavLink>
         <NavLink onClick={closeSettings} to="/exercices">
-          <img src={exercices} alt="exercices" />
-          <p>exercices</p>
+          <Exercices />
+          <P>exercices</P>
         </NavLink>
         <NavLink onClick={closeSettings} to="/stories">
-          <img src={stories} alt="stories" />
-          <p>stories</p>
+          <Story />
+          <P>stories</P>
         </NavLink>
         <NavLink onClick={closeSettings} to="/forum">
-          <img src={forum} alt="forum" />
-          <p>forum</p>
+          <Forum />
+          <P>forum</P>
         </NavLink>
-      </nav>
+      </Nav>
 
-      <nav className="navtop">
+      <Nav className="navtop">
         {closeSearch && Object.keys(wordResult).length > 0 ? (
           <Word {...wordResult} handleWord={handleWord} />
         ) : (
@@ -90,7 +109,7 @@ const NavBar = ({ searchWordApi, wordResult, user, handleLogout }) => {
               </span>
             )}
 
-            <input
+            <Input
               placeholder="&#128270; Search a word..."
               className=""
               type="text"
@@ -109,14 +128,14 @@ const NavBar = ({ searchWordApi, wordResult, user, handleLogout }) => {
           </div>
         )}
         {settings && !user?.isLogged && (
-          <ul className="nav__lists__user navtopsettings">
+          <Ul className="nav__lists__user navtopsettings">
             <li>
               <Login onClick={closeSettings} login={t("Login")} />
             </li>
             <li>
               <Register onClick={closeSettings} register={t("Register")} />
             </li>
-          </ul>
+          </Ul>
         )}
         {/* LOGGED */}
         {user?.isLogged && (
@@ -138,7 +157,7 @@ const NavBar = ({ searchWordApi, wordResult, user, handleLogout }) => {
             <li onClick={handleLogoutb}>{t("Log out")}</li>
           </ul>
         )}
-      </nav>
+      </Nav>
     </>
   );
 };

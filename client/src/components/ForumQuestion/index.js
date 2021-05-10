@@ -3,6 +3,18 @@ import { useLocation } from "react-router-dom";
 
 import "./forumquestion.css";
 import Answer from "../../containers/ForumQuestion/Answer";
+
+import styled from "styled-components";
+
+const DivAuthor = styled.div`
+background: ${({ theme }) => theme.backgroudAnswersAuthor};
+}`;
+
+const Textarea = styled.textarea`
+background: ${({ theme }) => theme.backgroudAnswers};
+color: ${({ theme }) => theme.text};
+}`;
+
 const ForumQuestion = ({
   loadThePost,
   currentPost,
@@ -33,9 +45,8 @@ const ForumQuestion = ({
     }
   }, [currentPost?.id]);
 
-  // if (typeof currentPost?.description !== "undefined") {
-  //   setEditing(question?.description);
-  // }
+  const emptyInput =
+    typeof getAnswering === "undefined" || getAnswering === "" ? true : false;
 
   const sendAnswer = () => {
     answerSending(getUser?.id, currentPost?.id, getAnswering);
@@ -108,9 +119,9 @@ const ForumQuestion = ({
         ) : (
           ""
         )}
-        <div className="forumquestion__author">
+        <DivAuthor className="forumquestion__author">
           Author: {currentPost?.User.username}
-        </div>
+        </DivAuthor>
         <div className="time">
           <span>Edited:</span>
           <span>{dateeupdate.getUTCDate()}</span>
@@ -129,7 +140,7 @@ const ForumQuestion = ({
         <p className="yourAnswer">Your Answer</p>
         {getUser.isLogged ? (
           <>
-            <textarea
+            <Textarea
               className="answering__input"
               id="answer"
               name="answer"
@@ -137,8 +148,12 @@ const ForumQuestion = ({
               value={getAnswering}
               placeholder="Answer..."
               onChange={(e) => handleChange(e.target.value)}
-            ></textarea>
-            <button onClick={sendAnswer} className="yourAnswer__button">
+            ></Textarea>
+            <button
+              onClick={sendAnswer}
+              disabled={emptyInput}
+              className="yourAnswer__button"
+            >
               Post your answer
             </button>
           </>

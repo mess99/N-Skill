@@ -147,6 +147,12 @@
   width: 100%;
 }
 
+/* PAGINATION */
+
+.MuiPagination-root button {
+  color: red;
+}
+
 @media screen and (max-width: 900px) {
   .forum__questions h2 {
     font-size: 1.4rem;

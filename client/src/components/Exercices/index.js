@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./exercices.css";
-// import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-
 import { filterQuizByLevel, filterQuizByTheme } from "../../utils";
-
-import banniere from "../../assets/images/exercices/exercice-banniere-full.jpg";
 import Theme from "./Theme";
+import styled from "styled-components";
+import { useDarkMode } from "../../styles/useDarkMode";
 
-const Exercices = ({ loadAllQuiz, getQuiz }) => {
+const P = styled.p`
+color: ${({ theme }) => theme.text};
+}`;
+
+const Exercices = ({ loadAllQuiz, getQuiz, image }) => {
   useEffect(loadAllQuiz, []);
-  // const [open, setOpen] = React.useState(false);
 
   const LevelQuiz = filterQuizByLevel(getQuiz);
   const ThemeQuiz = filterQuizByTheme(getQuiz);
@@ -40,7 +41,7 @@ const Exercices = ({ loadAllQuiz, getQuiz }) => {
                     src={quiz.image}
                     alt="quiz"
                   />{" "}
-                  <p>{quiz.level}</p>
+                  <P>{quiz.level}</P>
                 </Link>
               </li>
             ))}
@@ -48,7 +49,7 @@ const Exercices = ({ loadAllQuiz, getQuiz }) => {
         </div>
       </div>
       <div className="exercices__banniere">
-        <img src={banniere} alt="bridge" />
+        <img src={image} alt="bridge" />
       </div>
 
       <div className="exercices__level">

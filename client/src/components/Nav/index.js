@@ -11,6 +11,24 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SearchIcon from "@material-ui/icons/Search";
 import Word from "./Word";
 
+import styled from "styled-components";
+const NavStyle = styled.nav`
+  background: ${({ theme }) => theme.backgroundNav};
+  transition: all 0.50s linear;
+  }`;
+
+const Ul = styled.ul`
+background: ${({ theme }) => theme.backgroundNav};
+transition: all 0.50s linear;
+
+}`;
+
+const Input = styled.input`
+  background: ${({ theme }) => theme.backgroudAnswers};
+  color: ${({ theme }) => theme.text};
+
+  }`;
+
 const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
   const { t, i18n } = useTranslation();
   const [settings, setSettings] = useState(false);
@@ -44,7 +62,7 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
   };
 
   return (
-    <div className="nav">
+    <NavStyle className="nav">
       {closeSearch && Object.keys(wordResult).length > 0 ? (
         <Word {...wordResult} handleWord={handleWord} />
       ) : (
@@ -83,7 +101,7 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
         <div className="search__word">
           <SearchIcon className="nav__search__icon" />
           <form onSubmit={handleSubmit}>
-            <input
+            <Input
               placeholder="Search a word..."
               className="nav__search"
               type="text"
@@ -122,22 +140,22 @@ const Nav = ({ user, handleLogout, searchWordApi, wordResult }) => {
               )}
             </div>
             {settings && (
-              <ul className="nav__lists__user">
+              <Ul className="nav__lists__user">
                 <Link to="/account">
                   <li onClick={closeSettings}>{t("Account")}</li>
                 </Link>
                 <li onClick={handleLogoutb}>{t("Log out")}</li>
-              </ul>
+              </Ul>
             )}
           </div>
         )}
 
-        <ul className="nav__lists__language">
+        <Ul className="nav__lists__language">
           <li onClick={() => i18n.changeLanguage("en")}>Eng</li>
           <li onClick={() => i18n.changeLanguage("fr")}>Fr</li>
-        </ul>
+        </Ul>
       </div>
-    </div>
+    </NavStyle>
   );
 };
 

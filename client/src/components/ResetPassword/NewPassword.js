@@ -9,6 +9,9 @@ import { useHistory } from "react-router-dom";
 
 import "./resetPassword.css";
 import Label from "../Label";
+
+import styled from "styled-components";
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -16,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     // width: "90%",
@@ -25,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "400px",
   },
 }));
+
+const Div = styled.div`
+  background: ${({ theme }) => theme.backgroundNav};
+  }`;
 
 const NewPassword = (props) => {
   const { handleSubmit, handleChange, values, isSubmitting } = props;
@@ -59,7 +65,7 @@ const NewPassword = (props) => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <Div className={classes.paper}>
             <h2 className="login__header">Reset your password</h2>
             <div className="login__content">
               <h4>Enter your new password</h4>
@@ -92,7 +98,7 @@ const NewPassword = (props) => {
                 </div>
               </form>
             </div>
-          </div>
+          </Div>
         </Fade>
       </Modal>
     </div>

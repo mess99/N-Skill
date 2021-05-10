@@ -10,6 +10,9 @@ import Fade from "@material-ui/core/Fade";
 import "./login.css";
 import Label from "../Label";
 import ResetPassword from "../../containers/ResetPassword";
+
+import styled from "styled-components";
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -17,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     width: "90%",
@@ -26,6 +28,14 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "400px",
   },
 }));
+
+const Div = styled.div`
+  background: ${({ theme }) => theme.backgroundNav};
+  }`;
+
+const Button = styled.button`
+color: ${({ theme }) => theme.text};
+}`;
 
 const Login = (props) => {
   const {
@@ -64,9 +74,9 @@ const Login = (props) => {
   // };
   return (
     <div className="login">
-      <button className="login__open" type="button" onClick={handleOpen}>
+      <Button className="login__open" type="button" onClick={handleOpen}>
         {login}
-      </button>
+      </Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -80,7 +90,7 @@ const Login = (props) => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <Div className={classes.paper}>
             <h2 className="login__header">Sign in</h2>
             <div className="login__content">
               <h3>Welcome to N'skills</h3>
@@ -125,7 +135,7 @@ const Login = (props) => {
                 </button>
               </form>
             </div>
-          </div>
+          </Div>
         </Fade>
       </Modal>
     </div>

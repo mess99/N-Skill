@@ -2,6 +2,19 @@ import React, { useState } from "react";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 
 import "./label.css";
+
+import styled from "styled-components";
+
+const Div = styled.div`
+background: ${({ theme }) => theme.inputForm};
+color: ${({ theme }) => theme.text};
+}`;
+
+const Input = styled.input`
+background: ${({ theme }) => theme.inputForm};
+color: ${({ theme }) => theme.text};
+}`;
+
 const Label = ({
   name,
   type,
@@ -21,7 +34,6 @@ const Label = ({
     top: "18px",
     left: "12px",
     right: "12px",
-    color: "rgb(113, 113, 113)",
     transformOrigin: "0% 0%",
     fontSize: "16px",
     lineHeight: "20px",
@@ -44,7 +56,6 @@ const Label = ({
     setLabelName({
       ...labelName,
       transform: "translateY(0) scale(1)",
-      color: "black",
     });
   };
 
@@ -57,11 +68,11 @@ const Label = ({
   //     // classDivHide.style.backgroundColor = "rgb(255 51 4 / 5%)";
   //   };
   return (
-    <div className="form__div">
+    <Div className="form__div">
       <label className="header__input-label" htmlFor={type}>
-        <div style={labelName}>{name}</div>
+        <Div style={labelName}>{name}</Div>
         <div style={hideType}>
-          <input
+          <Input
             onKeyDown={keyDown}
             onChange={onChange}
             onFocus={handleFocus}
@@ -86,7 +97,7 @@ const Label = ({
           right: "10px",
         }}
       />
-    </div>
+    </Div>
   );
 };
 
