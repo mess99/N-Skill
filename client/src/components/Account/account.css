@@ -190,6 +190,13 @@
   .account__posts {
     width: 80%;
   }
+  .profil__image__content {
+    width: 100px;
+    height: 100px;
+  }
+  .profil__image {
+    width: auto;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -207,5 +214,9 @@
   }
   .account__edit__avatar {
     margin: 0;
+  }
+  .profil__image__content {
+    width: 80px;
+    height: 80px;
   }
 }

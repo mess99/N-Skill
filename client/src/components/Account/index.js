@@ -109,6 +109,8 @@ const Account = ({
 
   const date = new Date(user.createdAt);
 
+  const truncUsername = username.substr(0, 12) + "\u2026";
+
   return (
     <div className="account">
       <div className="account__contain">
@@ -132,7 +134,7 @@ const Account = ({
         <div className="account__edit">
           <div className="account__content">
             <div className="account__content__box">
-              <h1 className="account__title">HELLO {username}</h1>
+              <h1 className="account__title">HELLO {truncUsername}</h1>
               <span className="account__date">
                 Joined in {date.getUTCFullYear()}
               </span>
