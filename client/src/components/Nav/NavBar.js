@@ -150,12 +150,12 @@ const NavBar = ({ searchWordApi, wordResult, user, handleLogout }) => {
           </div>
         )}
         {settings && user?.isLogged && (
-          <ul className="nav__lists__user navtopsettings">
+          <Ul className="nav__lists__user navtopsettings">
             <Link to="/account">
               <li onClick={closeSettings}>{t("Account")}</li>
             </Link>
             <li onClick={handleLogoutb}>{t("Log out")}</li>
-          </ul>
+          </Ul>
         )}
       </Nav>
     </>

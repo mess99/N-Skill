@@ -80,6 +80,9 @@
 
 .navtop__account img {
   height: 100%;
+  background: white;
+  border-radius: 50%;
+  padding: 3px;
 }
 
 .navtopsettings {
