@@ -27,6 +27,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const Input = styled.input`
+background: ${({ theme }) => theme.inputForm};
+color: ${({ theme }) => theme.text};
+}`;
+
+const Textarea = styled.textarea`
+background: ${({ theme }) => theme.inputForm};
+color: ${({ theme }) => theme.text};
+}`;
+
 const Div = styled.div`
   background: ${({ theme }) => theme.backgroundNav};
   }`;
@@ -99,7 +109,7 @@ const Forum = ({
                 <h2 className="question__header">Your Question</h2>
                 <div className="question__content">
                   <h3>Title</h3>
-                  <input
+                  <Input
                     autoFocus
                     value={titleState}
                     onChange={(e) => {
@@ -110,7 +120,7 @@ const Forum = ({
                 </div>
                 <div className="question__content">
                   <h3>Descrition</h3>
-                  <textarea
+                  <Textarea
                     value={contentState}
                     onChange={(e) => {
                       setContentState(e.target.value);

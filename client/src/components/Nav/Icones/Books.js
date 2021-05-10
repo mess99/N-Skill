@@ -14,8 +14,6 @@ const Books = () => {
       link="http://www.w3.org/1999/xlink"
       x="0px"
       y="0px"
-      width="335.08px"
-      height="335.079px"
       viewBox="0 0 335.08 335.079"
     >
       <g>

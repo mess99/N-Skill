@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import "./story.css";
+
+import styled from "styled-components";
+
+const Div = styled.div`
+  background: ${({ theme }) => theme.backgroundQuestion};
+  color: ${({ theme }) => theme.text};
+  }`;
 const Story = ({ loadTheStory, getTheStory }) => {
   const [res, setRes] = useState([]);
   const [correction, setCorrection] = useState(false);
@@ -40,7 +47,7 @@ const Story = ({ loadTheStory, getTheStory }) => {
       <div className="story__questions">
         <form onSubmit={handleSubmit}>
           {getTheStory?.Storyquestions.map((question) => (
-            <div key={question.id} className="story__question">
+            <Div key={question.id} className="story__question">
               <p>{question.contentQuestion}</p>
               {question.StoryResponses.map((responses, index) => {
                 if (correction) {
@@ -77,7 +84,7 @@ const Story = ({ loadTheStory, getTheStory }) => {
                   );
                 }
               })}
-            </div>
+            </Div>
           ))}
           <button className="story__submit" type="submit">
             valider

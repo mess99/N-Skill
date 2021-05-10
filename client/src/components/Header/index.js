@@ -5,7 +5,13 @@ import "./header.css";
 
 import { useTranslation } from "react-i18next";
 import Login from "../../containers/Login";
+import styled from "styled-components";
 
+const Img = styled.img`
+  filter: ${({ theme }) => theme.banniereFilter};
+  transition: all 0.50s linear;
+
+  }`;
 const Header = ({ isLogged, username }) => {
   const { t, i18n } = useTranslation();
 
@@ -22,8 +28,8 @@ const Header = ({ isLogged, username }) => {
 
   return (
     <header className="header">
-      <img className="banniere-phone" src={banniere} alt="banniere" />
-      <img className="banniere-desktop" src={banniereDesktop} alt="banniere" />
+      <Img className="banniere-phone" src={banniere} alt="banniere" />
+      <Img className="banniere-desktop" src={banniereDesktop} alt="banniere" />
       <p className="header__welcome">{welcome()} </p>
       {!isLogged && (
         <div className="header__login">

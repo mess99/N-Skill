@@ -12,6 +12,11 @@ const Input = styled.input`
   background: ${({ theme }) => theme.backgroundNav};
   color: ${({ theme }) => theme.text};
   }`;
+
+const Div = styled.div`
+background: ${({ theme }) => theme.backgroundQuestion};
+}`;
+
 const Account = ({
   user,
   changeEmail,
@@ -29,7 +34,9 @@ const Account = ({
   const [edit, setEdit] = useState(false);
   const [editAvatars, setEditAvatars] = useState(false);
   const [posts, setPosts] = useState(false);
-
+  const [email, setEmail] = useState(user.email);
+  const [username, setUsername] = useState(user.username);
+  // Trunc username a 14-15 letter TODO:
   useEffect(() => {
     loadMyPosts();
   }, [loadMyPosts]);
@@ -46,8 +53,6 @@ const Account = ({
     }
   }, [user.AvatarId]);
 
-  const [email, setEmail] = useState(user.email);
-  const [username, setUsername] = useState(user.username);
   const editEmailMode = () => {
     setValidate({ email: true, username: false });
     setDisable({ email: false, username: true });
@@ -141,7 +146,7 @@ const Account = ({
               </div>
             )} */}
             {editAvatars && (
-              <div className="account__avatars">
+              <Div className="account__avatars">
                 <div className="avatars__box">
                   {avatarFilted?.map((avatar) => (
                     <div key={avatar.id} className="avatar">
@@ -155,7 +160,7 @@ const Account = ({
                     </div>
                   ))}
                 </div>
-              </div>
+              </Div>
             )}
             {posts && myPosts?.length == 0 && <p>No posts</p>}
             {posts && (

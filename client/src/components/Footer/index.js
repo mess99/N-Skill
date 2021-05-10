@@ -26,6 +26,8 @@ const Div = styled.div`
 
 const Textarea = styled.textarea`
 background: ${({ theme }) => theme.inputForm};
+color: ${({ theme }) => theme.text};
+
 }`;
 
 const useStyles = makeStyles((theme) => ({

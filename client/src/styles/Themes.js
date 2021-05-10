@@ -9,6 +9,8 @@ export const lightTheme = {
   stickyNews: "rgb(0 0 0 / 12%) 0px 6px 16px",
   inputForm: "white",
   modalBackground: "white",
+  backgroundQuestion: "#f7f7f7",
+  banniereFilter: "none",
 };
 export const darkTheme = {
   body: "#141414",
@@ -21,4 +23,6 @@ export const darkTheme = {
   stickyNews: "rgb(173 171 171 / 63%) 0px 6px 16px;",
   inputForm: "#1f1f1f",
   modalBackground: "#121212",
+  backgroundQuestion: "#1d1d1d",
+  banniereFilter: "brightness(0.3)",
 };

@@ -80,7 +80,7 @@
 .inputContact {
   width: 100%;
   margin: 0px;
-  border: none;
+  border: 0.1px solid #8080802e;
   color: rgb(34, 34, 34);
   background-color: rgb(255, 255, 255);
   border-radius: 8px;
