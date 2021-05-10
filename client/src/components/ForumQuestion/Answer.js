@@ -40,6 +40,7 @@ const Answer = ({
 
   const date = new Date(createdAt);
 
+  console.log(content);
   return (
     <Div className="answer">
       <div className="answer__vote">
@@ -56,9 +57,10 @@ const Answer = ({
       <div className="answer__content">
         <p>
           {User?.username} {date.getUTCDate()}/{date.getMonth()} /
-          {date.getFullYear()}
+          {date.getFullYear()}, {date.getHours()}:{date.getMinutes()}
         </p>
-        <p>{content}</p>
+
+        <p className="answer__content_content">{content}</p>
       </div>
     </Div>
   );

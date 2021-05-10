@@ -17,6 +17,7 @@
 
 .forumquestion__description {
   margin-top: 40px;
+  white-space: pre-wrap;
 }
 
 .forumquestion__description-input {
@@ -114,6 +115,10 @@
 .answer__content p:nth-child(1) {
   color: grey;
   margin-bottom: 10px;
+}
+
+.answer__content_content {
+  white-space: pre-wrap;
 }
 
 .time span {

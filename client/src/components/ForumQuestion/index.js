@@ -80,7 +80,10 @@ const ForumQuestion = ({
         <time className="forumquestion__date">
           <span>{date.getUTCDate()}</span>
           <span>{month}</span>
-          <span>{date.getFullYear()}</span>
+          <span>{date.getFullYear()}</span>,
+          <span>
+            {date.getHours()}:{date.getMinutes()}
+          </span>
         </time>
       </div>
       {edit ? (
@@ -127,6 +130,9 @@ const ForumQuestion = ({
           <span>{dateeupdate.getUTCDate()}</span>
           <span>{monthupdate}</span>
           <span>{dateeupdate.getFullYear()}</span>
+          <span>
+            {date.getHours()}:{date.getMinutes()}
+          </span>
         </div>
       </div>
       {/* rajouter pagination pour les commentaires aussi .. */}
