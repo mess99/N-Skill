@@ -10,6 +10,7 @@ import bgTest from "../../assets/images/lessons/test.png";
 //TODO: enlever style gris
 const styleWIP = {
   filter: "grayscale(1)",
+  cursor: "no-drop",
 };
 const Lessons = () => {
   return (
