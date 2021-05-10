@@ -15,7 +15,8 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
 const FooterStyle = styled.footer`
-background: ${({ theme }) => theme.backgroundNav};
+background: ${({ theme }) => theme.backgroundFooter};
+color: ${({ theme }) => theme.text};
 transition: all 0.50s linear;
 
 }`;
