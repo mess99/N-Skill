@@ -108,7 +108,7 @@ const Forum = ({
               <Div className={classes.paper}>
                 <h2 className="question__header">Your Question</h2>
                 <div className="question__content">
-                  <h3>Title</h3>
+                  <h3 className="question__content__title">Title</h3>
                   <Input
                     autoFocus
                     value={titleState}
@@ -119,7 +119,7 @@ const Forum = ({
                   />
                 </div>
                 <div className="question__content">
-                  <h3>Descrition</h3>
+                  <h3 className="question__content__title">Descrition</h3>
                   <Textarea
                     value={contentState}
                     onChange={(e) => {

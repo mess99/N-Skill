@@ -17,7 +17,11 @@ const Theme = ({ id, theme, image }) => {
           },
         }}
       >
-        <img className="exercices__level__image" src={image} alt="theme" />
+        <img
+          className="exercices__level__image level__image__theme"
+          src={image}
+          alt="theme"
+        />
         <P>{theme}</P>
       </Link>
     </li>

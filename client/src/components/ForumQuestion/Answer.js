@@ -40,7 +40,6 @@ const Answer = ({
 
   const date = new Date(createdAt);
 
-  console.log(content);
   return (
     <Div className="answer">
       <div className="answer__vote">

@@ -16,6 +16,7 @@ function Modalquiz({
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
   const [correction, setCorrection] = useState(false);
+  const [next, setNext] = useState(true);
 
   useEffect(() => {
     loadQuestions(quizId);
@@ -47,6 +48,10 @@ function Modalquiz({
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < getQuestion.length) {
       setCurrentQuestion(nextQuestion);
+    }
+
+    if (nextQuestion === getQuestion.length - 1) {
+      setNext(false);
     }
   };
 
@@ -116,12 +121,19 @@ function Modalquiz({
                     </button>
                   );
                 })}
-                <button
-                  className="Modalbutton next"
-                  onClick={() => nextCOrrection()}
-                >
-                  Next
-                </button>
+                {next && (
+                  <button
+                    className="Modalbutton next"
+                    onClick={() => nextCOrrection()}
+                  >
+                    Next
+                  </button>
+                )}
+                {!next && (
+                  <button className="Modalbutton next" onClick={closeModal}>
+                    Close
+                  </button>
+                )}
               </div>
             )}
           </>

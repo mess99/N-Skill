@@ -90,6 +90,10 @@
   width: 100%;
 }
 
+.level__image__theme {
+  border-radius: 12px;
+}
+
 .exercices__banniere {
   width: 100%;
 }

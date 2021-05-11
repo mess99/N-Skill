@@ -80,7 +80,7 @@ const ForumQuestion = ({
         <time className="forumquestion__date">
           <span>{date.getUTCDate()}</span>
           <span>{month}</span>
-          <span>{date.getFullYear()}</span>,
+          <span>{date.getFullYear()}</span>
           <span>
             {date.getHours()}:{date.getMinutes()}
           </span>

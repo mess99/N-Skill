@@ -56,7 +56,7 @@ const App = ({
   const [theme, themeToggler] = useDarkMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
   const imageExercice = theme === "light" ? banniereLigth : banniereDark;
-  // FIXME: faire la meme chose pour forum toutes les pages
+  // FIXME: faire la meme chose pour forum toutes les pages (load dans app)
   useEffect(loadConv, []);
 
   return (
@@ -111,7 +111,7 @@ const App = ({
               </Route>
 
               <Route exact path="/exercices/:slug">
-                <Exercices />
+                <Exercices image={imageExercice} />
                 <Modalquiz />
               </Route>
               <Route exact path="/stories">

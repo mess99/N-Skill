@@ -48,6 +48,10 @@
   margin-bottom: 0;
 }
 
+.question__content__title {
+  margin-bottom: 9px;
+}
+
 .postedBy {
   color: grey;
 }
