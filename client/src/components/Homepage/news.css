@@ -28,6 +28,7 @@
 
 .news__latest {
   width: 100%;
+  margin-top: 10px;
 }
 
 .news__latest p {
